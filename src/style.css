@@ -1,0 +1,29 @@
+.noise {
+  height: 100%;
+  filter: contrast(270%) brightness(1500%) grayscale();
+}
+
+.noise-top {
+  background: linear-gradient(to top, black, transparent), url(/noise.svg);
+}
+
+.noise-bottom {
+  background: linear-gradient(to bottom, black, transparent), url(/noise.svg);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  mix-blend-mode: multiply;
+}
+
+.isolate {
+  isolation: isolate;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
