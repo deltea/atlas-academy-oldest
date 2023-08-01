@@ -8,6 +8,12 @@ export default {
       transitionDuration: {
         "fast": "300ms"
       },
+      scale: {
+        "sm": "103%",
+      },
+      gridTemplateRows: {
+        "9": "repeat(9, minmax(0, 1fr))",
+      }
     },
   },
   plugins: [
