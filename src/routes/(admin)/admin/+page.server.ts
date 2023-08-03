@@ -1,11 +1,10 @@
-import { redirect } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
-import { PASSWORD } from "$env/static/private";
+import { type PostData, fetchDocs } from '$lib/firebase';
+import type { PageServerLoad } from "./$types";
 
-export const load = (async ({ cookies }) => {
-  if (cookies.get("password") !== PASSWORD) {
-    throw redirect(302, "/");
-  }
+export const load = (async () => {
+  const posts = await fetchDocs<PostData>("posts");
 
-  return {};
+  return {
+    posts,
+  };
 }) satisfies PageServerLoad;

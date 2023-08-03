@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore, doc, getDoc, collection, getDocs, query, where, FieldPath, type WhereFilterOp, limit, addDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, collection, getDocs, query, where, FieldPath, type WhereFilterOp, limit, addDoc, type DocumentData, setDoc } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
@@ -22,12 +22,13 @@ export const storage = getStorage(app);
 export type PostType = "blog" | "reflection";
 
 export interface PostData {
+  slug: string,
   title: string,
   description: string,
   body: string,
   cover: string,
   tags: string[],
-  timestamp: number,
+  date: string,
   type: PostType,
 }
 
@@ -65,6 +66,8 @@ export async function fetchDocs<T>(name: string) {
  * @param field the field in the document to check
  * @param operation the operation to perform on the field
  * @param value the value to check against
+ * @param maxDocs the maximum number of documents to query
+ * @param fetchData whether to fetch the data of the documents or not
  * @returns the query results in an array
  */
 
@@ -73,12 +76,13 @@ export async function queryDocs<T>(
   field: string | FieldPath,
   operation: WhereFilterOp,
   value: unknown,
-  maxDocs: number = 100
+  maxDocs: number = 100,
+  fetchData: boolean = true
 ) {
   const ref = collection(db, name);
   const q = query(ref, where(field, operation, value), limit(maxDocs));
   const snapshot = await getDocs(q);
-  return snapshot.docs.map(doc => doc.data() as T);
+  return snapshot.docs.map(doc => fetchData ? doc.data() as T : doc as DocumentData);
 }
 
 
@@ -93,4 +97,23 @@ export async function createDoc(name: string, data: unknown) {
   const ref = collection(db, name);
   const docRef = await addDoc(ref, data);
   return docRef;
+}
+
+
+/**
+ * Updates a document in the specified collection
+ * @param collection the name of the collection that contains the document
+ * @param id the id of the document to update
+ * @param data the data to update the document with
+ * @param merge whether to to merge the data with the existing document or not
+ */
+
+export async function changeDoc(
+  collection: string,
+  id: string,
+  data: Partial<unknown>,
+  merge: boolean = true
+) {
+  const ref = doc(db, collection, id);
+  await setDoc(ref, data, { merge });
 }

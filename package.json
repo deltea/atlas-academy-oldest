@@ -11,11 +11,14 @@
 		"lint": "eslint ."
 	},
 	"devDependencies": {
+		"@iconify/json": "^2.2.97",
 		"@splinetool/loader": "^0.9.405",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.20.4",
+		"@tinymce/tinymce-svelte": "^1.0.1",
 		"@types/animejs": "^3.1.7",
 		"@types/three": "^0.154.0",
+		"@types/tinymce": "^4.6.5",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"animejs": "^3.2.1",
@@ -25,13 +28,16 @@
 		"eslint-plugin-svelte": "^2.30.0",
 		"firebase": "^10.1.0",
 		"postcss": "^8.4.27",
+		"rollup-plugin-copy": "^3.4.0",
 		"svelte": "^4.0.5",
 		"svelte-check": "^3.4.3",
 		"svelte-cubed": "^0.2.1",
 		"tailwindcss": "^3.3.3",
 		"three": "^0.155.0",
+		"tinymce": "^6.6.0",
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
+		"unplugin-icons": "^0.16.5",
 		"vite": "^4.4.2"
 	},
 	"type": "module"

@@ -1,0 +1,174 @@
+<script lang="ts">
+  import { type PostData, type PostType, storage } from '$lib/firebase';
+  import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+  import Editor from '@tinymce/tinymce-svelte';
+    import { slugify } from '$lib/utils';
+
+  export let tags: string[] = [];
+  export let title: string = "";
+  export let description: string = "";
+  export let cover: Blob | string = "";
+  export let body: string = "";
+  export let date: string = "";
+  export let type: PostType = "blog";
+  export let onSave: (data: PostData) => void;
+
+  let tagInput: string = "";
+
+  function addTag() {
+    tags = [...tags, tagInput.toLowerCase()];
+    tagInput = "";
+  }
+
+  function coverUpload(e: Event) {
+    const fileInput = e.target as HTMLInputElement;
+    const selectedFile = fileInput.files?.[0] as File;
+    if (selectedFile) {
+      cover = selectedFile;
+    }
+  }
+
+  async function save() {
+    let coverUrl = "";
+
+    if (cover instanceof Blob) {
+      const bytes = new Uint8Array(await cover.arrayBuffer());
+      const storageRef = ref(storage, `/${cover.name}`);
+      coverUrl = await uploadBytes(storageRef, bytes).then(snapshot => {
+        return getDownloadURL(snapshot.ref);
+      });
+    } else {
+      coverUrl = cover;
+    }
+
+    onSave({
+      title,
+      slug: slugify(title),
+      description,
+      cover: coverUrl,
+      body,
+      date,
+      tags,
+      type,
+    } satisfies PostData);
+  }
+</script>
+
+<form
+  class="grid grid-cols-10 grid-rows-9 h-screen overflow-hidden gap-4 p-4"
+  on:submit|preventDefault={save}
+  enctype="multipart/form-data"
+>
+  <input
+    type="text"
+    name="title"
+    class="text-input row-span-1 col-span-6 font-bold text-2xl"
+    placeholder="Post name..."
+    bind:value={title}
+  />
+
+  <select
+    name="type"
+    id="type"
+    class="col-span-1 rounded-lg bg-base-200 p-2 outline-none"
+    bind:value={type}
+  >
+    <option value="blog">Blog</option>
+    <option value="reflection">Reflection</option>
+  </select>
+
+  <div class="col-span-3 inline-flex gap-4">
+    <a href="/admin" class="btn btn-outline flex-grow w-10 normal-case font-bold">Cancel</a>
+    <button class="btn btn-neutral flex-grow normal-case font-bold text-white">Save</button>
+  </div>
+
+  <Editor
+    bind:value={body}
+    apiKey="5pdf4p7rrxs1jt7crui6pi784kslztlbri2sbptj9p6ia70g"
+    cssClass="w-full h-full col-span-6 row-start-2 row-span-full"
+    conf={{
+      resize: false,
+      height: "100%",
+      width: "100%",
+      removed_menuitems: "newdocument fonts superscript subscript fontfamily lineheight",
+      plugins: "wordcount link image",
+      elementpath: false,
+      branding: false,
+      statusbar: true,
+      toolbar: "undo redo | styles | bold italic | link image hr | alignleft aligncenter alignright",
+      icons: "small",
+      image_caption: true,
+    }}
+  />
+
+  <div class="col-span-4 row-start-2 row-span-full gap-2 overflow-auto scrolling">
+    <div class="collapse collapse-arrow bg-base-200 my-2">
+      <input type="checkbox" name="accordion-1" checked />
+      <div class="collapse-title text-xl font-medium">
+        Description
+      </div>
+      <div class="collapse-content">
+        <textarea
+          class="resize-none text-input w-full h-full text-md"
+          name="description"
+          id="description"
+          bind:value={description}
+        />
+      </div>
+    </div>
+    <div class="collapse collapse-arrow bg-base-200 my-2">
+      <input type="checkbox" name="accordion-2" checked />
+      <div class="collapse-title text-xl font-medium">
+        Date
+      </div>
+      <div class="collapse-content">
+        <input
+          type="date"
+          name="timestamp"
+          id="timestamp"
+          class="p-2 text-input"
+          bind:value={date}
+        />
+      </div>
+    </div>
+    <div class="collapse collapse-arrow bg-base-200 my-2">
+      <input type="checkbox" name="accordion-3" checked />
+      <div class="collapse-title text-xl font-medium">
+        Tags
+      </div>
+      <div class="collapse-content">
+        <form on:submit|preventDefault={addTag}>
+          <input type="text" class="w-full text-input h-10" bind:value={tagInput} />
+        </form>
+        <div class="flex gap-1 mt-2">
+          {#each tags as tag}
+            <p class="btn btn-xs btn-outline normal-case">#{tag}</p>
+          {/each}
+        </div>
+      </div>
+    </div>
+    <div class="collapse collapse-arrow bg-base-200 my-2">
+      <input type="checkbox" name="accordion-4" checked />
+      <div class="collapse-title text-xl font-medium">
+        Cover
+      </div>
+      <div class="collapse-content">
+        <input
+          type="file"
+          name="cover"
+          id="cover"
+          class="p-2 text-input"
+          accept="image/*"
+          on:change={coverUpload}
+        />
+        {#if cover}
+          <img
+            src={cover instanceof Blob ? URL.createObjectURL(cover) : cover}
+            alt="Cover Preview"
+            class="h-36"
+          />
+        {/if}
+      </div>
+    </div>
+  </div>
+</form>

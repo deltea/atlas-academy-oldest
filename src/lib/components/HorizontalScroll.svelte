@@ -20,12 +20,11 @@
   </div>
 </div>
 
-<a
-  href="/"
+<div
   class="bg-amber-50 overflow-x-auto flex gap-4 p-6 min-h-16 horizontal-scroll scroll-smooth"
   bind:this={scrollContainer}
 >
   {#each items as item}
     <PostCard post={item} />
   {/each}
-</a>
+</div>

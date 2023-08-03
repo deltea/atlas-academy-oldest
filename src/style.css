@@ -17,7 +17,7 @@
   @apply border-opacity-50;
 }
 
-.horizontal-scroll::-webkit-scrollbar, .scrolling::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
 }
 
