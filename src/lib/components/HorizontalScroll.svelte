@@ -25,6 +25,6 @@
   bind:this={scrollContainer}
 >
   {#each items as item}
-    <PostCard post={item} />
+    <PostCard post={item} urlPrefix="/post" />
   {/each}
 </div>

@@ -3,11 +3,13 @@
   import type { PostData } from "$lib/firebase";
 
   export let post: PostData;
+  export let urlPrefix: string;
 </script>
 
 <a
-  href={`/post/${post.slug}`}
-  class="card bg-base-100 shadow-xl min-w-[400px] max-w-[400px] h-96 hover:cursor-pointer hover:scale-sm duration-fast group"
+  href={`${urlPrefix}/${post.slug}`}
+  class="card bg-base-100 shadow-xl min-w-[300px] max-w-[300px] max-h-96 hover:scale-sm duration-fast group"
+  {...$$restProps}
 >
   <figure><img src={post.cover} alt={post.title} class="group-hover:scale-105 duration-500" /></figure>
   <div class="card-body w-full">

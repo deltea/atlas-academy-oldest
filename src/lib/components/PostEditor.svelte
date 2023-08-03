@@ -109,7 +109,8 @@
       </div>
       <div class="collapse-content">
         <textarea
-          class="resize-none text-input w-full h-full text-md"
+          rows="6"
+          class="text-input w-full text-md"
           name="description"
           id="description"
           bind:value={description}
