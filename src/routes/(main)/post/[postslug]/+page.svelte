@@ -65,10 +65,15 @@
   </main>
   <aside class="w-2/6 sticky top-0 h-screen flex flex-col gap-2 p-2 items-end">
     {#each sections as section}
-      <a href={`#${section.name.toLowerCase()}`} style="height: {section.height}%;" class="flex items-center gap-2">
-        <p class="vertical-text font-thin" style:color={scrollPercent > section.position && scrollPercent < section.bottom ? "#2a323c" : "lightgray"}>{section.name.toUpperCase()}</p>
+      <a href={`#${section.name.toLowerCase()}`} style="height: {section.height}%;" class="flex items-center gap-2 group">
+        <p
+          class="vertical-text font-thin text-neutral-300 group-hover:text-neutral duration-300"
+          style:color={
+            scrollPercent > section.position && scrollPercent < section.bottom ? "#2a323c" : null
+          }
+        >{section.name.toUpperCase()}</p>
         <div
-          class="border border-neutral rounded-md w-3 h-full duration-200"
+          class="border border-neutral rounded-md w-3 h-full duration-200 group-hover:bg-neutral"
           style:background-color={scrollPercent > section.position && scrollPercent < section.bottom ? "#2a323c" : null}
         ></div>
       </a>
