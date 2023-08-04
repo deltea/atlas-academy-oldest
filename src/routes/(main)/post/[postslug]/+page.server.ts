@@ -9,3 +9,4 @@ export const load = (async ({ params }) => {
     post
   };
 }) satisfies PageServerLoad;
+
