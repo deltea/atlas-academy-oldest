@@ -16,7 +16,7 @@
       type: data.type,
     } satisfies PostData);
 
-    goto("/admin");
+    goto(`/post/${slugify(data.title)}`);
   }
 </script>
 
