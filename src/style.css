@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
-  @apply text-neutral;
 }
 
 .text-input {

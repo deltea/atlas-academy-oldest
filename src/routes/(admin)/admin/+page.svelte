@@ -6,11 +6,13 @@
 </script>
 
 <header class="flex p-4 justify-between bg-amber-50 items-center">
-  <a href="/admin/create" class="btn btn-outline normal-case font-bold">
-    + Create New
+  <a href="/" class="btn btn-outline normal-case font-bold">
+    ⮜ Back to Homepage
   </a>
   <h1 class="font-bold text-2xl italic">Admin</h1>
-  <div></div>
+  <a href="/admin/create" class="btn btn-neutral normal-case font-bold">
+    + Create New
+  </a>
 </header>
 
 <div class="grid grid-cols-3 gap-2 m-4">
