@@ -5,5 +5,5 @@
   export let data: PageData;
 </script>
 
-<HorizontalScroll items={data.blogPosts} header="Podcast Posts" />
+<HorizontalScroll items={data.blogPosts} header="Podcast Posts" href="/posts" />
 <HorizontalScroll items={data.reflectionPosts} header="Reflections" />

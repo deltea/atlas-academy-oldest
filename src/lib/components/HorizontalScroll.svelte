@@ -7,6 +7,7 @@
 
   export let items: PostData[];
   export let header: string;
+  export let href: string = "#";
 
   let scrollContainer: HTMLElement;
 
@@ -16,7 +17,7 @@
 </script>
 
 <div class="pt-6 px-6 bg-amber-50 flex justify-between">
-  <h1 class="text-4xl font-bold">{header}</h1>
+  <a href={href} class="text-4xl font-bold">{header}</a>
   <div class="flex gap-4">
     <button class="btn btn-outline btn-circle font-black text-xl font-mono" on:click={() => scroll(-500)}>
       <IconLeft />
