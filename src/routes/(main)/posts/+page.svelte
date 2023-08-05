@@ -5,6 +5,8 @@
   export let data: PageData;
 </script>
 
-{#each data.posts as post}
-  <PostCard post={post} urlPrefix="/post/" />
-{/each}
+<div class="grid grid-cols-3 gap-4 m-4">
+  {#each data.posts as post}
+    <PostCard post={post} urlPrefix="/post" width="100%" />
+  {/each}
+</div>
