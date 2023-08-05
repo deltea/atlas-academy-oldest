@@ -2,10 +2,15 @@
   import { type PostData, type PostType, storage } from '$lib/firebase';
   import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
   import Editor from '@tinymce/tinymce-svelte';
-    import { slugify } from '$lib/utils';
+  import { slugify } from '$lib/utils';
+
+  import IconRight from '~icons/gg/arrow-right';
+  import IconLeft from '~icons/gg/arrow-left';
+    import { slide } from 'svelte/transition';
 
   export let tags: string[] = [];
   export let title: string = "";
+  export let slug: string = "";
   export let description: string = "";
   export let cover: Blob | string = "";
   export let body: string = "";
@@ -14,6 +19,7 @@
   export let onSave: (data: PostData) => void;
 
   let tagInput: string = "";
+  let sidebarShow = true;
 
   function addTag() {
     tags = [...tags, tagInput.toLowerCase()];
@@ -82,94 +88,108 @@
     <button class="btn btn-neutral flex-grow normal-case font-bold text-white">Save</button>
   </div>
 
-  <Editor
-    bind:value={body}
-    apiKey="5pdf4p7rrxs1jt7crui6pi784kslztlbri2sbptj9p6ia70g"
-    cssClass="w-full h-full col-span-6 row-start-2 row-span-full"
-    conf={{
-      resize: false,
-      height: "100%",
-      width: "100%",
-      removed_menuitems: "newdocument fonts superscript subscript fontfamily lineheight",
-      plugins: "wordcount link image",
-      elementpath: false,
-      branding: false,
-      statusbar: true,
-      toolbar: "undo redo | styles | bold italic | link image hr | alignleft aligncenter alignright",
-      icons: "small",
-      image_caption: true,
-    }}
-  />
+  <div class="flex row-start-2 col-span-full row-span-full gap-4">
+    <Editor
+      bind:value={body}
+      apiKey="5pdf4p7rrxs1jt7crui6pi784kslztlbri2sbptj9p6ia70g"
+      cssClass="flex-grow"
+      conf={{
+        resize: false,
+        height: "100%",
+        width: "100%",
+        removed_menuitems: "newdocument fonts superscript subscript fontfamily lineheight",
+        plugins: "wordcount link image",
+        elementpath: false,
+        branding: false,
+        statusbar: true,
+        toolbar: "undo redo | styles | bold italic | link image hr | alignleft aligncenter alignright",
+        icons: "small",
+        image_caption: true,
+      }}
+    />
 
-  <div class="col-span-4 row-start-2 row-span-full gap-2 overflow-auto scrolling">
-    <div class="collapse collapse-arrow bg-base-200 my-2">
-      <input type="checkbox" name="accordion-1" checked />
-      <div class="collapse-title text-xl font-medium">
-        Description
-      </div>
-      <div class="collapse-content">
-        <textarea
-          rows="6"
-          class="text-input w-full text-md"
-          name="description"
-          id="description"
-          bind:value={description}
-        />
-      </div>
-    </div>
-    <div class="collapse collapse-arrow bg-base-200 my-2">
-      <input type="checkbox" name="accordion-2" checked />
-      <div class="collapse-title text-xl font-medium">
-        Date
-      </div>
-      <div class="collapse-content">
-        <input
-          type="date"
-          name="timestamp"
-          id="timestamp"
-          class="p-2 text-input"
-          bind:value={date}
-        />
-      </div>
-    </div>
-    <div class="collapse collapse-arrow bg-base-200 my-2">
-      <input type="checkbox" name="accordion-3" checked />
-      <div class="collapse-title text-xl font-medium">
-        Tags
-      </div>
-      <div class="collapse-content">
-        <form on:submit|preventDefault={addTag}>
-          <input type="text" class="w-full text-input h-10" bind:value={tagInput} />
-        </form>
-        <div class="flex gap-1 mt-2">
-          {#each tags as tag}
-            <p class="btn btn-xs btn-outline normal-case">#{tag}</p>
-          {/each}
+    {#if sidebarShow}
+      <div class="w-2/5 gap-2 overflow-auto" transition:slide={{ axis: "x" }}>
+        <div class="collapse collapse-arrow bg-base-200 my-2">
+          <input type="checkbox" name="accordion-1" checked />
+          <div class="collapse-title text-xl font-medium">
+            Description
+          </div>
+          <div class="collapse-content">
+            <textarea
+              rows="6"
+              class="text-input w-full text-md"
+              name="description"
+              id="description"
+              bind:value={description}
+            />
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-200 my-2">
+          <input type="checkbox" name="accordion-2" checked />
+          <div class="collapse-title text-xl font-medium">
+            Date
+          </div>
+          <div class="collapse-content">
+            <input
+              type="date"
+              name="timestamp"
+              id="timestamp"
+              class="p-2 text-input"
+              bind:value={date}
+            />
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-200 my-2">
+          <input type="checkbox" name="accordion-3" checked />
+          <div class="collapse-title text-xl font-medium">
+            Tags
+          </div>
+          <div class="collapse-content">
+            <form on:submit|preventDefault={addTag}>
+              <input type="text" class="w-full text-input h-10" bind:value={tagInput} />
+            </form>
+            <div class="flex gap-1 mt-2">
+              {#each tags as tag}
+                <p class="btn btn-xs btn-outline normal-case">#{tag}</p>
+              {/each}
+            </div>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-200 my-2">
+          <input type="checkbox" name="accordion-4" checked />
+          <div class="collapse-title text-xl font-medium">
+            Cover
+          </div>
+          <div class="collapse-content">
+            <input
+              type="file"
+              name="cover"
+              id="cover"
+              class="p-2 text-input"
+              accept="image/*"
+              on:change={coverUpload}
+            />
+            {#if cover}
+              <img
+                src={cover instanceof Blob ? URL.createObjectURL(cover) : cover}
+                alt="Cover Preview"
+                class="h-36"
+              />
+            {/if}
+          </div>
         </div>
       </div>
-    </div>
-    <div class="collapse collapse-arrow bg-base-200 my-2">
-      <input type="checkbox" name="accordion-4" checked />
-      <div class="collapse-title text-xl font-medium">
-        Cover
-      </div>
-      <div class="collapse-content">
-        <input
-          type="file"
-          name="cover"
-          id="cover"
-          class="p-2 text-input"
-          accept="image/*"
-          on:change={coverUpload}
-        />
-        {#if cover}
-          <img
-            src={cover instanceof Blob ? URL.createObjectURL(cover) : cover}
-            alt="Cover Preview"
-            class="h-36"
-          />
+    {/if}
+
+    <aside class="w-5 flex flex-col justify-center items-center">
+      <button on:click|preventDefault={() => sidebarShow = !sidebarShow} class="btn btn-circle btn-outline btn-sm">
+        {#if sidebarShow}
+          <IconRight />
+        {:else}
+          <IconLeft />
         {/if}
-      </div>
-    </div>
+      </button>
+    </aside>
   </div>
 </form>
