@@ -3,10 +3,10 @@
   import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
   import Editor from '@tinymce/tinymce-svelte';
   import { slugify } from '$lib/utils';
+  import { slide } from 'svelte/transition';
 
   import IconRight from '~icons/gg/arrow-right';
   import IconLeft from '~icons/gg/arrow-left';
-    import { slide } from 'svelte/transition';
 
   export let tags: string[] = [];
   export let title: string = "";
