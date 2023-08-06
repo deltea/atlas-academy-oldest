@@ -17,6 +17,6 @@
 
 <div class="grid grid-cols-3 gap-2 m-4">
   {#each data.posts as post}
-    <PostCard post={post} urlPrefix="/admin/edit" class="card bg-base-100 shadow-xl min-w-full max-w-full max-h-96 hover:scale-[101%] duration-fast group" />
+    <PostCard post={post} urlPrefix="/admin/edit" width="100%" />
   {/each}
 </div>

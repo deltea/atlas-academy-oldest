@@ -4,11 +4,13 @@
 
   export let post: PostData;
   export let urlPrefix: string;
+  export let width: string = "300";
 </script>
 
 <a
   href="{urlPrefix}/{post.slug}"
   class="card bg-base-100 shadow-xl min-w-[300px] max-w-[300px] max-h-96 hover:scale-sm duration-fast group"
+  style:width="{width}px"
   {...$$restProps}
 >
   <figure><img src={post.cover} alt={post.title} class="group-hover:scale-105 duration-500" /></figure>
@@ -17,7 +19,7 @@
     <p class="overflow-hidden text-ellipsis line-clamp-4">{post.description}</p>
     <div>
       {#each post.tags as tag}
-        <a href="/" class="btn btn-xs btn-outline normal-case mx-0.5">#{tag}</a>
+        <a data-sveltekit-reload href="/posts?tags={tag}" class="btn btn-xs btn-outline normal-case mx-0.5">#{tag}</a>
       {/each}
     </div>
     <small class="text-neutral">{formatDate(post.date)}</small>
