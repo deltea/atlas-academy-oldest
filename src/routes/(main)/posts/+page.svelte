@@ -61,13 +61,13 @@
 </form>
 
 <div class="flex justify-between">
-  <aside class="sticky h-screen top-0 w-1/6 flex justify-center bg-amber-50">
-    <ul class="overflow-y-auto flex flex-col gap-2 w-2/3 mt-10">
-      <li class="mb-4">
-        <button class="btn btn-outline normal-case" on:click={clearFilters}>
-          Clear all filters
-        </button>
-      </li>
+  <aside class="sticky h-screen top-0 w-1/6 flex flex-col justify-center bg-amber-50 p-8">
+    <div class="mb-4">
+      <button class="btn btn-outline normal-case" on:click={clearFilters}>
+        Clear all filters
+      </button>
+    </div>
+    <ul class="overflow-y-scroll flex flex-col gap-2">
       {#each data.allTags as tag}
         <li class="flex items-center gap-2">
           <label for={`checkbox-${tag}`} class="hover:cursor-pointer">#{tag}</label>
