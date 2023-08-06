@@ -41,12 +41,12 @@
   });
 </script>
 
-<div class="border border-neutral m-8 p-4 rounded-lg bg-white flex flex-col justify-center gap-2">
+<div class="border border-neutral my-8 mx-12 p-4 rounded-lg bg-white flex flex-col justify-center gap-4 items-stretch">
   <form on:submit|preventDefault={refresh} class="flex gap-2 items-stretch">
     <select
       name="type"
       id="type"
-      class="p-2 rounded-full outline-none border border-neutral"
+      class="p-2 px-4 rounded-full outline-none border border-neutral"
       bind:value={type}
       on:change={refresh}
     >
@@ -64,7 +64,7 @@
       bind:value={search}
     />
 
-    <button type="submit" class="btn btn-neutral rounded-full">Go!</button>
+    <button type="submit" class="btn btn-neutral rounded-full w-20">Go!</button>
   </form>
 
   {#if mapShow}
@@ -80,7 +80,7 @@
     </div>
   {/if}
 
-  <button on:click={() => mapShow = !mapShow} class="btn btn-outline btn-sm normal-case">
+  <button on:click={() => mapShow = !mapShow} class="btn btn-outline btn-sm normal-case self-center w-40">
     {#if mapShow}
       Hide map <IconUp />
     {:else}
@@ -90,7 +90,7 @@
 </div>
 
 <div class="flex justify-between">
-  <aside class="sticky h-screen top-0 w-1/6 flex flex-col justify-center bg-amber-50 p-8">
+  <aside class="sticky h-screen top-0 w-1/6 flex flex-col justify-center bg-amber-50 p-12">
     <div class="mb-4">
       <button class="btn btn-outline normal-case" on:click={clearFilters}>
         Clear all filters

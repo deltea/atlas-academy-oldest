@@ -60,7 +60,7 @@
   <p class="font-medium italic">{data.post.description}</p>
 </div>
 <div class="flex justify-between">
-  <main class="m-8 w-4/6 relative" bind:this={content}>
+  <main class="mx-8 my-4 w-4/6 relative" bind:this={content}>
     {@html data.post.body}
   </main>
   <aside class="w-2/6 sticky top-0 h-screen flex flex-col gap-2 p-2 items-end">
