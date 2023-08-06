@@ -50,7 +50,7 @@
     on:click={addMarker}
   >
     <img
-      src="/map.png"
+      src="/images/map.png"
       alt="World Map"
     />
   </button>

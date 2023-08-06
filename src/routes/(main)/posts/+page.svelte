@@ -70,7 +70,7 @@
   {#if mapShow}
     <div class="relative" transition:slide={{ axis: "y" }}>
       <img
-        src="/map.png"
+        src="/images/map.png"
         alt="World Map"
       />
 

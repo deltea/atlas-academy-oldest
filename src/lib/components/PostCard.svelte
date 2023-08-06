@@ -4,13 +4,12 @@
 
   export let post: PostData;
   export let urlPrefix: string;
-  export let width: string = "300px";
+  export let width: string = "350px";
 </script>
 
 <a
   href="{urlPrefix}/{post.slug}"
-  class="card bg-base-100 shadow-xl max-h-96 hover:scale-sm duration-fast group"
-  style:width={width}
+  class="card bg-base-100 shadow-xl max-h-96 hover:scale-sm duration-fast group min-w-[{width}] max-w-[{width}]"
 >
   <figure><img src={post.cover} alt={post.title} class="group-hover:scale-105 duration-500" /></figure>
   <div class="card-body w-full">
