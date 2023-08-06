@@ -35,7 +35,7 @@
   });
 </script>
 
-<form on:submit|preventDefault={refresh} class="border border-neutral m-8 p-4 flex rounded-full gap-4 items-stretch sticky top-4 z-10 bg-white">
+<form on:submit|preventDefault={refresh} class="border border-neutral m-8 p-4 flex rounded-full gap-4 items-stretch bg-white">
   <select
     name="type"
     id="type"
@@ -61,7 +61,7 @@
 </form>
 
 <div class="flex justify-between">
-  <aside class="sticky h-screen top-0 w-1/6 flex justify-center pt-20 bg-amber-50">
+  <aside class="sticky h-screen top-0 w-1/6 flex justify-center bg-amber-50">
     <ul class="overflow-y-auto flex flex-col gap-2 w-2/3 mt-10">
       <li class="mb-4">
         <button class="btn btn-outline normal-case" on:click={clearFilters}>
