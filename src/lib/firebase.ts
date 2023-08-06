@@ -100,6 +100,12 @@ export async function createDoc(name: string, data: unknown) {
 }
 
 
+export async function createDocWithId(name: string, id: string, data: unknown) {
+  const ref = doc(db, name, id);
+  const docRef = await setDoc(ref, data);
+  return docRef;
+}
+
 /**
  * Updates a document in the specified collection
  * @param collection the name of the collection that contains the document
