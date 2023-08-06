@@ -63,21 +63,38 @@
   <main class="mx-8 my-4 w-4/6 relative" bind:this={content}>
     {@html data.post.body}
   </main>
-  <aside class="w-2/6 sticky top-0 h-screen flex flex-col gap-2 p-2 items-end">
-    {#each sections as section}
-      <a href="#{section.name.toLowerCase()}" style="height: {section.height}%;" class="flex items-center gap-2 group">
-        <p
-          class="vertical-text font-thin text-neutral-300 group-hover:text-neutral duration-300"
-          style:color={
-            scrollPercent > section.position && scrollPercent < section.bottom ? "#2a323c" : null
-          }
-        >{section.name.toUpperCase()}</p>
-        <div
-          class="border border-neutral rounded-md w-3 h-full duration-200 group-hover:bg-neutral"
-          style:background-color={scrollPercent > section.position && scrollPercent < section.bottom ? "#2a323c" : null}
-        ></div>
-      </a>
-    {/each}
+  <aside class="w-2/6 sticky top-0 h-screen flex gap-2 p-2 justify-between">
+    <div class="border-neutral rounded-xl flex-grow flex flex-col items-center p-2">
+      <div class="flex flex-col gap-4 border border-neutral px-16 py-6 rounded-xl">
+        <h1 class="font-bold text-3xl">Recent posts</h1>
+        <ul class="list-disc">
+          {#each data.recentPosts as post}
+            <li class="text-lg hover:underline">
+              <a href="/post/{post.slug}">{post.title}</a>
+            </li>
+          {/each}
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      {#if data.post.type === "blog"}
+        {#each sections as section}
+          <a href="#{section.name.toLowerCase()}" style="height: {section.height}%;" class="flex items-center gap-2 group">
+            <p
+              class="vertical-text font-thin text-neutral-300 group-hover:text-neutral duration-300"
+              style:color={
+                scrollPercent > section.position && scrollPercent < section.bottom ? "#2a323c" : null
+              }
+            >{section.name.toUpperCase()}</p>
+            <div
+              class="border border-neutral rounded-md w-3 h-full duration-200 group-hover:bg-neutral"
+              style:background-color={scrollPercent > section.position && scrollPercent < section.bottom ? "#2a323c" : null}
+            ></div>
+          </a>
+        {/each}
+      {/if}
+    </div>
   </aside>
 </div>
 

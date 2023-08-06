@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore, doc, getDoc, collection, getDocs, query, where, FieldPath, type WhereFilterOp, limit, addDoc, type DocumentData, setDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, collection, getDocs, query, where, FieldPath, type WhereFilterOp, limit, addDoc, type DocumentData, setDoc, orderBy, type OrderByDirection } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
@@ -85,10 +85,34 @@ export async function queryDocs<T>(
   operation: WhereFilterOp,
   value: unknown,
   maxDocs: number = 100,
-  fetchData: boolean = true
+  fetchData: boolean = true,
 ) {
   const ref = collection(db, name);
   const q = query(ref, where(field, operation, value), limit(maxDocs));
+  const snapshot = await getDocs(q);
+  return snapshot.docs.map(doc => fetchData ? doc.data() as T : doc as DocumentData);
+}
+
+
+/**
+ * Sorts all the documents in a collection by a specific field value
+ * @param name the name of the collection to query
+ * @param field the field in the document to order by
+ * @param mode the direction to sort the documents in
+ * @param maxDocs the maximum number of documents to query
+ * @param fetchData whether to fetch the data of the documents or not
+ * @returns the query results in an array
+ */
+
+export async function orderDocs<T>(
+  name: string,
+  field: string | FieldPath,
+  mode: OrderByDirection,
+  maxDocs: number = 100,
+  fetchData: boolean = true,
+) {
+  const ref = collection(db, name);
+  const q = query(ref, orderBy(field, mode), limit(maxDocs));
   const snapshot = await getDocs(q);
   return snapshot.docs.map(doc => fetchData ? doc.data() as T : doc as DocumentData);
 }
