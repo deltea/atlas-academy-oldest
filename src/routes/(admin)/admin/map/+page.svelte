@@ -55,6 +55,6 @@
   </button>
 
   {#each markers as marker}
-    <Marker x={marker.x} y={marker.y} />
+    <Marker x={marker.x} y={marker.y} url="/posts?tags={marker.tag}" />
   {/each}
 </div>
