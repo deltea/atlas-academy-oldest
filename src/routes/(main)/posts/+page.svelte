@@ -1,14 +1,19 @@
 <script lang="ts">
+	import { slide } from "svelte/transition";
   import type { PageData } from './$types';
   import PostCard from '$lib/components/PostCard.svelte';
   import { goto } from '$app/navigation';
-    import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
+
+  import IconUp from '~icons/gg/chevron-up';
+  import IconDown from '~icons/gg/chevron-down';
 
   export let data: PageData;
 
   let search = data.query.q ?? "";
   let type = data.query.type;
   let tags: string[] = data.query.tags;
+  let mapShow = true;
 
   async function refresh() {
     const searchParam = search ? `q=${search}&` : "";
@@ -35,30 +40,49 @@
   });
 </script>
 
-<form on:submit|preventDefault={refresh} class="border border-neutral m-8 p-4 flex rounded-full gap-4 items-stretch bg-white">
-  <select
-    name="type"
-    id="type"
-    class="p-2 rounded-full outline-none border border-neutral"
-    bind:value={type}
-    on:change={refresh}
-  >
-    <option value="all">All</option>
-    <option value="blog">Blog</option>
-    <option value="reflection">Reflection</option>
-  </select>
+<div class="border border-neutral m-8 p-4 rounded-lg bg-white flex flex-col justify-center gap-2">
+  <form on:submit|preventDefault={refresh} class="flex gap-2 items-stretch">
+    <select
+      name="type"
+      id="type"
+      class="p-2 rounded-full outline-none border border-neutral"
+      bind:value={type}
+      on:change={refresh}
+    >
+      <option value="all">All</option>
+      <option value="blog">Blog</option>
+      <option value="reflection">Reflection</option>
+    </select>
 
-  <input
-    type="search"
-    name="search"
-    id="search"
-    class="p-2 flex-grow outline-none border border-neutral rounded-full px-6"
-    placeholder="Search posts..."
-    bind:value={search}
-  />
+    <input
+      type="search"
+      name="search"
+      id="search"
+      class="p-2 flex-grow outline-none border border-neutral rounded-full px-6"
+      placeholder="Search posts..."
+      bind:value={search}
+    />
 
-  <button type="submit" class="btn btn-neutral rounded-full">Go!</button>
-</form>
+    <button type="submit" class="btn btn-neutral rounded-full">Go!</button>
+  </form>
+
+  {#if mapShow}
+    <div transition:slide={{ axis: "y" }}>
+      <img
+        src="/map.png"
+        alt="World Map"
+      />
+    </div>
+  {/if}
+
+  <button on:click={() => mapShow = !mapShow} class="btn btn-outline btn-sm normal-case">
+    {#if mapShow}
+      Hide map <IconUp />
+    {:else}
+      Show map <IconDown />
+    {/if}
+  </button>
+</div>
 
 <div class="flex justify-between">
   <aside class="sticky h-screen top-0 w-1/6 flex flex-col justify-center bg-amber-50 p-8">
