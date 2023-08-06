@@ -75,7 +75,7 @@
       />
 
       {#each data.markers as marker}
-        <Marker x={marker.x} y={marker.y} url="/posts?tags={marker.tag}" />
+        <Marker {...marker} />
       {/each}
     </div>
   {/if}

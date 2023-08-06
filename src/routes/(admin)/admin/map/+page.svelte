@@ -11,7 +11,7 @@
     const image = e.target as HTMLDivElement;
     const { left, top, width, height } = image.getBoundingClientRect();
     const x = (e.clientX - left) / width * 100;
-    const y = (e.clientY - top) / height * 100;
+    const y = (e.clientY - top - 8) / height * 100;
 
     console.log(x, y);
 
@@ -55,6 +55,6 @@
   </button>
 
   {#each markers as marker}
-    <Marker x={marker.x} y={marker.y} url="/posts?tags={marker.tag}" />
+    <Marker {...marker} />
   {/each}
 </div>
