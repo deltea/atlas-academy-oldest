@@ -2,6 +2,8 @@
   import PostCard from "$lib/components/PostCard.svelte";
   import type { PageData } from "./$types";
 
+  import IconMap from '~icons/bxs/map';
+
   export let data: PageData;
 </script>
 
@@ -9,10 +11,17 @@
   <a href="/" class="btn btn-outline normal-case font-bold">
     ⮜ Back to Homepage
   </a>
+
   <h1 class="font-bold text-2xl italic">Admin</h1>
-  <a href="/admin/create" class="btn btn-neutral normal-case font-bold">
-    + Create New
-  </a>
+
+  <div class="inline-flex gap-2">
+    <a href="/admin" class="btn btn-outline normal-case">
+      <IconMap /> Edit map
+    </a>
+    <a href="/admin/create" class="btn btn-neutral normal-case font-bold">
+      + Create New
+    </a>
+  </div>
 </header>
 
 <div class="grid grid-cols-3 gap-2 m-4">
