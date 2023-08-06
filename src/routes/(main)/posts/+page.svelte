@@ -7,6 +7,7 @@
 
   import IconUp from '~icons/gg/chevron-up';
   import IconDown from '~icons/gg/chevron-down';
+    import Marker from "$lib/components/Marker.svelte";
 
   export let data: PageData;
 
@@ -67,11 +68,15 @@
   </form>
 
   {#if mapShow}
-    <div transition:slide={{ axis: "y" }}>
+    <div class="relative" transition:slide={{ axis: "y" }}>
       <img
         src="/map.png"
         alt="World Map"
       />
+
+      {#each data.markers as marker}
+        <Marker x={marker.x} y={marker.y} />
+      {/each}
     </div>
   {/if}
 

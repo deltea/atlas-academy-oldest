@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageData } from './$types';
   import { createDoc, type MarkerData } from '$lib/firebase';
-  import { scale } from 'svelte/transition';
+  import Marker from '$lib/components/Marker.svelte';
 
   export let data: PageData;
 
@@ -44,18 +44,17 @@
   }
 </script>
 
-<div class="w-full h-screen">
+<div class="relative">
   <button
     on:click={addMarker}
-    class="w-full h-full bg-contain bg-no-repeat bg-[url(/map.png)]"
   >
-    {#each markers as marker}
-      <div
-        class="w-2 h-2 absolute bg-red-500 z-10 rounded-full pointer-events-none"
-        style:left="calc({marker.x}% - 4px)"
-        style:top="calc({marker.y}% - 4px)"
-        transition:scale={{ duration: 200 }}
-      />
-    {/each}
+    <img
+      src="/map.png"
+      alt="World Map"
+    />
   </button>
+
+  {#each markers as marker}
+    <Marker x={marker.x} y={marker.y} />
+  {/each}
 </div>
