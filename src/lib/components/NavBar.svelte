@@ -1,5 +1,5 @@
 <nav class="flex flex-col m-8 items-center gap-4 text-center">
-  <a href="/" class="normal-case text-4xl duration-fast font-accent tracking-widest">
+  <a href="/" class="normal-case text-4xl duration-fast font-accent tracking-[0.3em]">
     世界是學校
   </a>
   <p class="text-neutral-400 tracking-widest w-2/3">跟我们一起 Worldschooling!</p>
