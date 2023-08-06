@@ -84,7 +84,7 @@
             <iframe
               title="Spotify Player"
               class="rounded-2xl w-full h-20"
-              src="https://open.spotify.com/embed{episode.match(/\/episode\/([^\/?]+)/g)}?theme=0"
+              src="https://open.spotify.com/embed{episode.match(/\/episode\/([^\/?]+)/g)}?theme=0&utm_source=generator"
               frameBorder="0"
               allowfullscreen={false}
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"

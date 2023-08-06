@@ -30,7 +30,7 @@
   }
 
   function addPodcastEpisode() {
-    podcast = [...podcast, podcastInput.toLowerCase()];
+    podcast = [...podcast, podcastInput];
     podcastInput = "";
   }
 
