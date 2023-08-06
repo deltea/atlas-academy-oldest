@@ -65,7 +65,7 @@
   </main>
   <aside class="w-2/6 sticky top-0 h-screen flex flex-col gap-2 p-2 items-end">
     {#each sections as section}
-      <a href={`#${section.name.toLowerCase()}`} style="height: {section.height}%;" class="flex items-center gap-2 group">
+      <a href="#{section.name.toLowerCase()}" style="height: {section.height}%;" class="flex items-center gap-2 group">
         <p
           class="vertical-text font-thin text-neutral-300 group-hover:text-neutral duration-300"
           style:color={

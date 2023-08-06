@@ -7,7 +7,7 @@
 </script>
 
 <a
-  href={`${urlPrefix}/${post.slug}`}
+  href="{urlPrefix}/{post.slug}"
   class="card bg-base-100 shadow-xl min-w-[300px] max-w-[300px] max-h-96 hover:scale-sm duration-fast group"
   {...$$restProps}
 >
