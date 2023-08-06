@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { type PostData, fetchDocs } from '$lib/firebase';
+import { type PostData, fetchDocs, type MarkerData } from '$lib/firebase';
 import type { DocumentData } from 'firebase/firestore';
 
 export const load = (async ({ url }) => {
@@ -29,9 +29,12 @@ export const load = (async ({ url }) => {
 
   const allTags = (await fetchDocs("tags", false) as DocumentData[]).map(doc => doc.id) as string[];
 
+  const markers = await fetchDocs<MarkerData>("markers") as MarkerData[];
+
   return {
     query,
     posts,
-    allTags
+    allTags,
+    markers
   };
 }) satisfies PageServerLoad;

@@ -32,6 +32,14 @@ export interface PostData {
   type: PostType,
 }
 
+export interface MarkerData {
+  name: string,
+  tag: string,
+  description: string,
+  x: number,
+  y: number,
+}
+
 
 /**
  * Fetches data from a document in the database

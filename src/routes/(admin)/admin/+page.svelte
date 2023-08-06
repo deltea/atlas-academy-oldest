@@ -15,7 +15,7 @@
   <h1 class="font-bold text-2xl italic">Admin</h1>
 
   <div class="inline-flex gap-2">
-    <a href="/admin" class="btn btn-outline normal-case">
+    <a href="/admin/map" class="btn btn-outline normal-case">
       <IconMap /> Edit map
     </a>
     <a href="/admin/create" class="btn btn-neutral normal-case font-bold">
