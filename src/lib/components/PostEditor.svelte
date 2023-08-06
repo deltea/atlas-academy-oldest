@@ -135,7 +135,7 @@
               type="date"
               name="timestamp"
               id="timestamp"
-              class="p-2 text-input"
+              class="text-input"
               bind:value={date}
             />
           </div>
@@ -166,7 +166,7 @@
               type="file"
               name="cover"
               id="cover"
-              class="p-2 text-input"
+              class="text-input"
               accept="image/*"
               on:change={coverUpload}
             />

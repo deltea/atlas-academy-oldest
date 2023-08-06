@@ -1,47 +1,110 @@
 <script lang="ts">
   import type { PageData } from './$types';
-  import { onMount } from 'svelte';
-  import { fetchDocs, type PostData, type PostType } from '$lib/firebase';
   import PostCard from '$lib/components/PostCard.svelte';
-  import { page } from '$app/stores';
-  import Spinner from '$lib/components/Spinner.svelte';
+  import { goto } from '$app/navigation';
 
   export let data: PageData;
 
-  const q: string = $page.url.searchParams.get("q") ?? "";
-  const type: PostType | null = $page.url.searchParams.get("type") as PostType;
-  const tags: string[] = $page.url.searchParams.get("tags")?.split(",") ?? [];
+  let search = data.query.q ?? "";
+  let type = data.query.type;
+  let tags: string[] = data.query.tags;
 
-  let loading = true;
-  let posts: PostData[] = [];
+  async function refresh() {
+    const searchParam = search ? `q=${search}&` : "";
+    const typeParam = type ? `type=${type}&` : "";
+    const tagsParam = tags.length > 0 ? `tags=${tags.join(",")}&` : "";
+    goto(`/posts?${searchParam}${typeParam}${tagsParam}`);
+  }
 
-  onMount(async () => {
-    loading = true;
+  function clearFilters() {
+    search = "";
+    type = "all";
+    tags = [];
 
-    posts = await fetchDocs("posts") as PostData[];
-    posts = posts.filter(post => {
-      const titleHasQ = q ? post.title.toLowerCase().includes(q.toLowerCase()) : true;
-      const qHasTitle = q ? q.toLowerCase().includes(post.title.toLowerCase()) : true;
-      const qType = type ? post.type === type : true;
-      const tagsHasQ = tags.length ? post.tags.some(tag => tags.includes(tag)) : true;
-
-      console.log(post.title, titleHasQ, qHasTitle, qType, tagsHasQ);
-
-      return (
-        (titleHasQ || qHasTitle) && qType && tagsHasQ
-      );
-    });
-
-    loading = false;
-  });
+    refresh();
+  }
 </script>
 
-{#if loading}
-  <Spinner />
-{/if}
+<form on:submit|preventDefault={refresh} class="border border-neutral m-8 p-4 flex rounded-full gap-4 items-stretch sticky top-4 z-10 bg-white">
+  <select
+    name="type"
+    id="type"
+    class="p-2 rounded-full outline-none border border-neutral"
+    bind:value={type}
+    on:change={refresh}
+  >
+    <option value="all">All</option>
+    <option value="blog">Blog</option>
+    <option value="reflection">Reflection</option>
+  </select>
 
-<div class="grid grid-cols-3 gap-4 m-4">
-  {#each posts as post}
-    <PostCard post={post} urlPrefix="/post" width="100%" />
-  {/each}
+  <input
+    type="search"
+    name="search"
+    id="search"
+    class="p-2 flex-grow outline-none border border-neutral rounded-full px-6"
+    placeholder="Search posts..."
+    bind:value={search}
+  />
+
+  <button type="submit" class="btn btn-neutral rounded-full">Go!</button>
+</form>
+
+<div class="flex justify-between">
+  <aside class="sticky h-screen top-0 w-1/6 flex justify-center pt-20 bg-amber-50">
+    <ul class="overflow-y-auto flex flex-col gap-2 w-2/3 mt-10">
+      <li class="mb-4">
+        <button class="btn btn-outline normal-case" on:click={clearFilters}>
+          Clear all filters
+        </button>
+      </li>
+      {#each data.allTags as tag}
+        <li class="flex items-center gap-2">
+          <label for={`checkbox-${tag}`} class="hover:cursor-pointer">#{tag}</label>
+          <input
+            type="checkbox"
+            id={`checkbox-${tag}`}
+            class="checkbox"
+            value={tag}
+            bind:group={tags}
+            on:change={refresh}
+          />
+        </li>
+      {/each}
+    </ul>
+  </aside>
+
+  <div class="w-5/6 mx-6">
+    <h2 class="text-neutral font-bold text-3xl mb-8">
+      {#if data.query.q.length === 0 && data.query.tags.length === 0 && data.query.type === "all"}
+        Showing all posts
+      {:else if data.posts.length > 0}
+        Showing
+        {data.posts.length}
+        {#if data.query.type === "all"}
+          post
+        {:else if data.query.type === "blog"}
+          blog post
+        {:else if data.query.type === "reflection"}
+          reflection
+        {/if}
+        {data.posts.length > 1 ? "<span style='margin-left: -8px;'>s</span>" : ""}
+
+        {#if data.query.q.length > 0}
+          for "{data.query.q}"
+        {/if}
+
+        {#if data.query.tags.length > 0}
+          with tags: {data.query.tags.join(", ")}
+        {/if}
+      {:else}
+        No results
+      {/if}
+    </h2>
+    <div class="grid grid-cols-2 gap-4 w-full">
+      {#each data.posts as post}
+        <PostCard post={post} urlPrefix="/post" width="100%" />
+      {/each}
+    </div>
+  </div>
 </div>

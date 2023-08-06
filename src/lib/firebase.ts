@@ -53,10 +53,10 @@ export async function fetchDoc<T>(collection: string, id: string) {
  * @returns the data from all documents in the collection in an array
  */
 
-export async function fetchDocs<T>(name: string) {
+export async function fetchDocs<T>(name: string, fetchData: boolean = true) {
   const ref = collection(db, name);
   const snapshot = await getDocs(ref);
-  return snapshot.docs.map(doc => doc.data()) as T[];
+  return snapshot.docs.map(doc => fetchData ? doc.data() as T : doc as DocumentData);
 }
 
 
