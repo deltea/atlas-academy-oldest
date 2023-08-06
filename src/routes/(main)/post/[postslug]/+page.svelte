@@ -54,7 +54,7 @@
   <div class="flex gap-2 items-center">
     <p class="italic">{formatDate(data.post.date)}</p>
     {#each data.post.tags as tag}
-      <a href="/" class="btn btn-xs normal-case btn-outline">#{tag}</a>
+      <a data-sveltekit-reload href="/posts?tags={tag}" class="btn btn-xs normal-case btn-outline">#{tag}</a>
     {/each}
   </div>
   <p class="font-medium italic">{data.post.description}</p>

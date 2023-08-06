@@ -2,6 +2,7 @@
   import type { PageData } from './$types';
   import PostCard from '$lib/components/PostCard.svelte';
   import { goto } from '$app/navigation';
+    import { onMount } from 'svelte';
 
   export let data: PageData;
 
@@ -18,11 +19,20 @@
 
   function clearFilters() {
     search = "";
-    type = "all";
+    type = "";
     tags = [];
 
     refresh();
+
+    type = "all";
   }
+
+  onMount(() => {
+    setTimeout(() => {
+      console.log(data.query.tags);
+      tags = data.query.tags;
+    }, 1000);
+  });
 </script>
 
 <form on:submit|preventDefault={refresh} class="border border-neutral m-8 p-4 flex rounded-full gap-4 items-stretch sticky top-4 z-10 bg-white">
@@ -88,7 +98,9 @@
         {:else if data.query.type === "reflection"}
           reflection
         {/if}
-        {data.posts.length > 1 ? "<span style='margin-left: -8px;'>s</span>" : ""}
+        {#if data.posts.length > 1}
+          <span style='margin-left: -8px;'>s</span>
+        {/if}
 
         {#if data.query.q.length > 0}
           for "{data.query.q}"
