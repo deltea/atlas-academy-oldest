@@ -113,6 +113,7 @@
         No results
       {/if}
     </h2>
+
     <div class="grid grid-cols-2 gap-4 w-full">
       {#each data.posts as post}
         <PostCard post={post} urlPrefix="/post" width="100%" />
