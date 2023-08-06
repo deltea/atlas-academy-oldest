@@ -30,6 +30,7 @@ export interface PostData {
   tags: string[],
   date: string,
   type: PostType,
+  podcast: string[],
 }
 
 export interface MarkerData {

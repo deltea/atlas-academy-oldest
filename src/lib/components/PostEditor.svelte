@@ -17,14 +17,21 @@
   export let body: string = "";
   export let date: string = "";
   export let type: PostType = "blog";
+  export let podcast: string[] = [];
   export let onSave: (data: PostData) => void;
 
   let tagInput: string = "";
+  let podcastInput: string = "";
   let sidebarShow = true;
 
   function addTag() {
     tags = [...tags, tagInput.toLowerCase()];
     tagInput = "";
+  }
+
+  function addPodcastEpisode() {
+    podcast = [...podcast, podcastInput.toLowerCase()];
+    podcastInput = "";
   }
 
   function coverUpload(e: Event) {
@@ -66,6 +73,7 @@
       date,
       tags,
       type,
+      podcast,
     } satisfies PostData);
   }
 </script>
@@ -187,6 +195,22 @@
                 class="h-36"
               />
             {/if}
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-200 my-2">
+          <input type="checkbox" name="accordion-5" checked />
+          <div class="collapse-title text-xl font-medium">
+            Podcast Episodes
+          </div>
+          <div class="collapse-content">
+            <form on:submit|preventDefault={addPodcastEpisode}>
+              <input type="text" class="w-full text-input h-10" bind:value={podcastInput} />
+            </form>
+            <ul class="flex flex-col gap-1 mt-2 ml-4 list-disc">
+              {#each podcast as episode}
+                <li><a href={episode}>{episode}</a></li>
+              {/each}
+            </ul>
           </div>
         </div>
       </div>

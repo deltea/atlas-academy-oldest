@@ -59,10 +59,12 @@
   </div>
   <p class="font-medium italic">{data.post.description}</p>
 </div>
+
 <div class="flex justify-between">
-  <main class="mx-8 my-4 w-4/6 relative" bind:this={content}>
+  <main class="ml-8 my-4 w-4/6 relative" bind:this={content}>
     {@html data.post.body}
   </main>
+
   <aside class="w-2/6 sticky top-0 h-screen flex gap-2 p-2 justify-between">
     <div class="border-neutral rounded-xl flex-grow flex flex-col items-center justify-between p-2">
       <div class="flex flex-col gap-4 border border-neutral px-16 py-6 rounded-xl">
@@ -75,6 +77,22 @@
           {/each}
         </ul>
       </div>
+
+      {#if data.post.podcast.length > 0}
+        <div class="flex flex-col gap-2">
+          {#each data.post.podcast as episode}
+            <iframe
+              title="Spotify Player"
+              class="rounded-2xl w-full h-20"
+              src="https://open.spotify.com/embed{episode.match(/\/episode\/([^\/?]+)/g)}?theme=0"
+              frameBorder="0"
+              allowfullscreen={false}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          {/each}
+        </div>
+      {/if}
     </div>
 
     <div class="flex flex-col gap-2">

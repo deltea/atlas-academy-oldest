@@ -29,6 +29,7 @@
       date: post.date,
       tags: post.tags,
       type: post.type,
+      podcast: post.podcast,
     } satisfies PostData);
 
     goto(`/post/${slugify(post.title)}`);
