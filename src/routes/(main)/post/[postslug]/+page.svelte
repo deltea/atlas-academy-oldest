@@ -54,7 +54,7 @@
   });
 </script>
 
-<div class="w-full grid gap-4 bg-amber-50 p-16">
+<div class="w-full grid gap-4 bg-amber-50 px-28 py-8">
   <h1 class="text-5xl font-bold">{data.post.title}</h1>
   <div class="flex gap-2 items-center">
     <p class="italic">{formatDate(data.post.date)}</p>
@@ -65,7 +65,7 @@
   <p class="font-medium italic">{data.post.description}</p>
 </div>
 
-<div class="flex justify-between">
+<div class="flex justify-between gap-2">
   <main class="ml-28 my-8 w-3/5 relative" bind:this={content}>
     {@html data.post.body}
   </main>
