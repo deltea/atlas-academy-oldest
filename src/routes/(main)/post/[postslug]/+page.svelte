@@ -144,7 +144,7 @@
     @apply my-4;
   }
   main :global(img) {
-    @apply rounded-md w-full;
+    @apply rounded-box w-full;
   }
   main :global(ol) {
     @apply list-decimal;
