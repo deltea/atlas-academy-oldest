@@ -66,12 +66,12 @@
 </div>
 
 <div class="flex justify-between">
-  <main class="ml-28 my-8 w-3/6 relative" bind:this={content}>
+  <main class="ml-28 my-8 w-3/5 relative" bind:this={content}>
     {@html data.post.body}
   </main>
 
-  <aside class="w-3/6 sticky top-0 h-screen flex gap-24 p-2 justify-between">
-    <div class="border-neutral rounded-xl flex-grow flex flex-col items-center justify-between p-2">
+  <aside class="w-2/5 sticky top-0 h-screen flex p-2 justify-between">
+    <div class="flex-grow flex flex-col items-start justify-between p-2">
       <div class="flex flex-col gap-4 border border-neutral px-12 py-6 rounded-xl">
         <h1 class="font-bold text-3xl">Recent posts</h1>
         <ul class="list-disc">
