@@ -66,12 +66,12 @@
 </div>
 
 <div class="flex justify-between">
-  <main class="mx-16 my-8 w-4/6 relative" bind:this={content}>
+  <main class="ml-28 my-8 w-3/6 relative" bind:this={content}>
     {@html data.post.body}
   </main>
 
-  <aside class="w-2/6 sticky top-0 h-screen flex gap-2 p-2 justify-between">
-    <div class="border-neutral rounded-xl flex-grow flex flex-col items-center justify-between p-2 pr-4">
+  <aside class="w-3/6 sticky top-0 h-screen flex gap-24 p-2 justify-between">
+    <div class="border-neutral rounded-xl flex-grow flex flex-col items-center justify-between p-2">
       <div class="flex flex-col gap-4 border border-neutral px-12 py-6 rounded-xl">
         <h1 class="font-bold text-3xl">Recent posts</h1>
         <ul class="list-disc">
@@ -141,7 +141,7 @@
     @apply text-neutral-400 mt-1 italic;
   }
   main :global(p) {
-    @apply my-4;
+    @apply my-4 text-justify;
   }
   main :global(img) {
     @apply rounded-box w-full;
