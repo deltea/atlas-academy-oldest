@@ -54,7 +54,7 @@
   });
 </script>
 
-<div class="w-full grid gap-4 bg-amber-50 p-8">
+<div class="w-full grid gap-4 bg-amber-50 p-16">
   <h1 class="text-5xl font-bold">{data.post.title}</h1>
   <div class="flex gap-2 items-center">
     <p class="italic">{formatDate(data.post.date)}</p>
@@ -66,13 +66,13 @@
 </div>
 
 <div class="flex justify-between">
-  <main class="ml-8 my-4 w-4/6 relative" bind:this={content}>
+  <main class="mx-16 my-8 w-4/6 relative" bind:this={content}>
     {@html data.post.body}
   </main>
 
   <aside class="w-2/6 sticky top-0 h-screen flex gap-2 p-2 justify-between">
-    <div class="border-neutral rounded-xl flex-grow flex flex-col items-center justify-between p-2">
-      <div class="flex flex-col gap-4 border border-neutral px-16 py-6 rounded-xl">
+    <div class="border-neutral rounded-xl flex-grow flex flex-col items-center justify-between p-2 pr-4">
+      <div class="flex flex-col gap-4 border border-neutral px-12 py-6 rounded-xl">
         <h1 class="font-bold text-3xl">Recent posts</h1>
         <ul class="list-disc">
           {#each data.recentPosts as post}
