@@ -6,3 +6,8 @@
   font-family: "WangFont";
   src: url(/fonts/wangfont.ttf);
 }
+
+@font-face {
+  font-family: "ZhanKu";
+  src: url(/fonts/zhanku.ttf);
+}

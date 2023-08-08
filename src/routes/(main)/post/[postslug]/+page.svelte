@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { PageData } from './$types';
   import { formatDate } from '$lib/utils';
   import { onMount } from 'svelte';
+  import type { PageData } from './$types';
 
   interface Section {
     name: string,
@@ -46,23 +46,23 @@
       }];
     }
 
-    updateSection();
-
     document.addEventListener("scroll", updateSection);
 
     () => document.removeEventListener("scroll", updateSection);
   });
 </script>
 
-<div class="w-full grid gap-4 bg-amber-50 px-28 py-8">
-  <h1 class="text-5xl font-bold">{data.post.title}</h1>
-  <div class="flex gap-2 items-center">
-    <p class="italic">{formatDate(data.post.date)}</p>
+<div class="bg-cover bg-center w-full h-80" style="background-image: url('{data.post.cover}');"></div>
+
+<div class="w-full flex flex-col items-center gap-4 bg-amber-50 px-28 py-8">
+  <h1 class="text-2xl font-bold uppercase tracking-wider">{data.post.title}</h1>
+  <p class="mr-2">{formatDate(data.post.date)}</p>
+  <div class="flex gap-1 items-center">
     {#each data.post.tags as tag}
       <a data-sveltekit-reload href="/posts?tags={tag}" class="btn btn-xs normal-case btn-outline">#{tag}</a>
     {/each}
   </div>
-  <p class="font-medium italic">{data.post.description}</p>
+  <p class="italic pr-12 text-center">{data.post.description}</p>
 </div>
 
 <div class="flex justify-between gap-2">
@@ -73,10 +73,10 @@
   <aside class="w-2/5 sticky top-0 h-screen flex p-2 justify-between">
     <div class="flex-grow flex flex-col items-start justify-between p-2">
       <div class="flex flex-col gap-4 border border-neutral px-12 py-6 rounded-xl">
-        <h1 class="font-bold text-3xl">Recent posts</h1>
+        <h1 class="font-bold text-lg tracking-widest">RECENT POSTS</h1>
         <ul class="list-disc">
           {#each data.recentPosts as post}
-            <li class="text-lg hover:underline">
+            <li class=" hover:underline">
               <a href="/post/{post.slug}">{post.title}</a>
             </li>
           {/each}
@@ -132,7 +132,7 @@
     letter-spacing: 2px;
   }
   main :global(h1) {
-    @apply font-semibold text-4xl my-8;
+    @apply text-2xl my-8;
   }
   main :global(figure) {
     @apply my-8 w-full text-center;

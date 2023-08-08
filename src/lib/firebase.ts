@@ -62,7 +62,7 @@ export async function fetchDoc<T>(collection: string, id: string) {
  * @returns the data from all documents in the collection in an array
  */
 
-export async function fetchDocs<T>(name: string, fetchData: boolean = true) {
+export async function fetchDocs<T>(name: string, fetchData = true) {
   const ref = collection(db, name);
   const snapshot = await getDocs(ref);
   return snapshot.docs.map(doc => fetchData ? doc.data() as T : doc as DocumentData);
@@ -85,8 +85,8 @@ export async function queryDocs<T>(
   field: string | FieldPath,
   operation: WhereFilterOp,
   value: unknown,
-  maxDocs: number = 100,
-  fetchData: boolean = true,
+  maxDocs = 100,
+  fetchData = true,
 ) {
   const ref = collection(db, name);
   const q = query(ref, where(field, operation, value), limit(maxDocs));
@@ -109,8 +109,8 @@ export async function orderDocs<T>(
   name: string,
   field: string | FieldPath,
   mode: OrderByDirection,
-  maxDocs: number = 100,
-  fetchData: boolean = true,
+  maxDocs = 100,
+  fetchData = true,
 ) {
   const ref = collection(db, name);
   const q = query(ref, orderBy(field, mode), limit(maxDocs));
@@ -151,7 +151,7 @@ export async function changeDoc(
   collection: string,
   id: string,
   data: Partial<unknown>,
-  merge: boolean = true
+  merge = true
 ) {
   const ref = doc(db, collection, id);
   await setDoc(ref, data, { merge });

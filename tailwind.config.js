@@ -15,7 +15,8 @@ export default {
         "9": "repeat(9, minmax(0, 1fr))",
       },
       fontFamily: {
-        "accent": ["WangFont", "sans"]
+        "accent": ["ZhanKu", "sans"],
+        "small": ["WangFont", "sans"]
       }
     },
   },
