@@ -1,17 +1,14 @@
 <script lang="ts">
   import type { PageData } from "./$types";
+	import PageLanding from "$lib/components/PageLanding.svelte";
 
   export let data: PageData;
 </script>
 
-<div
-  class="bg-landing h-screen bg-cover bg-no-repeat bg-fixed flex justify-center items-center"
->
-  <div class="mt-64 text-white text-center space-y-3">
-    <h2 class="tracking-widest">oga booga lau iowjioje</h2>
-    <h1 class="text-3xl tracking-wider">BLAH BLAH BLAH</h1>
-  </div>
-</div>
+<PageLanding center src="/images/landing.jpg">
+  <h2 class= "tracking-widest">oga booga lau iowjioje</h2>
+  <h1 class="text-3xl tracking-wider">BLAH BLAH BLAH</h1>
+</PageLanding>
 
 <main class="bg-white p-sm">
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nulla iure illo! Quis, quos nihil! Dolore necessitatibus voluptatem, quas eaque fuga ullam porro accusamus qui, tempore fugiat accusantium labore eum!

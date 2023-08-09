@@ -32,16 +32,12 @@
 </script>
 
 <header
-  class="fixed top-0 w-full flex justify-between items-center px-sm text-sm duration-500
+  class="fixed z-50 top-0 w-full flex justify-between items-center px-sm text-sm duration-500
     {atTopOfPage ?
       "text-white bg-transparent h-[15vh]" :
       "text-normal bg-white h-[12vh] shadow-lg"
-    } {
-      scrolledScreenHeight && scrollDirection === "down" ?
-      "-top-24" :
-      "top-0"
-    }
-  "
+    }"
+  style:top={(scrolledScreenHeight && scrollDirection === "down") ? "-6em" : "0"}
 >
   <a href="/" class="text-2xl">世界是学校</a>
 

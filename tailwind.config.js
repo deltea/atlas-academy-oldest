@@ -5,9 +5,6 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "landing": "url(/images/landing.jpg)",
-      },
       fontFamily: {
         "accent": ["ZhanKu", "sans"],
         "small": ["WangFont", "sans"]
