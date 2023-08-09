@@ -32,7 +32,7 @@
 </script>
 
 <header
-  class="fixed z-50 top-0 w-full flex justify-between items-center px-sm text-xs duration-500
+  class="fixed z-10 top-0 w-full flex justify-between items-center px-sm text-xs duration-500
     {atTopOfPage ?
       "text-white bg-transparent h-[15vh]" :
       "text-normal bg-white h-[12vh] shadow-lg"
@@ -41,21 +41,78 @@
 >
   <a href="/" class="{atTopOfPage ? "text-2xl" : "text-xl"} duration-100 font-bold">世界是学校</a>
 
-  <nav class="uppercase inline-flex gap-sm tracking-widest font-bold">
-    <a href="/">Home</a>
-    <a href="/destinations">Destinations</a>
-    <a href="/blog">Blog</a>
-    <a href="/about">About</a>
+  <nav class="uppercase inline-flex tracking-widest font-bold">
+    <a
+      href="/"
+      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200 py-8 px-6"
+    >
+      Home
+    </a>
+    <div class="relative inline-block group py-8 px-6">
+      <a
+        href="/destinations"
+        class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
+      >
+        Destinations
+      </a>
+
+      <div class="hidden absolute shadow-lg w-60 p-4 z-20 group-hover:flex flex-col bg-white text-normal top-16 font-normal tracking-normal">
+        <a
+          href="/destinations/serbia"
+          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 duration-200">
+          Serbia
+        </a>
+        <a
+          href="/destinations/serbia"
+          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 duration-200">
+          Serbia
+        </a>
+        <a
+          href="/destinations/serbia"
+          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 duration-200">
+          Serbia
+        </a>
+        <a
+          href="/destinations/serbia"
+          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 duration-200">
+          Serbia
+        </a>
+      </div>
+    </div>
+    <a
+      href="/blog"
+      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200 py-8 px-6"
+    >
+      Blog
+    </a>
+    <a
+      href="/about"
+      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200 py-8 px-6"
+    >
+      About
+    </a>
   </nav>
 
   <div class="inline-flex gap-4 text-lg items-center">
-    <a href="https://www.facebook.com/worldschool.atlas.academy" target="_blank">
+    <a
+      href="https://www.facebook.com/worldschool.atlas.academy"
+      target="_blank"
+      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
+    >
       <IconFacebook />
     </a>
-    <a href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3" target="_blank">
+    <a
+      href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3"
+      target="_blank"
+      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
+    >
       <IconSpotify />
     </a>
-    <a href="https://podcasts.apple.com/us/podcast/%E4%B8%96%E7%95%8C%E6%98%AF%E5%AD%B8%E6%A0%A1-worldschooling/id1646258789" class="text-[16px]" target="_blank">
+    <a
+      href="https://podcasts.apple.com/us/podcast/%E4%B8%96%E7%95%8C%E6%98%AF%E5%AD%B8%E6%A0%A1-worldschooling/id1646258789"
+      target="_blank"
+      class="text-[16px] hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
+    >
       <IconApplePodcast />
     </a>
   </div>
