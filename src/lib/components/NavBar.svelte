@@ -32,16 +32,20 @@
 </script>
 
 <header
-  class="fixed top-0 w-full h-[15vh] flex justify-between items-center text-white px-12 text-sm duration-500"
-  class:bg-white={!atTopOfPage}
-  class:text-neutral={!atTopOfPage}
-  class:h-[12vh]={!atTopOfPage}
-  class:shadow-lg={!atTopOfPage}
-  class:-top-20={scrolledScreenHeight && scrollDirection === "down"}
+  class="fixed top-0 w-full flex justify-between items-center px-sm text-sm duration-500
+    {atTopOfPage ?
+      "text-white bg-transparent h-[15vh]" :
+      "text-normal bg-white h-[12vh] shadow-lg"
+    } {
+      scrolledScreenHeight && scrollDirection === "down" ?
+      "-top-24" :
+      "top-0"
+    }
+  "
 >
   <a href="/" class="text-2xl">世界是学校</a>
 
-  <nav class="uppercase inline-flex gap-12 tracking-widest font-bold">
+  <nav class="uppercase inline-flex gap-sm tracking-widest font-bold">
     <a href="/">Home</a>
     <a href="/">Destinations</a>
     <a href="/">Blog</a>

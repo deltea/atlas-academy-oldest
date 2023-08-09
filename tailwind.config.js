@@ -8,18 +8,22 @@ export default {
       backgroundImage: {
         "landing": "url(/images/landing.jpg)",
       },
-      transitionDuration: {
-        "fast": "300ms"
-      },
-      scale: {
-        "sm": "103%",
-      },
-      gridTemplateRows: {
-        "9": "repeat(9, minmax(0, 1fr))",
-      },
       fontFamily: {
         "accent": ["ZhanKu", "sans"],
         "small": ["WangFont", "sans"]
+      },
+      padding: {
+        "sm": "3rem",
+        "md": "4rem",
+        "lg": "5rem"
+      },
+      gap: {
+        "sm": "3rem",
+        "md": "4rem",
+        "lg": "5rem"
+      },
+      colors: {
+        "normal": "#242424"
       }
     },
   },
