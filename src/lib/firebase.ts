@@ -41,6 +41,13 @@ export interface MarkerData {
   y: number,
 }
 
+export interface TagData {
+  name: string,
+  image: string,
+  heading: string,
+  description: string,
+}
+
 
 /**
  * Fetches data from a document in the database

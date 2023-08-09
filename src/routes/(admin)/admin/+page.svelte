@@ -1,5 +1,4 @@
 <script lang="ts">
-  import PostCard from "$lib/components/PostCard.svelte";
   import type { PageData } from "./$types";
 
   import IconMap from "~icons/bxs/map";
@@ -26,6 +25,6 @@
 
 <div class="grid grid-cols-3 gap-2 m-4">
   {#each data.posts as post}
-    <PostCard post={post} urlPrefix="/admin/edit" width="100%" />
+    
   {/each}
 </div>

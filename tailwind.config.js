@@ -20,7 +20,11 @@ export default {
         "lg": "5rem"
       },
       colors: {
-        "normal": "#242424"
+        "normal": "#242424",
+        "light": "#333333",
+      },
+      borderWidth: {
+        "sm": "1.5px"
       }
     },
   },
