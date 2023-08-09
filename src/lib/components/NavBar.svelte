@@ -49,13 +49,13 @@
   </nav>
 
   <div class="inline-flex gap-4 text-lg items-center">
-    <a href="https://www.facebook.com/worldschool.atlas.academy">
+    <a href="https://www.facebook.com/worldschool.atlas.academy" target="_blank">
       <IconFacebook />
     </a>
-    <a href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3">
+    <a href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3" target="_blank">
       <IconSpotify />
     </a>
-    <a href="https://podcasts.apple.com/us/podcast/%E4%B8%96%E7%95%8C%E6%98%AF%E5%AD%B8%E6%A0%A1-worldschooling/id1646258789" class="text-[16px]">
+    <a href="https://podcasts.apple.com/us/podcast/%E4%B8%96%E7%95%8C%E6%98%AF%E5%AD%B8%E6%A0%A1-worldschooling/id1646258789" class="text-[16px]" target="_blank">
       <IconApplePodcast />
     </a>
   </div>
