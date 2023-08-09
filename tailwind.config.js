@@ -6,8 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "accent": ["ZhanKu", "sans"],
-        "small": ["WangFont", "sans"]
+        "jost": ["Jost", "sans-serif"]
       },
       padding: {
         "sm": "3rem",

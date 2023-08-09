@@ -4,6 +4,7 @@
   import IconSpotify from "~icons/mdi/spotify";
   import IconApplePodcast from "~icons/simple-icons/applepodcasts";
   import IconFacebook from "~icons/mdi/facebook";
+  import IconMenu from "~icons/ic/outline-menu";
 
   let atTopOfPage = true;
   let scrolledScreenHeight = false;
@@ -32,23 +33,24 @@
 </script>
 
 <header
+  style:top={(scrolledScreenHeight && scrollDirection === "down") ? "-7em" : "0"}
   class="fixed z-10 top-0 w-full flex justify-between items-center px-sm text-xs duration-500
     {atTopOfPage ?
       "text-white bg-transparent h-[15vh]" :
       "text-normal bg-white h-[12vh] shadow-lg"
-    }"
-  style:top={(scrolledScreenHeight && scrollDirection === "down") ? "-7em" : "0"}
+    }
+  "
 >
   <a href="/" class="{atTopOfPage ? "text-2xl" : "text-xl"} duration-100 font-bold">世界是学校</a>
 
-  <nav class="uppercase inline-flex tracking-widest font-bold">
+  <nav class="uppercase hidden tracking-widest font-semibold md:inline-flex">
     <a
       href="/"
-      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200 py-8 px-6"
+      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200 py-8 px-4"
     >
       Home
     </a>
-    <div class="relative inline-block group py-8 px-6">
+    <div class="relative inline-block group py-8 px-4">
       <a
         href="/destinations"
         class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
@@ -81,19 +83,19 @@
     </div>
     <a
       href="/blog"
-      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200 py-8 px-6"
+      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200 py-8 px-4"
     >
       Blog
     </a>
     <a
       href="/about"
-      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200 py-8 px-6"
+      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200 py-8 px-4"
     >
       About
     </a>
   </nav>
 
-  <div class="inline-flex gap-4 text-lg items-center">
+  <div class="hidden md:inline-flex gap-4 text-lg items-center">
     <a
       href="https://www.facebook.com/worldschool.atlas.academy"
       target="_blank"
@@ -116,4 +118,6 @@
       <IconApplePodcast />
     </a>
   </div>
+
+  <button class="inline-flex md:hidden text-2xl"><IconMenu /></button>
 </header>

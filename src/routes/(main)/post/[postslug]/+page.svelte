@@ -28,6 +28,6 @@
     @apply w-full;
   }
   main :global(p) {
-    @apply leading-7 my-8;
+    @apply leading-7 my-8 text-lg font-light;
   }
 </style>

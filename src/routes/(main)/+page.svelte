@@ -6,7 +6,7 @@
 </script>
 
 <PageLanding center src="/images/landing.jpg">
-  <h2 class= "tracking-widest">oga booga lau iowjioje</h2>
+  <h2 class= "tracking-widest  -mt-28">oga booga lau iowjioje</h2>
   <h1 class="text-3xl tracking-wider">BLAH BLAH BLAH</h1>
 </PageLanding>
 

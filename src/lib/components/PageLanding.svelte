@@ -4,7 +4,7 @@
 </script>
 
 <div
-  class="h-screen bg-cover bg-no-repeat bg-fixed flex items-center bg-gray-300 bg-blend-multiply"
+  class="h-screen bg-cover bg-no-repeat bg-center bg-fixed flex items-center bg-gray-300 bg-blend-multiply"
   style:background-image="url('{src}')"
   class:justify-center={center}
 >

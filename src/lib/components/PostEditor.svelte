@@ -11,7 +11,6 @@
 
   export let tags: string[] = [];
   export let title: string = "";
-  export let slug: string = "";
   export let description: string = "";
   export let cover: Blob | string = "";
   export let body: string = "";
@@ -57,10 +56,10 @@
 
     const batch = writeBatch(db);
 
-    tags.forEach(tag => {
-      const ref = doc(db, "tags", tag);
-      batch.set(ref, {});
-    });
+    // tags.forEach(tag => {
+    //   const ref = doc(db, "tags", tag);
+    //   batch.set(ref, {});
+    // });
 
     await batch.commit();
 
