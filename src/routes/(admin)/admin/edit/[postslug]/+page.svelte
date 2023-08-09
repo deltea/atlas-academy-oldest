@@ -1,10 +1,10 @@
 <script lang="ts">
-	import PostEditor from '$lib/components/PostEditor.svelte';
-  import { type PostData, queryDocs, changeDoc } from '$lib/firebase';
-  import type { DocumentData } from 'firebase/firestore';
-  import type { PageData } from './$types';
-  import { goto } from '$app/navigation';
-  import { slugify } from '$lib/utils';
+	import PostEditor from "$lib/components/PostEditor.svelte";
+  import { type PostData, queryDocs, changeDoc } from "$lib/firebase";
+  import type { DocumentData } from "firebase/firestore";
+  import type { PageData } from "./$types";
+  import { goto } from "$app/navigation";
+  import { slugify } from "$lib/utils";
 
   export let data: PageData;
 

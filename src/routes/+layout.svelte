@@ -7,6 +7,6 @@
   <title>Atlas Academy</title>
 </svelte:head>
 
-<main class="h-auto">
+<div class="h-auto">
   <slot />
-</main>
+</div>

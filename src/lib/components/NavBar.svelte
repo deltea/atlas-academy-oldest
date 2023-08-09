@@ -1,28 +1,28 @@
-<nav class="flex flex-col m-8 items-center gap-4 text-center">
-  <a href="/" class="normal-case text-5xl duration-fast font-accent tracking-[0.3em]">
-    世界是学校
-  </a>
-  <p class="text-neutral-400 tracking-widest w-2/3">跟我们一起 Worldschooling!</p>
-</nav>
+<script lang="ts">
+  import IconSpotify from "~icons/mdi/spotify";
+  import IconApplePodcast from "~icons/simple-icons/applepodcasts";
+  import IconFacebook from "~icons/mdi/facebook";
+</script>
 
-<style>
-  a {
-    position: relative;
-  }
-  a::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-    transform-origin: top left;
-    @apply bg-neutral;
-  }
-  a:hover::before {
-    transform: scaleX(1);
-  }
-</style>
+<header class="fixed top-0 w-full h-[15vh] flex justify-between items-center text-white px-12   text-sm">
+  <a href="/" class="text-2xl">世界是学校</a>
+
+  <nav class="uppercase inline-flex gap-12 tracking-widest font-bold">
+    <a href="/">Home</a>
+    <a href="/">Destinations</a>
+    <a href="/">Blog</a>
+    <a href="/">About</a>
+  </nav>
+
+  <div class="inline-flex gap-4 text-lg items-center">
+    <a href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3" class="">
+      <IconFacebook />
+    </a>
+    <a href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3" class="">
+      <IconSpotify />
+    </a>
+    <a href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3" class="text-[16px]">
+      <IconApplePodcast />
+    </a>
+  </div>
+</header>

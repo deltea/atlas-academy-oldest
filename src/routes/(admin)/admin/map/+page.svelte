@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { PageData } from './$types';
-  import { createDoc, createDocWithId, type MarkerData } from '$lib/firebase';
-  import Marker from '$lib/components/Marker.svelte';
+  import type { PageData } from "./$types";
+  import { createDoc, createDocWithId, type MarkerData } from "$lib/firebase";
+  import Marker from "$lib/components/Marker.svelte";
 
   export let data: PageData;
 

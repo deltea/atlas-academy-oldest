@@ -1,4 +1,4 @@
-import { type PostData, queryDocs } from '$lib/firebase';
+import { type PostData, queryDocs } from "$lib/firebase";
 import type { PageServerLoad } from "./$types";
 
 export const load = (async () => {

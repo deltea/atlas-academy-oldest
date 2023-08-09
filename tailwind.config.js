@@ -5,6 +5,9 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "landing": "url(/images/landing.jpg)",
+      },
       transitionDuration: {
         "fast": "300ms"
       },

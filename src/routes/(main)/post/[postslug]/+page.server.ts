@@ -1,5 +1,5 @@
-import { queryDocs, type PostData, orderDocs } from '$lib/firebase';
-import type { PageServerLoad } from './$types';
+import { queryDocs, type PostData, orderDocs } from "$lib/firebase";
+import type { PageServerLoad } from "./$types";
 
 export const load = (async ({ params }) => {
   const results = await queryDocs("posts", "slug", "==", params.postslug, 1);

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
-  import PostEditor from '$lib/components/PostEditor.svelte';
-  import { createDoc, type PostData } from '$lib/firebase';
-  import { slugify } from '$lib/utils';
+  import { goto } from "$app/navigation";
+  import PostEditor from "$lib/components/PostEditor.svelte";
+  import { createDoc, type PostData } from "$lib/firebase";
+  import { slugify } from "$lib/utils";
 
   async function create(data: PostData) {
     await createDoc("posts", {

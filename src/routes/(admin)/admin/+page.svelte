@@ -2,7 +2,7 @@
   import PostCard from "$lib/components/PostCard.svelte";
   import type { PageData } from "./$types";
 
-  import IconMap from '~icons/bxs/map';
+  import IconMap from "~icons/bxs/map";
 
   export let data: PageData;
 </script>

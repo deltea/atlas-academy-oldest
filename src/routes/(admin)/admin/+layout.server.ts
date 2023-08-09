@@ -1,5 +1,5 @@
-import { redirect } from '@sveltejs/kit';
-import type { LayoutServerLoad } from './$types';
+import { redirect } from "@sveltejs/kit";
+import type { LayoutServerLoad } from "./$types";
 import { PASSWORD } from "$env/static/private";
 
 export const load = (async ({ cookies }) => {

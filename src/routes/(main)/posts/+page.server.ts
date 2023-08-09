@@ -1,6 +1,6 @@
-import type { PageServerLoad } from './$types';
-import { type PostData, fetchDocs, type MarkerData } from '$lib/firebase';
-import type { DocumentData } from 'firebase/firestore';
+import type { PageServerLoad } from "./$types";
+import { type PostData, fetchDocs, type MarkerData } from "$lib/firebase";
+import type { DocumentData } from "firebase/firestore";
 
 export const load = (async ({ url }) => {
   const q = url.searchParams.get("q")?.toLowerCase() ?? "";

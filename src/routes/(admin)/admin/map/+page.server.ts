@@ -1,5 +1,5 @@
-import { fetchDocs, type MarkerData } from '$lib/firebase';
-import type { PageServerLoad } from './$types';
+import { fetchDocs, type MarkerData } from "$lib/firebase";
+import type { PageServerLoad } from "./$types";
 
 export const load = (async ({ parent }) => {
   await parent();
