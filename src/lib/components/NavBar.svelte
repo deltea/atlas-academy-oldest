@@ -15,7 +15,7 @@
   }
 
   function detectScrollDirection(e: WheelEvent) {
-    scrollDirection = e.deltaY < 0 ? "up" : "down";
+    // scrollDirection = e.deltaY < 0 ? "up" : "down";
   }
 
   onMount(() => {
