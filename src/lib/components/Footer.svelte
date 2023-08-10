@@ -92,11 +92,11 @@
   </div>
 </footer>
 
-<section class="bg-black text-white p-2 flex justify-center">
+<section class="bg-black text-white p-1 flex justify-center">
   <small class="inline-flex items-center gap-1 font-mono">
     Made by
     <a href="https://github.com/thcheetah777" target="_blank" class="underline font-mono">Leo</a>
     with
-    <a href="svelte.dev" target="_blank" class="underline hover:text-orange-500"><IconSvelte /></a>
+    <a href="https://svelte.dev" target="_blank" class="underline hover:text-orange-500"><IconSvelte /></a>
   </small>
 </section>

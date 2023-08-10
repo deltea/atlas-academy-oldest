@@ -13,3 +13,8 @@
   font-family: "ZhanKu";
   src: url(/fonts/zhanku.ttf);
 }
+
+@font-face {
+  font-family: "Source Hans";
+  src: url(/fonts/source-hans.otf);
+}

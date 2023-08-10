@@ -41,7 +41,9 @@
     }
   "
 >
-  <a href="/" class="{atTopOfPage ? "text-2xl" : "text-xl"} duration-100 font-bold">世界是学校</a>
+  <a href="/" class="{atTopOfPage ? "text-2xl" : "text-xl"} duration-100 font-bold font-title">
+    世界是学校
+  </a>
 
   <nav class="uppercase hidden tracking-widest font-semibold md:inline-flex">
     <a
