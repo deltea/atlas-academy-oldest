@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { getDarkMode, setDarkMode } from "$lib/utils";
+  import { fade } from "svelte/transition";
 
   import IconSpotify from "~icons/mdi/spotify";
   import IconApplePodcast from "~icons/simple-icons/applepodcasts";
@@ -13,7 +13,7 @@
   let scrolledScreenHeight = false;
   let scrollDirection: "up" | "down" = "up";
   let darkModeSwitch: HTMLButtonElement;
-  let darkModeOn: boolean;
+  let darkMode: boolean;
 
   function checkTopOfPage() {
     scrolledScreenHeight = window.scrollY > window.innerHeight;
@@ -25,14 +25,28 @@
   }
 
   function switchDarkMode() {
-    setDarkMode(!getDarkMode());
-    darkModeOn = getDarkMode();
+    darkMode = !darkMode;
+
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+
+    darkMode
+      ? document.documentElement.classList.add("dark")
+      : document.documentElement.classList.remove("dark");
   }
 
   onMount(() => {
     checkTopOfPage();
 
-    darkModeOn = getDarkMode();
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+      darkMode = true;
+    } else {
+      document.documentElement.classList.remove("dark");
+      darkMode = false;
+    }
 
     document.addEventListener("scroll", checkTopOfPage);
     document.addEventListener("wheel", detectScrollDirection);
@@ -60,8 +74,8 @@
       世界是学校
     </a>
 
-    <button class="text-lg" bind:this={darkModeSwitch}>
-      {#if darkModeOn}
+    <button class="text-lg duration-300 {darkMode ? "rotate-0" : "rotate-45"}" bind:this={darkModeSwitch}>
+      {#if darkMode}
         <IconMoon />
       {:else}
         <IconSun />

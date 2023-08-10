@@ -1,13 +1,6 @@
 <script lang="ts">
   import NavBar from "$lib/components/NavBar.svelte";
   import Footer from "$lib/components/Footer.svelte";
-
-  import { onMount } from "svelte";
-  import { loadDarkMode } from "$lib/utils";
-
-  onMount(() => {
-    loadDarkMode();
-  });
 </script>
 
 <NavBar />
