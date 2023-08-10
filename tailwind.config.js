@@ -7,7 +7,7 @@ export default {
     extend: {
       fontFamily: {
         "jost": ["Jost", "sans-serif"],
-        "title": ["Source Hans", "sans-serif"]
+        "title": ["ZhanKu", "sans-serif"]
       },
       padding: {
         "sm": "3rem",

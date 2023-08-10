@@ -41,7 +41,7 @@
     }
   "
 >
-  <a href="/" class="{atTopOfPage ? "text-2xl" : "text-xl"} duration-100 font-bold font-title">
+  <a href="/" class="{atTopOfPage ? "text-2xl" : "text-xl"} duration-100 font-normal text-3xl font-title">
     世界是学校
   </a>
 
