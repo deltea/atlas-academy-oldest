@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "jost": ["Jost", "sans-serif"]
+        "jost": ["jost", "sans-serif"]
       },
       padding: {
         "sm": "3rem",

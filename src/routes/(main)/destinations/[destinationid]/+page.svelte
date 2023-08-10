@@ -16,7 +16,7 @@
   </div>
 
   <div class="flex flex-col gap-4">
-    <h1 class="text-2xl font-medium uppercase">{data.tag.heading}</h1>
+    <h1 class="text-2xl font-semibold uppercase">{data.tag.heading}</h1>
     <p class="text-light">{data.tag.description}</p>
   </div>
 
