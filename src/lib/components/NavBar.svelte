@@ -73,17 +73,9 @@
     <a href="/" class="{atTopOfPage ? "text-3xl" : "text-2xl"} duration-100 font-normal font-title">
       世界是学校
     </a>
-
-    <button class="text-lg duration-300 {darkMode ? "rotate-0" : "rotate-45"}" bind:this={darkModeSwitch}>
-      {#if darkMode}
-        <IconMoon />
-      {:else}
-        <IconSun />
-      {/if}
-    </button>
   </div>
 
-  <nav class="uppercase hidden tracking-widest font-semibold md:inline-flex">
+  <nav class="uppercase hidden tracking-widest font-semibold md:inline-flex items-center">
     <a
       href="/"
       class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200 py-8 px-4"
@@ -133,6 +125,14 @@
     >
       About
     </a>
+
+    <button class="text-lg duration-300 {darkMode ? "rotate-0" : "rotate-45"} ml-4" bind:this={darkModeSwitch}>
+      {#if darkMode}
+        <IconMoon />
+      {:else}
+        <IconSun />
+      {/if}
+    </button>
   </nav>
 
   <div class="hidden md:inline-flex text-lg gap-16 items-center">
