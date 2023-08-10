@@ -5,7 +5,9 @@
   import IconSvelte from "~icons/simple-icons/svelte";
 </script>
 
-<footer class="bg-[#f4f4f4] p-sm text-neutral-700">
+<div class="bg-[url(/images/waves.svg)] bg-cover bg-[center_-15em] bg-no-repeat w-full h-[8em]"></div>
+
+<footer class="bg-[#ececec] p-sm text-neutral-700">
   <div class="flex justify-between">
     <div class="space-y-2 w-80 gap-1">
       <a
@@ -63,7 +65,7 @@
   <hr class="my-4">
 
   <div class="flex justify-between">
-    <p>© 2023 Atlas Academy. All rights reserved</p>
+    <p class="font-light  ">© 2023 Atlas Academy. All rights reserved</p>
     <div class="flex gap-2">
       <a
         href="https://www.facebook.com/worldschool.atlas.academy"
@@ -92,8 +94,8 @@
 
 <section class="bg-black text-white p-2 flex justify-center">
   <small class="inline-flex items-center gap-1 font-mono">
-    <a href="https://github.com/thcheetah777" target="_blank" class="underline font-mono">Leo</a>
     Made by
+    <a href="https://github.com/thcheetah777" target="_blank" class="underline font-mono">Leo</a>
     with
     <a href="svelte.dev" target="_blank" class="underline hover:text-orange-500"><IconSvelte /></a>
   </small>

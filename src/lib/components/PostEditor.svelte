@@ -168,7 +168,7 @@
             </form>
             <div class="flex gap-1 mt-2">
               {#each tags as tag}
-                <p class="btn btn-xs btn-outline normal-case">#{tag}</p>
+                <a href="/destinations/{tag}" class="btn btn-xs btn-outline normal-case">{tag}</a>
               {/each}
             </div>
           </div>
