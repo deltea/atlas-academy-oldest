@@ -10,7 +10,7 @@
   <h1 class="text-3xl tracking-wider uppercase">{data.post.title}</h1>
 </PageLanding>
 
-<main class="px-sm pb-sm pt-4 text-normal w-2/3">
+<main class="px-sm pb-sm pt-4 text-normal dark:text-white w-2/3">
   {@html data.post.body}
 </main>
 

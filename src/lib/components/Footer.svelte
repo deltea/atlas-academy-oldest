@@ -5,15 +5,15 @@
   import IconSvelte from "~icons/simple-icons/svelte";
 </script>
 
-<div class="bg-[url(/images/waves.svg)] bg-cover bg-[center_-15em] bg-no-repeat w-full h-[8em]"></div>
+<div class="bg-[url(/images/waves.svg)] dark:bg-[url(/images/dark-waves.svg)] bg-white dark:bg-normal bg-cover bg-[center_-15em] bg-no-repeat w-full h-[8em] duration-300"></div>
 
-<footer class="bg-[#ececec] p-sm text-neutral-700">
+<footer class="bg-[#ececec] dark:bg-[#434343] p-sm text-neutral-700 dark:text-white duration-300">
   <div class="flex justify-between">
     <div class="space-y-2 w-80 gap-1">
       <a
         href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3"
         target="_blank"
-        class="py-2 px-2.5 rounded-xl flex items-center btn btn-neutral bg-neutral-700 text-left w-full justify-start h-fit hover:bg-neutral-500 border-0"
+        class="py-2 px-2.5 rounded-xl flex items-center btn btn-neutral bg-neutral-700 dark:bg-neutral-600 text-left w-full justify-start h-fit hover:bg-neutral-500 border-0"
       >
         <IconApplePodcast class="text-purple-500 bg-white rounded-xl text-3xl" />
         <div class="flex flex-col">
@@ -24,7 +24,7 @@
       <a
         href="https://podcasts.apple.com/us/podcast/%E4%B8%96%E7%95%8C%E6%98%AF%E5%AD%B8%E6%A0%A1-worldschooling/id1646258789"
         target="_blank"
-        class="py-2 px-2.5 rounded-xl flex items-center btn btn-neutral bg-neutral-700 text-left w-full justify-start h-fit hover:bg-neutral-500 border-0"
+        class="py-2 px-2.5 rounded-xl flex items-center btn btn-neutral bg-neutral-700 dark:bg-neutral-600 text-left w-full justify-start h-fit hover:bg-neutral-500 border-0"
       >
         <IconSpotify class="text-green-500 text-3xl" />
         <div class="flex flex-col">
@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  <hr class="my-4">
+  <hr class="my-4 dark:border-neutral-400">
 
   <div class="flex justify-between">
     <p class="font-light  ">© 2023 Atlas Academy. All rights reserved</p>

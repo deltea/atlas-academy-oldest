@@ -1,14 +1,19 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { getDarkMode, setDarkMode } from "$lib/utils";
 
   import IconSpotify from "~icons/mdi/spotify";
   import IconApplePodcast from "~icons/simple-icons/applepodcasts";
   import IconFacebook from "~icons/mdi/facebook";
   import IconMenu from "~icons/ic/outline-menu";
+  import IconMoon from "~icons/ri/moon-fill";
+  import IconSun from "~icons/ri/sun-fill";
 
   let atTopOfPage = true;
   let scrolledScreenHeight = false;
   let scrollDirection: "up" | "down" = "up";
+  let darkModeSwitch: HTMLButtonElement;
+  let darkModeOn: boolean;
 
   function checkTopOfPage() {
     scrolledScreenHeight = window.scrollY > window.innerHeight;
@@ -19,15 +24,24 @@
     // scrollDirection = e.deltaY < 0 ? "up" : "down";
   }
 
+  function switchDarkMode() {
+    setDarkMode(!getDarkMode());
+    darkModeOn = getDarkMode();
+  }
+
   onMount(() => {
     checkTopOfPage();
 
+    darkModeOn = getDarkMode();
+
     document.addEventListener("scroll", checkTopOfPage);
     document.addEventListener("wheel", detectScrollDirection);
+    darkModeSwitch.addEventListener("click", switchDarkMode);
 
     return () => {
       document.removeEventListener("scroll", checkTopOfPage);
       document.removeEventListener("wheel", detectScrollDirection);
+      darkModeSwitch.addEventListener("click", () => switchDarkMode);
     }
   });
 </script>
@@ -37,13 +51,23 @@
   class="fixed z-10 top-0 w-full flex justify-between items-center px-sm text-xs duration-500
     {atTopOfPage ?
       "text-white bg-transparent h-[15vh]" :
-      "text-normal bg-white h-[12vh] shadow-lg"
+      "text-normal bg-white dark:bg-normal dark:text-white h-[12vh] shadow-lg"
     }
   "
 >
-  <a href="/" class="{atTopOfPage ? "text-3xl" : "text-2xl"} duration-100 font-normal font-title">
-    世界是学校
-  </a>
+  <div class="flex gap-4">
+    <a href="/" class="{atTopOfPage ? "text-3xl" : "text-2xl"} duration-100 font-normal font-title">
+      世界是学校
+    </a>
+
+    <button class="text-lg" bind:this={darkModeSwitch}>
+      {#if darkModeOn}
+        <IconMoon />
+      {:else}
+        <IconSun />
+      {/if}
+    </button>
+  </div>
 
   <nav class="uppercase hidden tracking-widest font-semibold md:inline-flex">
     <a
@@ -60,25 +84,25 @@
         Destinations
       </a>
 
-      <div class="hidden absolute shadow-lg w-60 p-4 z-20 group-hover:flex flex-col bg-white text-normal top-16 font-normal tracking-normal">
+      <div class="hidden absolute shadow-lg w-60 p-4 z-20 group-hover:flex flex-col bg-white dark:bg-normal text-normal dark:text-white top-16 font-normal tracking-normal">
         <a
           href="/destinations/serbia"
-          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 duration-200">
+          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
           Serbia
         </a>
         <a
           href="/destinations/serbia"
-          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 duration-200">
+          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
           Serbia
         </a>
         <a
           href="/destinations/serbia"
-          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 duration-200">
+          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
           Serbia
         </a>
         <a
           href="/destinations/serbia"
-          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 duration-200">
+          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
           Serbia
         </a>
       </div>
@@ -97,28 +121,30 @@
     </a>
   </nav>
 
-  <div class="hidden md:inline-flex gap-4 text-lg items-center">
-    <a
-      href="https://www.facebook.com/worldschool.atlas.academy"
-      target="_blank"
-      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
-    >
-      <IconFacebook />
-    </a>
-    <a
-      href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3"
-      target="_blank"
-      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
-    >
-      <IconSpotify />
-    </a>
-    <a
-      href="https://podcasts.apple.com/us/podcast/%E4%B8%96%E7%95%8C%E6%98%AF%E5%AD%B8%E6%A0%A1-worldschooling/id1646258789"
-      target="_blank"
-      class="text-[16px] hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
-    >
-      <IconApplePodcast />
-    </a>
+  <div class="hidden md:inline-flex text-lg gap-16 items-center">
+    <div class="flex gap-4 items-center">
+      <a
+        href="https://www.facebook.com/worldschool.atlas.academy"
+        target="_blank"
+        class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
+      >
+        <IconFacebook />
+      </a>
+      <a
+        href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3"
+        target="_blank"
+        class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
+      >
+        <IconSpotify />
+      </a>
+      <a
+        href="https://podcasts.apple.com/us/podcast/%E4%B8%96%E7%95%8C%E6%98%AF%E5%AD%B8%E6%A0%A1-worldschooling/id1646258789"
+        target="_blank"
+        class="text-[16px] hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
+      >
+        <IconApplePodcast />
+      </a>
+    </div>
   </div>
 
   <button class="inline-flex md:hidden text-2xl"><IconMenu /></button>

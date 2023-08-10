@@ -6,11 +6,11 @@
 </script>
 
 <PageLanding center src="/images/landing.jpg">
-  <h2 class= "tracking-widest  -mt-28">oga booga lau iowjioje</h2>
+  <h2 class= "tracking-widest -mt-28">oga booga lau iowjioje</h2>
   <h1 class="text-3xl tracking-wider">BLAH BLAH BLAH</h1>
 </PageLanding>
 
-<main class="bg-white p-sm">
+<main class="p-sm">
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nulla iure illo! Quis, quos nihil! Dolore necessitatibus voluptatem, quas eaque fuga ullam porro accusamus qui, tempore fugiat accusantium labore eum!
   Dolorem neque, ratione fuga hic libero ad nesciunt, nam repellat minus illum, magni harum iusto ab cum at voluptas! Numquam ab ipsa nemo architecto magni rem laborum soluta sunt fugit.
   Veniam molestias aspernatur earum cupiditate, et eligendi officiis! Assumenda modi eius totam, fugiat quisquam aliquid numquam, eveniet pariatur obcaecati dolorum temporibus voluptatibus, a ullam cupiditate amet. Amet ad laudantium deleniti!
