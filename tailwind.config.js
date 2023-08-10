@@ -13,6 +13,9 @@ export default {
         "md": "4rem",
         "lg": "5rem"
       },
+      gridTemplateRows: {
+        "9": "repeat(9, minmax(0, 1fr))"
+      },
       gap: {
         "sm": "3rem",
         "md": "4rem",

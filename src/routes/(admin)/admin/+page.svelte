@@ -25,6 +25,6 @@
 
 <div class="grid grid-cols-3 gap-2 m-4">
   {#each data.posts as post}
-    
+    <a href="/admin/edit/{post.slug}">{post.title}</a>
   {/each}
 </div>

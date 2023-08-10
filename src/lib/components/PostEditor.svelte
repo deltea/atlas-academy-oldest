@@ -4,7 +4,7 @@
   import Editor from '@tinymce/tinymce-svelte';
   import { slugify } from '$lib/utils';
   import { slide } from 'svelte/transition';
-  import { doc, writeBatch } from 'firebase/firestore';
+  import { writeBatch } from 'firebase/firestore';
 
   import IconRight from '~icons/gg/arrow-right';
   import IconLeft from '~icons/gg/arrow-left';
@@ -178,7 +178,7 @@
           <div class="collapse-title text-xl font-medium">
             Cover
           </div>
-          <div class="collapse-content">
+          <div class="collapse-content space-y-2">
             <input
               type="file"
               name="cover"
@@ -201,13 +201,21 @@
           <div class="collapse-title text-xl font-medium">
             Podcast Episodes
           </div>
-          <div class="collapse-content">
+          <div class="collapse-content space-y-2">
             <form on:submit|preventDefault={addPodcastEpisode}>
               <input type="text" class="w-full text-input h-10" bind:value={podcastInput} />
             </form>
-            <ul class="flex flex-col gap-1 mt-2 ml-4 list-disc">
+            <ul class="flex flex-col gap-1">
               {#each podcast as episode}
-                <li><a href={episode}>{episode}</a></li>
+                <iframe
+                  title="Spotify Player"
+                  class="rounded-2xl w-full h-20"
+                  src="https://open.spotify.com/embed{episode.match(/\/episode\/([^\/?]+)/g)}?theme=0&utm_source=generator"
+                  frameBorder="0"
+                  allowfullscreen={false}
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                ></iframe>
               {/each}
             </ul>
           </div>

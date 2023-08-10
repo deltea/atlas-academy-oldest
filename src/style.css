@@ -4,3 +4,7 @@
   scroll-behavior: smooth;
   @apply font-jost;
 }
+
+*::-webkit-scrollbar {
+  display: none;
+}
