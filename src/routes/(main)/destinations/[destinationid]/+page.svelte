@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PageLanding from "$lib/components/PageLanding.svelte";
+    import PostCard from "$lib/components/PostCard.svelte";
   import type { PageData } from "./$types";
 
   export let data: PageData;
@@ -27,13 +28,7 @@
 
   <main class="grid grid-cols-4 gap-4">
     {#each data.posts as post}
-      <a href="/post/{post.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light dark:text-neutral-200 group">
-        <div
-          class="group-hover:brightness-75 brightness-100 duration-300 w-full h-40 bg-cover bg-center"
-          style:background-image="url('{post.cover}')"
-        />
-        <h1>{post.title}</h1>
-      </a>
+      <PostCard url="/post/{post.slug}" title={post.title} cover={post.cover} />
     {/each}
   </main>
 </div>
