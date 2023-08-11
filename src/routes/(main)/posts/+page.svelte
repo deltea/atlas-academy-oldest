@@ -28,7 +28,9 @@
   </form>
 
   <h1 class="mb-4 text-xl">
-    {#if data.count}
+    {#if data.showingAll}
+      Showing all results
+    {:else if data.count}
       Showing {data.count} results
     {:else}
       No results

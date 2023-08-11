@@ -5,6 +5,8 @@ export const load = (async ({ url }) => {
   const q = url.searchParams.get("search");
 
   let posts = await fetchDocs("posts") as PostData[];
+  const fetchedCount = posts.length;
+
   posts = posts.filter(post => {
     const titleHasQ = post.title.toLowerCase().includes(q ?? "");
     const qHasTitle = q ? q.includes(post.title.toLowerCase()) : true;
@@ -14,5 +16,9 @@ export const load = (async ({ url }) => {
     return (titleHasQ || qHasTitle);
   });
 
-  return { posts, count: posts.length };
+  return {
+    posts,
+    count: posts.length,
+    showingAll: posts.length === fetchedCount
+  };
 }) satisfies PageServerLoad;
