@@ -10,10 +10,9 @@ export const load = (async ({ url }) => {
   posts = posts.filter(post => {
     const titleHasQ = post.title.toLowerCase().includes(q ?? "");
     const qHasTitle = q ? q.includes(post.title.toLowerCase()) : true;
+    const tagsHasQ = post.tags.includes(q ?? "");
 
-    console.log(post.title, titleHasQ, qHasTitle);
-
-    return (titleHasQ || qHasTitle);
+    return titleHasQ || qHasTitle || tagsHasQ;
   });
 
   return {
