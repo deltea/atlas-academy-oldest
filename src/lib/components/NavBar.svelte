@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { fade } from "svelte/transition";
 
   import IconSpotify from "~icons/mdi/spotify";
   import IconApplePodcast from "~icons/simple-icons/applepodcasts";
