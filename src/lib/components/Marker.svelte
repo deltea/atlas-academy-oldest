@@ -11,7 +11,7 @@
 </script>
 
 <a
-  href="/posts?tags={tag}"
+  href="/destinations/{tag}"
   class="absolute z-10 inline-block group"
   style:left="calc({x}% - 0.75rem)"
   style:top="calc({y}% - 0.75rem)"
