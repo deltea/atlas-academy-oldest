@@ -46,7 +46,7 @@
       class="hidden peer/posts"
       bind:group={selectedTab}
     />
-    <label for="posts" class="w-full hover:bg-neutral-200 rounded-md p-3 hover:cursor-pointer inline-flex items-center gap-2 peer-checked/posts:bg-neutral-200">
+    <label for="posts" class="w-full hover:bg-neutral-100 rounded-md p-3 hover:cursor-pointer inline-flex items-center gap-2 peer-checked/posts:bg-neutral-200 duration-300">
       <IconPost />
       Posts
     </label>
@@ -59,7 +59,7 @@
       class="hidden peer/tags"
       bind:group={selectedTab}
     />
-    <label for="tags" class="w-full hover:bg-neutral-200 rounded-md p-3 hover:cursor-pointer inline-flex items-center gap-2 peer-checked/tags:bg-neutral-200">
+    <label for="tags" class="w-full hover:bg-neutral-100 rounded-md p-3 hover:cursor-pointer inline-flex items-center gap-2 peer-checked/tags:bg-neutral-200 duration-300">
       <IconTag />
       Tags
     </label>
