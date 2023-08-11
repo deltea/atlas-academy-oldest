@@ -8,6 +8,8 @@
   import IconMoon from "~icons/ri/moon-fill";
   import IconSun from "~icons/ri/sun-fill";
 
+  export let isAdmin: boolean;
+
   let atTopOfPage = true;
   let scrolledScreenHeight = false;
   let scrollDirection: "up" | "down" = "up";
@@ -68,10 +70,14 @@
     }
   "
 >
-  <div class="flex gap-4">
+  <div class="flex gap-2 items-center">
     <a href="/" class="{atTopOfPage ? "text-3xl" : "text-2xl"} duration-100 font-normal font-title">
       世界是学校
     </a>
+
+    {#if isAdmin}
+      <a href="/admin" class="btn btn-outline btn-xs">Admin</a>
+    {/if}
   </div>
 
   <nav class="uppercase hidden tracking-widest font-semibold md:inline-flex items-center">

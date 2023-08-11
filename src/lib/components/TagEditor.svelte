@@ -102,6 +102,9 @@
       {/if}
     </div>
 
-    <button type="submit" class="btn btn-neutral">Save</button>
+    <div class="flex items-center gap-2">
+      <a href="/admin" class="btn btn-outline flex-grow">Cancel</a>
+      <button type="submit" class="btn btn-neutral flex-grow">Save</button>
+    </div>
   </form>
 </div>
