@@ -7,6 +7,7 @@
   import IconMenu from "~icons/ic/outline-menu";
   import IconMoon from "~icons/ri/moon-fill";
   import IconSun from "~icons/ri/sun-fill";
+  import IconAdd from "~icons/gg/add";
 
   export let isAdmin: boolean;
 
@@ -97,24 +98,28 @@
 
       <div class="hidden absolute shadow-lg w-60 p-4 z-20 group-hover:flex flex-col bg-white dark:bg-normal text-normal dark:text-white top-16 font-normal tracking-normal">
         <a
-          href="/destinations/serbia"
+          href="/destinations/italy"
           class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
-          Serbia
+          Italy
         </a>
         <a
-          href="/destinations/serbia"
+          href="/destinations/japan"
           class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
-          Serbia
+          Japan
         </a>
         <a
-          href="/destinations/serbia"
+          href="/destinations/montenegro"
           class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
-          Serbia
+          Montenegro
         </a>
         <a
-          href="/destinations/serbia"
+          href="/destinations/france"
           class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
-          Serbia
+          France
+        </a>
+        <a href="/destinations" class="p-2 w-full inline-flex gap-2 text-blue-500 hover:bg-neutral-100 hover:text-blue-400 dark:hover:bg-neutral-700 duration-200">
+          <IconAdd />
+          跟多地方
         </a>
       </div>
     </div>

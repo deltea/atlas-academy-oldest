@@ -53,10 +53,10 @@
         </h2>
 
         <div class="space-y-1 grid text-sm">
-          <a href="/destinations/serbia">Serbia</a>
-          <a href="/destinations/usa">United States</a>
-          <a href="/destinations/taiwan">Taiwan</a>
-          <a href="/destinations/montenegro">Montenegro</a>
+          <a href="/destinations/italy">Italy</a>
+          <a href="/destinations/japan">Japan</a>
+          <a href="/destinations/montenegro">Mongenetro</a>
+          <a href="/destinations/france">France</a>
         </div>
       </div>
     </div>
