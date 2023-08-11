@@ -119,7 +119,7 @@
         </a>
         <a href="/destinations" class="p-2 w-full inline-flex gap-2 text-blue-500 hover:bg-neutral-100 hover:text-blue-400 dark:hover:bg-neutral-700 duration-200">
           <IconAdd />
-          跟多地方
+          更多地方
         </a>
       </div>
     </div>
