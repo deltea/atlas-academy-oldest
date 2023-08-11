@@ -34,7 +34,6 @@
       y,
     }];
 
-    await createDocWithId("tags", tag, {});
     await createDoc("markers", {
       name,
       description,
