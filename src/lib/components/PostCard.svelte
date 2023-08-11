@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { draw, fade, scale, slide } from "svelte/transition";
+	import { fade } from "svelte/transition";
 
   export let url: string;
   export let title: string;

@@ -42,6 +42,7 @@ export interface MarkerData {
 }
 
 export interface TagData {
+  slug: string,
   name: string,
   image: string,
   heading: string,
