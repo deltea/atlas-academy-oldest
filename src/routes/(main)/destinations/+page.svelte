@@ -10,7 +10,7 @@
   <h1 class="text-3xl tracking-wider uppercase">Destinations</h1>
 </PageLanding>
 
-<div class="grid grid-cols-3 gap-2 gap-y-8e p-sm">
+<div class="grid grid-cols-3 gap-2 gap-y-8 p-sm">
   {#each data.tags as tag}
     <a href="/destinations/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light dark:text-neutral-200 group text-center" transition:fade>
       <div
