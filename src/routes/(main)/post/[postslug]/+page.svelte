@@ -3,11 +3,13 @@
   import type { PageData } from "./$types";
 
   export let data: PageData;
+  const date = new Date(data.post.date);
+  const formattedDate = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`;
 </script>
 
 <PageLanding center src={data.post.cover}>
   <small class="uppercase text-sm tracking-widest">
-    {data.post.date}
+    {formattedDate}
     |
     <span class="inline-flex gap-2">
       {#each data.post.tags as tag}

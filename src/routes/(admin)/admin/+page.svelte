@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PageData } from "./$types";
+  import { fade } from "svelte/transition";
 
   import IconMap from "~icons/bxs/map";
 
@@ -23,8 +24,14 @@
   </div>
 </header>
 
-<div class="grid grid-cols-3 gap-2 m-4">
+<div class="grid grid-cols-4 gap-2 m-4">
   {#each data.posts as post}
-    <a href="/admin/edit/{post.slug}">{post.title}</a>
+    <a href="/admin/edit/{post.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group" transition:fade>
+      <div
+        class="group-hover:brightness-75 brightness-100 duration-300 w-full h-40 bg-cover bg-center rounded-sm"
+        style:background-image="url('{post.cover}')"
+      />
+      <h1>{post.title}</h1>
+    </a>
   {/each}
 </div>
