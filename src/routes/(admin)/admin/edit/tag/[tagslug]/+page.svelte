@@ -25,6 +25,7 @@
       description: tag.description,
       image: tag.image,
       heading: tag.heading,
+      continent: tag.continent,
     } satisfies TagData);
 
     goto(`/destinations/${tag.slug}`);

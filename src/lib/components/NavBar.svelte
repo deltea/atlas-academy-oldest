@@ -100,22 +100,22 @@
         <a
           href="/destinations/italy"
           class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
-          Italy
+          <span class="font-bold">義大利</span> Italy
         </a>
         <a
           href="/destinations/japan"
           class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
-          Japan
+          <span class="font-bold">日本</span> Japan
         </a>
         <a
           href="/destinations/montenegro"
           class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
-          Montenegro
+          <span class="font-bold">黑山共和國</span> Montenegro
         </a>
         <a
           href="/destinations/france"
           class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
-          France
+          <span class="font-bold">法國</span> France
         </a>
         <a href="/destinations" class="p-2 w-full inline-flex gap-2 text-blue-500 hover:bg-neutral-100 hover:text-blue-400 dark:hover:bg-neutral-700 duration-200">
           <IconAdd />
