@@ -6,11 +6,19 @@
 </script>
 
 <PageLanding center src={data.post.cover}>
-  <small class="uppercase text-sm tracking-widest">{data.post.date} | {data.post.tags.join(", ")}</small>
+  <small class="uppercase text-sm tracking-widest">
+    {data.post.date}
+    |
+    <span class="inline-flex gap-2">
+      {#each data.post.tags as tag}
+        <a href="/destinations/{tag}" class="hover:text-blue-500 duration-200">{tag}</a>
+      {/each}
+    </span>
+  </small>
   <h1 class="text-3xl tracking-wider uppercase">{data.post.title}</h1>
 </PageLanding>
 
-<main class="px-sm pb-sm pt-4 text-normal dark:text-white w-2/3">
+<main class="px-sm pb-sm pt-4 text-normal dark:text-white w-full">
   {@html data.post.body}
 </main>
 
