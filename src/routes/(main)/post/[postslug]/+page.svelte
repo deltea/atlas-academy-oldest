@@ -6,7 +6,7 @@
 
   const date = new Date(data.post.date);
 
-  const day = date.getDay();
+  const day = date.getDate();
   const month = date.toLocaleDateString("en-US", { month: "short" });
   const year = date.getFullYear();
   const formattedDate = `${day} ${month} ${year}`;
