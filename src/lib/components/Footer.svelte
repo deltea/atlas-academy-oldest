@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  <hr class="my-4 dark:border-neutral-600 border-neutral-300">
+  <hr class="my-8 dark:border-neutral-600 border-neutral-300">
 
   <div class="flex justify-between">
     <p class="font-light  ">© 2023 Atlas Academy. All rights reserved</p>
