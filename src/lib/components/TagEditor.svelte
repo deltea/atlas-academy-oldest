@@ -55,7 +55,7 @@
       type="text"
       name="name"
       class="input input-bordered"
-      placeholder="Tag name..."
+      placeholder="Tag name (name that will be displayed)"
       bind:value={name}
     />
 
@@ -63,7 +63,7 @@
       type="text"
       name="slug"
       class="input input-bordered"
-      placeholder="Slug (URL)..."
+      placeholder="Slug (identifier)"
       bind:value={slug}
     />
 
@@ -71,7 +71,7 @@
       type="text"
       name="description"
       class="input input-bordered"
-      placeholder="Description..."
+      placeholder="Description (about the tag)"
       bind:value={description}
     />
 
@@ -79,7 +79,7 @@
       type="text"
       name="Heading"
       class="input input-bordered"
-      placeholder="Heading (above description)..."
+      placeholder="Heading (above description)"
       bind:value={heading}
     />
 
