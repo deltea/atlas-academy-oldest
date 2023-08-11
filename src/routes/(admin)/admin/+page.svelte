@@ -23,9 +23,17 @@
       <a href="/admin/map" class="btn btn-outline normal-case">
         <IconMap /> Edit map
       </a>
-      <a href="/admin/create" class="btn btn-neutral normal-case font-bold">
-        + Create New
-      </a>
+
+      <div class="dropdown dropdown-end">
+        <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+        <!-- svelte-ignore a11y-label-has-associated-control -->
+        <label tabindex="0" class="btn btn-neutral normal-case font-bold">+ Create New</label>
+        <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+        <ul tabindex="0" class="dropdown-content z-10 menu p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a href="/admin/create/post"><IconPost />Post</a></li>
+          <li><a href="/admin/create/tag"><IconTag />Tag</a></li>
+        </ul>
+      </div>
     </div>
   </header>
 
@@ -60,7 +68,7 @@
   {#if selectedTab === "posts"}
     <div class="grid grid-cols-3 gap-2 m-4 col-span-8 row-start-2">
       {#each data.posts as post}
-        <a href="/admin/edit/{post.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group" transition:fade>
+        <a href="/admin/edit/post/{post.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group" transition:fade>
           <div
             class="group-hover:brightness-75 brightness-100 duration-300 w-full h-40 bg-cover bg-center rounded-sm"
             style:background-image="url('{post.cover}')"
@@ -72,7 +80,7 @@
   {:else}
     <div class="grid grid-cols-3 gap-2 m-4 col-span-8 row-start-2">
       {#each data.tags as tag}
-        <a href="/admin/edit/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group text-center" transition:fade>
+        <a href="/admin/edit/tag/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group text-center" transition:fade>
           <div
             class="group-hover:brightness-75 brightness-100 duration-300 w-full h-80 bg-cover bg-center rounded-sm"
             style:background-image="url('{tag.image}')"

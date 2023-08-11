@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { type PostData, type PostType, storage, createDocWithId, db } from '$lib/firebase';
+  import { type PostData, type PostType, storage, db } from '$lib/firebase';
   import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
   import Editor from '@tinymce/tinymce-svelte';
   import { slugify } from '$lib/utils';
@@ -55,11 +55,6 @@
     }
 
     const batch = writeBatch(db);
-
-    // tags.forEach(tag => {
-    //   const ref = doc(db, "tags", tag);
-    //   batch.set(ref, {});
-    // });
 
     await batch.commit();
 

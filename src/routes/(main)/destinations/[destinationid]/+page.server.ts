@@ -9,7 +9,8 @@ export const load = (async ({ params }) => {
     params.destinationid
   ) as PostData[];
 
-  const tag = await fetchDoc("tags", params.destinationid) as TagData;
+  const results = await queryDocs("tags", "slug", "==", params.destinationid, 1);
+  const tag = results[0] as TagData;
 
   return { posts, tag };
 }) satisfies PageServerLoad;
