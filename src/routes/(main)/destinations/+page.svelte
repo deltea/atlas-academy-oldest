@@ -6,7 +6,7 @@
   export let data: PageData;
 </script>
 
-<PageLanding center src="https://source.unsplash.com/random">
+<PageLanding center src="/images/destinations.jpg">
   <h1 class="text-3xl tracking-wider uppercase">Destinations</h1>
 </PageLanding>
 

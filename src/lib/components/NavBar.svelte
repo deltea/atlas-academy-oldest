@@ -76,21 +76,21 @@
     </a>
 
     {#if isAdmin}
-      <a href="/admin" class="btn btn-outline btn-xs">Admin</a>
+      <a href="/admin" class="btn btn-outline btn-xs dark:border-white dark:text-white hover:bg-white">Admin</a>
     {/if}
   </div>
 
   <nav class="uppercase hidden tracking-widest font-semibold md:inline-flex items-center">
     <a
       href="/"
-      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200 py-8 px-4"
+      class="hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200 py-8 px-4"
     >
       Home
     </a>
     <div class="relative inline-block group py-8 px-4">
       <a
         href="/destinations"
-        class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
+        class="hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200"
       >
         Destinations
       </a>
@@ -120,13 +120,13 @@
     </div>
     <a
       href="/posts"
-      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200 py-8 px-4"
+      class="hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200 py-8 px-4"
     >
       Blog
     </a>
     <a
       href="/about"
-      class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200 py-8 px-4"
+      class="hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200 py-8 px-4"
     >
       About
     </a>
@@ -145,21 +145,21 @@
       <a
         href="https://www.facebook.com/worldschool.atlas.academy"
         target="_blank"
-        class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
+        class="hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200"
       >
         <IconFacebook />
       </a>
       <a
         href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3"
         target="_blank"
-        class="hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
+        class="hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200"
       >
         <IconSpotify />
       </a>
       <a
         href="https://podcasts.apple.com/us/podcast/%E4%B8%96%E7%95%8C%E6%98%AF%E5%AD%B8%E6%A0%A1-worldschooling/id1646258789"
         target="_blank"
-        class="text-[16px] hover:{atTopOfPage ? "text-neutral-300" : "text-neutral-400"} duration-200"
+        class="text-[16px] hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200"
       >
         <IconApplePodcast />
       </a>
