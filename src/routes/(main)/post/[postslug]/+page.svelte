@@ -3,8 +3,13 @@
   import type { PageData } from "./$types";
 
   export let data: PageData;
+
   const date = new Date(data.post.date);
-  const formattedDate = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`;
+
+  const day = date.getDay();
+  const month = date.toLocaleDateString("en-US", { month: "short" });
+  const year = date.getFullYear();
+  const formattedDate = `${day} ${month} ${year}`;
 </script>
 
 <PageLanding center src={data.post.cover}>
