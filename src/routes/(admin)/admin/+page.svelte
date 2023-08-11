@@ -37,7 +37,7 @@
     </div>
   </header>
 
-  <aside class="col-span-2 row-start-2 row-span-full h-full overflow-x-auto space-y-2 p-2">
+  <aside class="col-span-2 row-start-2 row-span-full h-full overflow-x-auto space-y-1 p-2">
     <input
       type="radio"
       name="tab"
@@ -78,7 +78,7 @@
       {/each}
     </div>
   {:else}
-    <div class="grid grid-cols-3 gap-2 m-4 col-span-8 row-start-2">
+    <div class="grid grid-cols-3 gap-2 gap-y-8 m-4 col-span-8 row-start-2">
       {#each data.tags as tag}
         <a href="/admin/edit/tag/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group text-center" transition:fade>
           <div

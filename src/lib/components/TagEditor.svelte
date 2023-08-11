@@ -46,58 +46,62 @@
   }
 </script>
 
-<form
-  on:submit|preventDefault={save}
-  enctype="multipart/form-data"
->
-  <input
-    type="text"
-    name="name"
-    class="text-input"
-    placeholder="Tag name..."
-    bind:value={name}
-  />
-
-  <input
-    type="text"
-    name="slug"
-    class="text-input"
-    placeholder="Slug..."
-    bind:value={slug}
-  />
-
-  <input
-    type="text"
-    name="description"
-    class="text-input"
-    placeholder="Description..."
-    bind:value={description}
-  />
-
-  <input
-    type="text"
-    name="Heading"
-    class="text-input"
-    placeholder="Heading..."
-    bind:value={heading}
-  />
-
-  <input
-    type="file"
-    name="cover"
-    id="cover"
-    class="text-input"
-    accept="image/*"
-    on:change={coverUpload}
-  />
-
-  {#if image}
-    <img
-      src={image instanceof Blob ? URL.createObjectURL(image) : image}
-      alt="Cover Preview"
-      class="h-36"
+<div class="flex h-screen justify-center items-center">
+  <form
+    on:submit|preventDefault={save}
+    enctype="multipart/form-data"
+    class="w-1/2 flex flex-col gap-2"
+  >
+    <input
+      type="text"
+      name="name"
+      class="input input-bordered"
+      placeholder="Tag name..."
+      bind:value={name}
     />
-  {/if}
 
-  <button type="submit">Save</button>
-</form>
+    <input
+      type="text"
+      name="slug"
+      class="input input-bordered"
+      placeholder="Slug (URL)..."
+      bind:value={slug}
+    />
+
+    <input
+      type="text"
+      name="description"
+      class="input input-bordered"
+      placeholder="Description..."
+      bind:value={description}
+    />
+
+    <input
+      type="text"
+      name="Heading"
+      class="input input-bordered"
+      placeholder="Heading (above description)..."
+      bind:value={heading}
+    />
+
+    <div class="inline-flex items-center justify-center">
+      <input
+        type="file"
+        name="cover"
+        id="cover"
+        class="input file-input w-[275px]"
+        accept="image/*"
+        on:change={coverUpload}
+      />
+      {#if image}
+        <img
+          src={image instanceof Blob ? URL.createObjectURL(image) : image}
+          alt="Cover Preview"
+          class="w-40"
+        />
+      {/if}
+    </div>
+
+    <button type="submit" class="btn btn-neutral">Save</button>
+  </form>
+</div>
