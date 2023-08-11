@@ -47,6 +47,7 @@ export interface TagData {
   image: string,
   heading: string,
   description: string,
+  continent: string,
 }
 
 

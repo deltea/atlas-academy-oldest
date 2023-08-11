@@ -7,6 +7,7 @@
   export let heading = "";
   export let description = "";
   export let slug = "";
+  export let continent = "";
   export let image: Blob | string = "";
   export let onSave: (data: TagData) => void;
 
@@ -41,6 +42,7 @@
       description,
       heading: heading,
       image: coverUrl,
+      continent: continent,
     } satisfies TagData);
   }
 </script>
@@ -81,6 +83,14 @@
       class="input input-bordered"
       placeholder="Heading (above description)"
       bind:value={heading}
+    />
+
+    <input
+      type="text"
+      name="Continent"
+      class="input input-bordered"
+      placeholder="Continent (which continent is the country in)"
+      bind:value={continent}
     />
 
     <div class="inline-flex items-center justify-center">

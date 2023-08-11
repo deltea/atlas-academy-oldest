@@ -1,7 +1,7 @@
 <script lang="ts">
+	import DestinationCard from "$lib/components/DestinationCard.svelte";
   import type { PageData } from "./$types";
   import PageLanding from "$lib/components/PageLanding.svelte";
-  import { fade } from "svelte/transition";
   import Marker from "$lib/components/Marker.svelte";
 
   export let data: PageData;
@@ -24,12 +24,6 @@
 
 <div class="grid grid-cols-3 gap-2 gap-y-8 p-sm">
   {#each data.tags as tag}
-    <a href="/destinations/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light dark:text-neutral-200 group text-center" transition:fade>
-      <div
-        class="group-hover:brightness-75 brightness-100 duration-300 w-full h-80 bg-cover bg-center rounded-sm"
-        style:background-image="url('{tag.image}')"
-      />
-      <h1>{tag.name}</h1>
-    </a>
+    <DestinationCard {...tag} />
   {/each}
 </div>
