@@ -76,7 +76,7 @@
     </a>
 
     {#if isAdmin}
-      <a href="/admin" class="btn btn-outline btn-xs dark:border-white dark:text-white hover:bg-white">Admin</a>
+      <a href="/admin" class="btn btn-outline btn-xs dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-normal">Admin</a>
     {/if}
   </div>
 
