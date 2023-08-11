@@ -13,7 +13,7 @@
       <a
         href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3"
         target="_blank"
-        class="py-2 px-2.5 rounded-xl flex items-center btn btn-neutral bg-neutral-700 dark:bg-neutral-600 text-left w-full justify-start h-fit hover:bg-neutral-500 border-0"
+        class="py-2 px-2.5 rounded-md flex items-center btn btn-neutral bg-normal dark:bg-neutral-600 text-left w-full justify-start h-fit hover:bg-neutral-600 dark:hover:bg-neutral-500 border-0"
       >
         <IconApplePodcast class="text-purple-500 bg-white rounded-xl text-3xl" />
         <div class="flex flex-col">
@@ -24,7 +24,7 @@
       <a
         href="https://podcasts.apple.com/us/podcast/%E4%B8%96%E7%95%8C%E6%98%AF%E5%AD%B8%E6%A0%A1-worldschooling/id1646258789"
         target="_blank"
-        class="py-2 px-2.5 rounded-xl flex items-center btn btn-neutral bg-neutral-700 dark:bg-neutral-600 text-left w-full justify-start h-fit hover:bg-neutral-500 border-0"
+        class="py-2 px-2.5 rounded-md flex items-center btn btn-neutral bg-normal dark:bg-neutral-600 text-left w-full justify-start h-fit hover:bg-neutral-600 dark:hover:bg-neutral-500 border-0"
       >
         <IconSpotify class="text-green-500 text-3xl" />
         <div class="flex flex-col">
