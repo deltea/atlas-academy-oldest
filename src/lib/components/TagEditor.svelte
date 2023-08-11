@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Editor from '@tinymce/tinymce-svelte';
   import { writeBatch } from 'firebase/firestore';
   import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
   import { db, storage, type TagData } from '$lib/firebase';
@@ -89,10 +88,11 @@
         type="file"
         name="cover"
         id="cover"
-        class="input file-input w-[275px]"
+        class="input file-input"
         accept="image/*"
         on:change={coverUpload}
       />
+
       {#if image}
         <img
           src={image instanceof Blob ? URL.createObjectURL(image) : image}
