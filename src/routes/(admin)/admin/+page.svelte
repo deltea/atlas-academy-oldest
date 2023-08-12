@@ -66,7 +66,7 @@
   </aside>
 
   {#if selectedTab === "posts"}
-    <div class="grid grid-cols-3 gap-2 m-4 col-span-8 row-start-2">
+    <div class="grid grid-cols-3 gap-8 m-4 col-span-8 row-start-2">
       {#each data.posts as post}
         <a href="/admin/edit/post/{post.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group" transition:fade>
           <div
@@ -78,7 +78,7 @@
       {/each}
     </div>
   {:else}
-    <div class="grid grid-cols-3 gap-2 gap-y-8 m-4 col-span-8 row-start-2">
+    <div class="grid grid-cols-3 gap-8 gap-y-8 m-4 col-span-8 row-start-2">
       {#each data.tags as tag}
         <a href="/admin/edit/tag/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group text-center" transition:fade>
           <div

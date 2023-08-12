@@ -150,6 +150,12 @@
       Blog
     </a>
     <a
+      href="/timeline"
+      class="hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200 py-8 px-4"
+    >
+      Timeline
+    </a>
+    <a
       href="/about"
       class="hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200 py-8 px-4"
     >
