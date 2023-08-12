@@ -5,7 +5,7 @@
   import IconSvelte from "~icons/simple-icons/svelte";
 </script>
 
-<div class="bg-[url(/images/waves.svg)] dark:bg-[url(/images/dark-waves.svg)] bg-white dark:bg-normal bg-cover bg-[center_bottom] bg-no-repeat w-full h-24 duration-300 -my-0.5"></div> 
+<div class="bg-[url(/images/waves.svg)] dark:bg-[url(/images/dark-waves.svg)] bg-white dark:bg-normal bg-cover bg-[center_bottom] bg-no-repeat w-full h-24 duration-300 -my-0.5"></div>
 
 <footer class="bg-[#ececec] dark:bg-[#434343] p-sm text-neutral-700 dark:text-white duration-300">
   <div class="flex justify-between">
@@ -18,7 +18,7 @@
         <IconApplePodcast class="text-purple-500 bg-white rounded-xl text-3xl" />
         <div class="flex flex-col">
           <small class="text-xs -mb-0.5">Listen on</small>
-          <h3 class="text-base -mt-0.5 normal-case">Apple Podcasts</h3>
+          <h1 class="text-base -mt-0.5 normal-case">Apple Podcasts</h1>
         </div>
       </a>
       <a
@@ -29,7 +29,7 @@
         <IconSpotify class="text-green-500 text-3xl" />
         <div class="flex flex-col">
           <small class="text-xs -mb-0.5">Listen on</small>
-          <h3 class="text-base -mt-0.5 normal-case">Spotify</h3>
+          <h1 class="text-base -mt-0.5 normal-case">Spotify</h1>
         </div>
       </a>
     </div>
@@ -65,12 +65,13 @@
   <hr class="my-8 dark:border-neutral-600 border-neutral-300">
 
   <div class="flex justify-between">
-    <p class="font-light  ">© 2023 Atlas Academy. All rights reserved</p>
+    <p class="font-light">© 2023 Atlas Academy. All rights reserved</p>
     <div class="flex gap-2">
       <a
         href="https://www.facebook.com/worldschool.atlas.academy"
         target="_blank"
         class="hover:text-neutral-400 duration-200"
+        aria-label="Facebook"
       >
         <IconFacebook />
       </a>
@@ -78,6 +79,7 @@
         href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3"
         target="_blank"
         class="hover:text-neutral-400 duration-200"
+        aria-label="Spotify"
       >
         <IconSpotify />
       </a>
@@ -85,6 +87,7 @@
         href="https://podcasts.apple.com/us/podcast/%E4%B8%96%E7%95%8C%E6%98%AF%E5%AD%B8%E6%A0%A1-worldschooling/id1646258789"
         target="_blank"
         class="text-[16px] hover:text-neutral-400 duration-200"
+        aria-label="Apple Podcast"
       >
         <IconApplePodcast />
       </a>
@@ -97,6 +100,11 @@
     Made by
     <a href="https://github.com/thcheetah777" target="_blank" class="underline font-mono">Leo</a>
     with
-    <a href="https://svelte.dev" target="_blank" class="underline hover:text-orange-500"><IconSvelte /></a>
+    <a
+      href="https://svelte.dev"
+      target="_blank"
+      class="underline hover:text-orange-500"
+      aria-label="SvelteKit"
+    ><IconSvelte /></a>
   </small>
 </section>

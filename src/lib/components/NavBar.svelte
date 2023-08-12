@@ -171,5 +171,5 @@
     </div>
   </div>
 
-  <button class="inline-flex md:hidden text-2xl"><IconMenu /></button>
+  <button class="inline-flex md:hidden text-2xl" name="Menu"><IconMenu /></button>
 </header>
