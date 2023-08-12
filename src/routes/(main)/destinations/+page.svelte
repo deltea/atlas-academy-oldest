@@ -1,8 +1,8 @@
 <script lang="ts">
-	import DestinationCard from "$lib/components/DestinationCard.svelte";
   import type { PageData } from "./$types";
   import PageLanding from "$lib/components/PageLanding.svelte";
   import Marker from "$lib/components/Marker.svelte";
+  import { fade } from "svelte/transition";
 
   export let data: PageData;
 
@@ -22,11 +22,9 @@
   <h1 class="text-3xl tracking-wider uppercase">Destinations</h1>
 </PageLanding>
 
-<div class="relative m-8">
-  <img
-    src="/images/map.png"
-    alt="World Map"
-  />
+<div class="relative my-8 w-screen h-screen">
+  <div class="dark:bg-[url('/images/map-dark.png')] bg-[url('/images/map.png')] bg-cover bg-center w-full h-full">
+  </div>
 
   {#each data.markers as marker}
     <Marker {...marker} />
@@ -62,8 +60,14 @@
   >Middle East</button>
 </div>
 
-<div class="grid grid-cols-3 gap-2 gap-y-8 p-sm">
-  {#each tags as tag}
-    <DestinationCard {...tag} />
+<div class="grid grid-cols-4 gap-0.5 p-sm">
+  {#each tags as tag (tag.slug)}
+    <a href="/destinations/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light dark:text-neutral-200 group text-center relative" transition:fade>
+      <div
+        class="group-hover:brightness-75 brightness-100 duration-300 w-full h-80 bg-cover bg-center rounded-sm"
+        style:background-image="url('{tag.image}')"
+      />
+      <h1 class="absolute bottom-8 text-white left-8">{tag.name}</h1>
+    </a>
   {/each}
 </div>

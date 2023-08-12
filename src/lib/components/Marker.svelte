@@ -13,12 +13,15 @@
 <a
   href="/destinations/{tag}"
   class="absolute inline-block group"
-  style:left="calc({x}% - 0.75rem)"
+  style:left="calc({x}% - 0.5rem)"
   style:top="calc({y}% - 0.75rem)"
   transition:scale={{ duration: 200 }}
   data-sveltekit-reload
 >
-  <IconMarker class="text-red-500 text-xl group-hover:scale-150 duration-300 origin-bottom z-10" />
+  <div class="group-hover:scale-150 bg-white relative w-2 h-2 duration-300 origin-[center_20px] z-10">
+    <IconMarker class="text-red-500 text-xl -translate-x-2 translate-y-[-5px]" />
+  </div>
+
   <div class="tooltip-content w-24 bg-neutral rounded-lg p-2 z-20 -top-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-300">
     <h1 class="text-md font-bold mb-2">{name}</h1>
     <p class="text-sm">{description}</p>
