@@ -10,7 +10,7 @@
   <h1 class="text-3xl tracking-wider uppercase">{data.tag.name}</h1>
 </PageLanding>
 
-<div class="p-sm">
+<div class="px-sm pb-16">
   <div class="flex flex-col gap-4 mt-20 mb-4">
     <h3 class="tracking-widest font-semibold text-light dark:text-neutral-200">{data.tag.name.toLowerCase()}</h3>
     <hr class="w-12 border-blue-500 border-sm">
