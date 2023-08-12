@@ -22,7 +22,7 @@
     <IconMarker class="text-red-500 text-md -translate-x-1 translate-y-[-3px]" />
   </div>
 
-  <div class="tooltip-content w-24 bg-neutral rounded-lg p-2 z-20 -top-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-300">
+  <div class="tooltip-content w-24 bg-normal shadow-xl rounded-lg p-2 z-20 -top-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-300">
     <h1 class="text-md font-bold mb-2">{name}</h1>
     <p class="text-sm">{description}</p>
   </div>
@@ -33,7 +33,7 @@
     color: white;
     text-align: center;
     position: absolute;
-    left: 130%;
+    left: 280%;
     top: 50%;
     transform: translateY(-50%);
   }
