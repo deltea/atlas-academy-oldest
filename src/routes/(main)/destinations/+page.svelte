@@ -22,9 +22,8 @@
   <h1 class="text-3xl tracking-wider uppercase">Destinations</h1>
 </PageLanding>
 
-<div class="relative my-8 w-screen h-screen">
-  <div class="dark:bg-[url('/images/map-dark.png')] bg-[url('/images/map.png')] bg-cover bg-center w-full h-full">
-  </div>
+<div class="relative my-8">
+  <img src="/images/map.png" alt="World Map" />
 
   {#each data.markers as marker}
     <Marker {...marker} />
