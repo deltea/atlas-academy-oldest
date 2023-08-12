@@ -117,6 +117,26 @@
           class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
           <span class="font-bold">法國</span> France
         </a>
+        <a
+          href="/destinations/thailand"
+          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
+          <span class="font-bold">泰國</span> Thailand
+        </a>
+        <a
+          href="/destinations/turkey"
+          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
+          <span class="font-bold">土耳其</span> Turkey
+        </a>
+        <a
+          href="/destinations/portugal"
+          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
+          <span class="font-bold">葡萄牙</span> Portugal
+        </a>
+        <a
+          href="/destinations/uae"
+          class="p-2 w-full hover:bg-neutral-100 hover:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 duration-200">
+          <span class="font-bold">阿聯酋</span> U.A.E
+        </a>
         <a href="/destinations" class="p-2 w-full inline-flex gap-2 text-blue-500 hover:bg-neutral-100 hover:text-blue-400 dark:hover:bg-neutral-700 duration-200">
           <IconAdd />
           更多地方
