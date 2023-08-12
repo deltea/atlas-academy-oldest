@@ -12,20 +12,21 @@
 
 <main class="p-sm">
   <section class="flex items-stretch gap-8">
-    <div class="flex flex-col w-full gap-4">
-      <div class="bg-[url(/images/home1.jpg)] rounded-md w-full h-1/2 bg-cover bg-center"></div>
-      <div class="bg-[url(/images/home2.jpg)] rounded-md w-full h-1/2 bg-cover bg-center"></div>
-    </div>
+    <div class="bg-[url(/images/home1.jpg)] w-full bg-cover bg-center"></div>
 
     <div>
-      <h1 class="font-bold text-xl text-white mb-12">如果有一天，有人問你，你可以居住在世界上任何一個地方，你想住哪裡，你會怎麼回答？</h1>
-
-      <div class="grid gap-4">
-        <p>在疫情期間，我們一家生活和工作都移至線上，對生活的方式和態度也有很大的改變，想要跳脫本來一成不變的生活，打破我們遵循了好多年的社會規範，把視野放向世界，做個地球公民，於是我們有了一個大膽的想法 -</p>
-        <p>環。遊。世。界。</p>
-        <p>把一個家，連根拔起，收進一個行李裡，帶著兩個孩子，花兩年時間到世界各地過著遊牧生活，在每一個城市花時間築巢， 在當地的市場買東西，適應不同的氣候，接觸不同的文化和語言，這聽起來浪漫無比的想法，對我們來說，是一場冒險和挑戰，相信會換來我們一輩子難忘的回憶及經歷。</p>
-        <p>世界是學校，跟我們一起 World Schooling!</p>
-      </div>
+      我們一家把房子、車子和家當都賣掉，帶著一卡皮箱，要到世界各地旅行，把世界當學校。
+      這裡紀錄了我們一家四口體驗生活即教育的環球旅程。
+      <div class="my-4">
+      這裡沒有行程規劃，或是購物、餐廳資訊，有的是我們在路途中的經歷和反思，有的是爸媽和孩子一起脫離教育體系，從生活中學習知識和能力的過程，從實際腳踏過的土地來了解地理和歷史。
+      <div class="my-4">
+      這裡沒有網美照，或是專業的攝影圖片，有的是我們在一路上遇到的人事物，累積成許許多多的故事，有的是我們站在大自然前的震撼，親眼見到人類藝術結晶的感動，以後會成為我們一家的共同記憶。
+      <div class="my-4">
+      這裡沒有交通資訊，或是預算規劃，有的是我們在每個城市所做的觀察，拿來和原本居住在的城市做比較，有的是我們在每個國家吃到的特別食物，我們在每個街道轉角發現的小驚喜。
+      <div class="my-4">
+      Worldschoolking 是一種生活方式，沒有一定的模式和方法，沒有一定的時間長度，這裡分享了我們的旅程，希望能帶給你不同的思維，啟程向世界學習。
+      <div class="my-4">
+      世界是學校，跟我們一起 World Schooling
     </div>
   </section>
 </main>

@@ -25,9 +25,11 @@
   <h1 class="text-3xl tracking-wider uppercase">{data.post.title}</h1>
 </PageLanding>
 
-<main class="px-sm pb-sm pt-4 text-normal dark:text-white w-full">
-  {@html data.post.body}
-</main>
+<div class="flex justify-center px-sm py-4">
+  <main class="text-normal dark:text-white w-3/4">
+    {@html data.post.body}
+  </main>
+</div>
 
 <style>
   main :global(h1) {
@@ -40,9 +42,12 @@
     @apply text-neutral-500 uppercase font-semibold mt-2 text-sm;
   }
   main :global(img) {
-    @apply w-full;
+    @apply my-8 object-cover w-full h-full;
   }
   main :global(p) {
     @apply leading-7 my-8 text-lg font-light;
+  }
+  main :global(div) {
+    @apply grid grid-flow-col justify-center items-center gap-2;
   }
 </style>

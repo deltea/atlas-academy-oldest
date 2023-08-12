@@ -42,24 +42,24 @@
     class="uppercase text-sm font-semibold"
   >Asia</button>
   <button
-    on:click={() => sortByContinent("africa")}
-    class="uppercase text-sm font-semibold"
-  >Africa</button>
-  <button
     on:click={() => sortByContinent("europe")}
     class="uppercase text-sm font-semibold"
   >Europe</button>
   <button
-    on:click={() => sortByContinent("america")}
-    class="uppercase text-sm font-semibold"
-  >America</button>
-  <button
     on:click={() => sortByContinent("middle-east")}
     class="uppercase text-sm font-semibold"
   >Middle East</button>
+  <button
+    on:click={() => sortByContinent("africa")}
+    class="uppercase text-sm font-semibold"
+  >Africa</button>
+  <button
+    on:click={() => sortByContinent("america")}
+    class="uppercase text-sm font-semibold"
+  >America</button>
 </div>
 
-<div class="grid grid-cols-4 gap-0.5 p-sm">
+<div class="grid grid-cols-4 gap-0.5 px-sm py-8">
   {#each tags as tag (tag.slug)}
     <a href="/destinations/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light dark:text-neutral-200 group text-center relative" transition:fade>
       <div

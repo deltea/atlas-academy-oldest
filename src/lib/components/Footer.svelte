@@ -7,7 +7,7 @@
 
 <div class="bg-[url(/images/waves.svg)] dark:bg-[url(/images/dark-waves.svg)] bg-white dark:bg-normal bg-cover bg-[center_bottom] bg-no-repeat w-full h-24 duration-300 -my-0.5"></div>
 
-<footer class="bg-[#ececec] dark:bg-[#434343] p-sm text-neutral-700 dark:text-white duration-300">
+<footer class="bg-[#ececec] dark:bg-[#434343] p-10 text-neutral-700 dark:text-white duration-300">
   <div class="flex justify-between">
     <div class="space-y-2 w-80 gap-1">
       <a

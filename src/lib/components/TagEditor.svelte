@@ -69,10 +69,10 @@
       bind:value={slug}
     />
 
-    <input
-      type="text"
+    <textarea
       name="description"
-      class="input input-bordered"
+      rows="5"
+      class="textarea textarea-bordered resize"
       placeholder="Description (about the tag)"
       bind:value={description}
     />

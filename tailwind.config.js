@@ -11,9 +11,9 @@ export default {
         "title": ["ZhanKu", "sans-serif"]
       },
       padding: {
-        "sm": "3rem",
-        "md": "4rem",
-        "lg": "5rem"
+        "sm": "8rem",
+        "md": "10rem",
+        "lg": "12rem"
       },
       gridTemplateRows: {
         "9": "repeat(9, minmax(0, 1fr))"
