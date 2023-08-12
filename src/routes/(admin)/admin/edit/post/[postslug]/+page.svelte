@@ -32,7 +32,7 @@
       podcast: post.podcast,
     } satisfies PostData);
 
-    goto(`/post/${slugify(post.title)}`);
+    goto(`/admin`);
   }
 </script>
 

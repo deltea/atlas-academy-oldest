@@ -10,9 +10,10 @@
       description: data.description,
       image: data.image,
       slug: data.slug,
+      continent: data.continent,
     } satisfies TagData);
 
-    goto(`/destinations/${data.slug}`);
+    goto(`/admin`);
   }
 </script>
 

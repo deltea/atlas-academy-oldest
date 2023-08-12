@@ -28,7 +28,7 @@
       continent: tag.continent,
     } satisfies TagData);
 
-    goto(`/destinations/${tag.slug}`);
+    goto(`/admin`);
   }
 </script>
 

@@ -17,7 +17,7 @@
       podcast: data.podcast,
     } satisfies PostData);
 
-    goto(`/post/${slugify(data.title)}`);
+    goto(`/admin`);
   }
 </script>
 
