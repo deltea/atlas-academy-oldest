@@ -64,7 +64,7 @@
 
 <header
   style:top={(scrolledScreenHeight && scrollDirection === "down") ? "-7em" : "0"}
-  class="fixed z-20 top-0 w-full flex justify-between items-center px-sm text-xs duration-500
+  class="fixed z-20 top-0 w-full flex justify-between items-center px-8 text-xs duration-500
     {atTopOfPage ?
       "text-white bg-transparent h-[15vh]" :
       "text-normal bg-white dark:bg-normal dark:text-white h-[12vh] shadow-lg"
