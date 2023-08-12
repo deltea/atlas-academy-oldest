@@ -47,7 +47,7 @@
   }
 </script>
 
-<div class="flex h-screen justify-center items-center">
+<div class="flex min-h-screen m-4 justify-center items-center">
   <form
     on:submit|preventDefault={save}
     enctype="multipart/form-data"
