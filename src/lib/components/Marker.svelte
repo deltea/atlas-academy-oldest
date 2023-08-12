@@ -18,8 +18,8 @@
   transition:scale={{ duration: 200 }}
   data-sveltekit-reload
 >
-  <div class="group-hover:scale-150 bg-white relative w-2 h-2 duration-300 origin-[center_20px] z-10">
-    <IconMarker class="text-red-500 text-xl -translate-x-2 translate-y-[-5px]" />
+  <div class="group-hover:scale-150 bg-white relative w-2 h-2 duration-300 origin-[center_18px] z-10">
+    <IconMarker class="text-red-500 text-md -translate-x-1 translate-y-[-3px]" />
   </div>
 
   <div class="tooltip-content w-24 bg-neutral rounded-lg p-2 z-20 -top-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-300">
