@@ -1,21 +1,25 @@
 <script lang="ts">
-  import PageLanding from "$lib/components/PageLanding.svelte";
   import type { PageData } from "./$types";
+  import { page } from "$app/stores";
+  import PageLanding from "$lib/components/PageLanding.svelte";
+  import { formatDate } from "$lib/utils";
+
+  import IconRight from "~icons/gg/arrow-right";
+  import IconLeft from "~icons/gg/arrow-left";
 
   export let data: PageData;
 
-  const date = new Date(data.post.date);
+  let formattedDate: string;
 
-  const day = date.getDate();
-  const month = date.toLocaleDateString("en-US", { month: "short" });
-  const year = date.getFullYear();
-  const formattedDate = `${day} ${month} ${year}`;
+  page.subscribe(() => {
+    formattedDate = formatDate(data.post.date);
+  });
+
 </script>
 
 <PageLanding center src={data.post.cover}>
   <small class="uppercase text-sm tracking-widest">
-    {formattedDate}
-    |
+    {formattedDate} |
     <span class="inline-flex gap-2">
       {#each data.post.tags as tag}
         <a href="/destinations/{tag}" class="hover:text-blue-500 duration-200">{tag}</a>
@@ -30,6 +34,20 @@
     {@html data.post.body}
   </main>
 </div>
+
+<nav class="flex justify-between font-bold mx-8 py-4">
+  <a href="/post/{data.previousPost.slug}" class="group p-8 flex flex-col items-start">
+    <IconLeft class="text-xl group-hover:-translate-x-2 duration-200" />
+    <h2 class="text-lg">{data.previousPost.title}</h2>
+    <small>{formatDate(data.previousPost.date, "sm")}</small>
+  </a>
+
+  <a href="/post/{data.nextPost.slug}" class="group p-8 flex flex-col items-end">
+    <IconRight class="text-xl group-hover:translate-x-2 duration-200" />
+    <h2 class="text-lg">{data.nextPost.title}</h2>
+    <small>{formatDate(data.nextPost.date, "sm")}</small>
+  </a>
+</nav>
 
 <style>
   main :global(h1) {
