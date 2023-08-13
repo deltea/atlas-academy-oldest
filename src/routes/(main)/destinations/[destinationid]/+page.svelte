@@ -28,7 +28,7 @@
 
   <main class="grid grid-cols-4 gap-4">
     {#each data.posts as post}
-      <PostCard url="/post/{post.slug}" title={post.title} cover={post.cover} />
+      <PostCard type={post.type} url="/post/{post.slug}" title={post.title} cover={post.cover} />
     {/each}
   </main>
 </div>
