@@ -1,8 +1,12 @@
 import type { PageServerLoad } from "./$types";
-import { fetchDocs, type PostData } from "$lib/firebase";
+import { queryDocs, type PostData } from "$lib/firebase";
 
 export const load = (async () => {
-  const posts = await fetchDocs<PostData>("posts") as PostData[];
+  const posts = await queryDocs<PostData>("posts", "type", "==", "blog") as PostData[];
+  posts.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
-  return { posts };
+  const rightPosts = posts.filter((_, i) => i % 2 === 0);
+  const leftPosts = posts.filter((_, i) => i % 2 !== 0);
+
+  return { posts, rightPosts, leftPosts };
 }) satisfies PageServerLoad;
