@@ -3,7 +3,7 @@ import type { PageServerLoad } from "./$types";
 
 export const load = (async ({ params }) => {
   const allPosts = await fetchDocs("posts") as PostData[];
-  allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  allPosts.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   allPosts.forEach(post => console.log(post.date));
 
   const postIndex = allPosts.indexOf(allPosts.filter(post => post.slug === params.postslug)[0]);
