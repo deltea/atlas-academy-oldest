@@ -20,12 +20,12 @@
   <h1 class="items-center gap-1">
     {title}
     {#if type === "reflection"}
-      <small class="inline-flex items-center gap-0.5 text-[10px] rounded-full bg-neutral-600 px-2 justify-center">
+      <small class="inline-flex items-center gap-0.5 text-[10px] rounded-full bg-neutral-600 text-white px-2 justify-center">
         <IconPen class="text-[9px]" />
         城市隨筆
       </small>
     {:else}
-      <small class="inline-flex items-center gap-0.5 text-[10px] rounded-full text-neutral-600 bg-white p-[3px] justify-center">
+      <small class="inline-flex items-center gap-0.5 text-[10px] rounded-full text-neutral-600 dark:bg-white bg-neutral-200 p-[3px] justify-center">
         <IconMic class="text-[11px]" />
       </small>
     {/if}
