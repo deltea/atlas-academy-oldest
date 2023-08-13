@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PostData } from "$lib/firebase";
+  import { formatDate } from "$lib/utils";
 
   export let side: "left" | "right";
   export let posts: PostData[];
@@ -9,7 +10,7 @@
   {#each posts as post}
     <a href="/post/{post.slug}" class="flex flex-col {side === "left" ? "items-end" : "items-start"} group gap-2">
       <div class:text-right={side === "left"}>
-        <h1 class="font-semibold dark:group-hover:text-white group-hover:text-normal text-neutral-400 duration-300">{post.date}</h1>
+        <h1 class="font-semibold dark:group-hover:text-white group-hover:text-normal text-neutral-400 duration-300">{formatDate(post.date, "sm")}</h1>
         <h2 class="dark:group-hover:text-white group-hover:text-normal text-neutral-400 duration-300 -mt-0.5">{post.title}</h2>
       </div>
 

@@ -6,7 +6,7 @@
   export let data: PageData;
 </script>
 
-<PageLanding center src="https://www.culturematters.org.uk/images/culture/CM_Misc/Loki_5_-_Timeline_Split.jpg">
+<PageLanding center src="/images/timeline.jpg">
   <h1 class="text-3xl tracking-wider uppercase">Timeline</h1>
 </PageLanding>
 
