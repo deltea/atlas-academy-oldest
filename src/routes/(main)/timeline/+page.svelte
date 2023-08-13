@@ -15,14 +15,14 @@
 
   <div class="absolute flex flex-col items-center my-8 gap-4 left-1/2 -translate-x-1/2">
     <h1>2022</h1>
-    <div class="border border-neutral-500 h-[2000px] w-0 relative">
-      <div class="absolute w-1.5 h-1.5 rounded-full bg-neutral-500 -top-1 left-1/2 -translate-x-1/2"></div>
-      <div class="absolute w-1.5 h-1.5 rounded-full bg-neutral-500 -bottom-1 left-1/2 -translate-x-1/2"></div>
+    <div class="border dark:border-neutral-500 border-neutral-300 h-[2000px] w-0 relative">
+      <div class="absolute w-1.5 h-1.5 rounded-full dark:bg-neutral-500 bg-neutral-300 -top-1 left-1/2 -translate-x-1/2"></div>
+      <div class="absolute w-1.5 h-1.5 rounded-full dark:bg-neutral-500 bg-neutral-300 -bottom-1 left-1/2 -translate-x-1/2"></div>
     </div>
     <h1>2023</h1>
-    <div class="border border-neutral-500 h-40 w-0 relative">
-      <div class="absolute w-1.5 h-1.5 rounded-full bg-neutral-500 -top-1 left-1/2 -translate-x-1/2"></div>
-      <div class="absolute w-1.5 h-1.5 rounded-full bg-neutral-500 -bottom-1 left-1/2 -translate-x-1/2"></div>
+    <div class="border dark:border-neutral-500 border-neutral-300 h-40 w-0 relative">
+      <div class="absolute w-1.5 h-1.5 rounded-full dark:bg-neutral-500 bg-neutral-300 -top-1 left-1/2 -translate-x-1/2"></div>
+      <div class="absolute w-1.5 h-1.5 rounded-full dark:bg-neutral-500 bg-neutral-300 -bottom-1 left-1/2 -translate-x-1/2"></div>
     </div>
     <h1>🔮2024🔮</h1>
   </div>
