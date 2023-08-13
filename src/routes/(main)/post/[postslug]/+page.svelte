@@ -35,16 +35,16 @@
   </main>
 </div>
 
-<nav class="flex justify-between font-bold mx-8 py-4">
+<nav class="flex justify-between mx-8 py-4">
   <a href="/post/{data.previousPost.slug}" class="group p-8 flex flex-col items-start">
     <IconLeft class="text-xl group-hover:-translate-x-2 duration-200" />
-    <h2 class="text-lg">{data.previousPost.title}</h2>
+    <h2 class="text-lg font-bold">{data.previousPost.title}</h2>
     <small>{formatDate(data.previousPost.date, "sm")}</small>
   </a>
 
   <a href="/post/{data.nextPost.slug}" class="group p-8 flex flex-col items-end">
     <IconRight class="text-xl group-hover:translate-x-2 duration-200" />
-    <h2 class="text-lg">{data.nextPost.title}</h2>
+    <h2 class="text-lg font-bold">{data.nextPost.title}</h2>
     <small>{formatDate(data.nextPost.date, "sm")}</small>
   </a>
 </nav>
