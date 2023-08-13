@@ -2,6 +2,9 @@
   import { fade } from "svelte/transition";
   import type { PostType } from "$lib/firebase";
 
+  import IconPen from "~icons/gg/pen";
+  import IconMic from "~icons/material-symbols/mic";
+
   export let url: string;
   export let title: string;
   export let cover: string;
@@ -14,7 +17,17 @@
     style:background-image="url('{cover}')"
   ></div>
 
-  <div class="inline-flex items-center gap-2">
-    <h1>{title}</h1>
-  </div>
+  <h1 class="items-center gap-1">
+    {title}
+    {#if type === "reflection"}
+      <small class="inline-flex items-center gap-0.5 text-[10px] rounded-full bg-neutral-600 px-2 justify-center">
+        <IconPen class="text-[9px]" />
+        城市隨筆
+      </small>
+    {:else}
+      <small class="inline-flex items-center gap-0.5 text-[10px] rounded-full text-neutral-600 bg-white p-[3px] justify-center">
+        <IconMic class="text-[11px]" />
+      </small>
+    {/if}
+  </h1>
 </a>
