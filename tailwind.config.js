@@ -29,6 +29,9 @@ export default {
       },
       borderWidth: {
         "sm": "1.5px"
+      },
+      spacing: {
+        "navbar": "12vh",
       }
     },
   },

@@ -6,7 +6,7 @@
   export let posts: PostData[];
 </script>
 
-<div class="flex flex-col gap-16 w-1/2 p-16 pt-24 relative {side === "left" ? "top-[68px]" : "float-right"}">
+<div class="flex flex-col gap-16 w-1/2 p-16 pt-36 relative {side === "left" ? "top-[68px]" : "float-right"}">
   {#each posts as post}
     <a href="/post/{post.slug}" class="flex flex-col {side === "left" ? "items-end" : "items-start"} group gap-2">
       <div class:text-right={side === "left"}>
