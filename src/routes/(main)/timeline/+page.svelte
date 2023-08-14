@@ -3,6 +3,9 @@
 	import PageLanding from "$lib/components/PageLanding.svelte";
   import TimelineSide from "$lib/components/TimelineSide.svelte";
 
+  import IconPen from "~icons/gg/pen";
+  import IconMic from "~icons/material-symbols/mic";
+
   export let data: PageData;
 </script>
 
@@ -17,12 +20,18 @@
     <div class="sticky top-navbar z-30 h-16 flex justify-start items-center w-full -mb-24 px-8 gap-8">
       <div>
         <input type="checkbox" name="type" id="podcast" class="" />
-        <label for="podcast">Podcasts</label>
+        <label class="inline-flex items-center gap-1" for="podcast">
+          <IconPen class="text-[9px]" />
+          Podcasts
+        </label>
       </div>
 
       <div>
         <input type="checkbox" name="type" id="reflection" class="" />
-        <label for="reflection">Reflections</label>
+        <label class="inline-flex items-center gap-1" for="reflection">
+          <IconMic class="text-[11px]" />
+          Reflections
+        </label>
       </div>
     </div>
 
