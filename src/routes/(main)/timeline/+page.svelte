@@ -25,56 +25,66 @@
   <h1 class="text-3xl tracking-wider uppercase">Timeline</h1>
 </PageLanding>
 
-<main class="h-[500vh] flex justify-center">
+<div class="sticky top-navbar z-30 h-16 flex justify-start items-center w-full px-12 gap-8 -mb-16 mt-8">
+  <div>
+    <input
+      type="checkbox"
+      name="type"
+      id="podcast"
+      value="blog"
+      class=""
+      bind:group={postTypes}
+    />
+
+    <label class="inline-flex items-center gap-1" for="podcast">
+      <IconPen class="text-[9px]" />
+      Podcasts
+    </label>
+  </div>
+
+  <div>
+    <input
+      type="checkbox"
+      name="type"
+      id="reflection"
+      value="reflection"
+      class=""
+      bind:group={postTypes}
+    />
+
+    <label class="inline-flex items-center gap-1" for="reflection">
+      <IconMic class="text-[11px]" />
+      Reflections
+    </label>
+  </div>
+</div>
+
+<h1 class="sticky top-navbar dark:bg-normal bg-white z-20 w-full h-16 flex justify-center items-center border-neutral-300 dark:border-neutral-500">2022</h1>
+
+<section class="flex justify-around py-8">
   <TimelineSide side="left" posts={leftPosts} />
 
-  <div class="absolute flex flex-col items-center my-8 gap-8 w-full">
-    <div class="sticky top-navbar z-30 h-16 flex justify-start items-center w-full -mb-24 px-8 gap-8">
-      <div>
-        <input
-          type="checkbox"
-          name="type"
-          id="podcast"
-          value="blog"
-          class=""
-          bind:group={postTypes}
-        />
-
-        <label class="inline-flex items-center gap-1" for="podcast">
-          <IconPen class="text-[9px]" />
-          Podcasts
-        </label>
-      </div>
-
-      <div>
-        <input
-          type="checkbox"
-          name="type"
-          id="reflection"
-          value="reflection"
-          class=""
-          bind:group={postTypes}
-        />
-
-        <label class="inline-flex items-center gap-1" for="reflection">
-          <IconMic class="text-[11px]" />
-          Reflections
-        </label>
-      </div>
+  <div class="flex flex-col items-center">
+    <div class="border dark:border-neutral-500 border-neutral-300 w-0 flex flex-col justify-between items-center" style:height="{posts.length * 102}px">
+      <div class="w-2 h-2 rounded-full dark:bg-neutral-500 bg-neutral-300 -translate-y-1"></div>
+      <div class="w-2 h-2 rounded-full dark:bg-neutral-500 bg-neutral-300 translate-y-1"></div>
     </div>
-
-    <h1 class="sticky top-navbar dark:bg-normal bg-white z-20 w-full h-16 flex justify-center items-center border-neutral-300 dark:border-neutral-500">2022</h1>
-    <div class="border dark:border-neutral-500 border-neutral-300 h-[2000px] w-0 relative">
-      <div class="absolute w-1.5 h-1.5 rounded-full dark:bg-neutral-500 bg-neutral-300 -top-1 left-1/2 -translate-x-1/2"></div>
-      <div class="absolute w-1.5 h-1.5 rounded-full dark:bg-neutral-500 bg-neutral-300 -bottom-1 left-1/2 -translate-x-1/2"></div>
-    </div>
-    <h1 class="sticky top-navbar dark:bg-normal bg-white z-20 w-full h-16 flex justify-center items-center border-neutral-300 dark:border-neutral-500">2023</h1>
-    <div class="border dark:border-neutral-500 border-neutral-300 h-40 w-0 relative">
-      <div class="absolute w-1.5 h-1.5 rounded-full dark:bg-neutral-500 bg-neutral-300 -top-1 left-1/2 -translate-x-1/2"></div>
-      <div class="absolute w-1.5 h-1.5 rounded-full dark:bg-neutral-500 bg-neutral-300 -bottom-1 left-1/2 -translate-x-1/2"></div>
-    </div>
-    <h1 class="sticky top-navbar dark:bg-normal bg-white z-20 w-full h-16 flex justify-center items-center border-neutral-300 dark:border-neutral-500">🔮2024🔮</h1>
   </div>
 
   <TimelineSide side="right" posts={rightPosts} />
-</main>
+</section>
+
+<h1 class="sticky top-navbar dark:bg-normal bg-white z-20 w-full h-16 flex justify-center items-center border-neutral-300 dark:border-neutral-500">2023</h1>
+
+<section class="flex justify-around py-8">
+  <TimelineSide side="left" posts={leftPosts} />
+
+  <div class="flex flex-col items-center">
+    <div class="border dark:border-neutral-500 border-neutral-300 w-0 flex flex-col justify-between items-center" style:height="{posts.length * 102}px">
+      <div class="w-2 h-2 rounded-full dark:bg-neutral-500 bg-neutral-300 -translate-y-1"></div>
+      <div class="w-2 h-2 rounded-full dark:bg-neutral-500 bg-neutral-300 translate-y-1"></div>
+    </div>
+  </div>
+
+  <TimelineSide side="right" posts={rightPosts} />
+</section>
