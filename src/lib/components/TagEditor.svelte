@@ -4,6 +4,7 @@
   import { db, queryDocs, removeDoc, storage, type TagData } from '$lib/firebase';
   import { getImage, getUuid } from '$lib/utils';
   import { goto } from '$app/navigation';
+  import IconTrash from "~icons/gg/trash";
 
   export let name = "";
   export let heading = "";
@@ -128,6 +129,9 @@
       <button type="submit" class="btn btn-neutral flex-grow">Save</button>
     </div>
 
-    <button class="btn w-full btn-error text-white" on:click|preventDefault={deleteTag}>Delete Post</button>
+    <button class="btn w-full btn-error text-white" on:click|preventDefault={deleteTag}>
+      <IconTrash />
+      Delete Post
+    </button>
   </form>
 </div>

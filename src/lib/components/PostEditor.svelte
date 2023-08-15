@@ -1,10 +1,11 @@
 <script lang="ts">
-  import { type PostData, type PostType, storage, db, removeDoc, fetchDoc, queryDocs } from '$lib/firebase';
+  import { type PostData, type PostType, storage, db, removeDoc, queryDocs } from '$lib/firebase';
   import { ref, uploadBytes } from 'firebase/storage';
   import Editor from '@tinymce/tinymce-svelte';
   import { getImage, getUuid, slugify } from '$lib/utils';
   import { slide } from 'svelte/transition';
-  import { writeBatch, type DocumentData, QueryDocumentSnapshot } from 'firebase/firestore';
+  import { writeBatch, QueryDocumentSnapshot } from 'firebase/firestore';
+  import IconTrash from "~icons/gg/trash";
 
   import IconRight from '~icons/gg/arrow-right';
   import IconLeft from '~icons/gg/arrow-left';
@@ -226,7 +227,10 @@
           </div>
         </div>
 
-        <button class="btn w-full btn-error text-white" on:click|preventDefault={deletePost}>Delete Post</button>
+        <button class="btn w-full btn-error text-white" on:click|preventDefault={deletePost}>
+          <IconTrash />
+          Delete Post
+        </button>
       </div>
     {/if}
 

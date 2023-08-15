@@ -13,7 +13,7 @@
 </script>
 
 <main class="h-screen grid grid-cols-10 grid-rows-9">
-  <header class="flex p-4 justify-between bg-amber-50 items-center row-span-1 col-span-full">
+  <header class="flex p-4 justify-between bg-white items-center row-span-1 col-span-full">
     <a href="/" class="btn btn-outline normal-case font-bold">
       ⮜ Back to Homepage
     </a>
