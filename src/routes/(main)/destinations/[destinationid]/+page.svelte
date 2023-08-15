@@ -7,7 +7,7 @@
   export let data: PageData;
 </script>
 
-<PageLanding src={getImage(data.tag.image)}>
+<PageLanding src={getImage(data.tag.image, "lg")}>
   <h1 class="text-3xl tracking-wider uppercase">{data.tag.name}</h1>
 </PageLanding>
 

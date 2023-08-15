@@ -13,10 +13,10 @@
   let posts = data.posts;
   let postTypes: PostType[] = ["reflection", "blog"];
   let leftPosts: PostData[], rightPosts: PostData[];
+  let previousType: PostType;
 
-  $: {
-    posts = data.posts.filter(post => postTypes.includes(post.type));
-  }
+  $: posts = data.posts.filter(post => postTypes.includes(post.type));
+  $: if (postTypes.length === 0) postTypes = [previousType === "blog" ? "reflection" : "blog"];
 
   $: leftPosts = posts.filter((_, i) => i % 2 === 0);
   $: rightPosts = posts.filter((_, i) => i % 2 !== 0);
@@ -35,6 +35,7 @@
       value="blog"
       class=""
       bind:group={postTypes}
+      on:click={() => previousType = "blog"}
     />
 
     <label class="inline-flex items-center gap-1" for="podcast">
@@ -51,6 +52,7 @@
       value="reflection"
       class=""
       bind:group={postTypes}
+      on:click={() => previousType = "reflection"}
     />
 
     <label class="inline-flex items-center gap-1" for="reflection">
