@@ -29,7 +29,7 @@ export function getUuid() {
 
 export function getImage(
   path: string,
-  size: "sm" | "md" | "lg" = "md",
+  size: "sm" | "md" | "lg" | "xl" = "md",
   type: "library" | "storage" = "storage"
 ) {
   let dimensions = 800;
@@ -43,6 +43,9 @@ export function getImage(
     case "lg":
       dimensions = 1000;
       break;
+    case "xl":
+      dimensions = 3000;
+      break;
   }
 
   let quality = 80;
@@ -55,6 +58,9 @@ export function getImage(
       break;
     case "lg":
       quality = 100;
+      break;
+    case "xl":
+      quality = 120;
       break;
   }
 
