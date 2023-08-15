@@ -3,10 +3,32 @@
 	import PageLanding from "$lib/components/PageLanding.svelte";
   import PostCard from "$lib/components/PostCard.svelte";
   import { getImage } from "$lib/utils";
+  import type { PostData } from "$lib/firebase";
+  import { onMount } from "svelte";
 
   import IconSearch from "~icons/gg/search";
 
   export let data: PageData;
+
+  const batch = 8;
+  let postsGrid: HTMLElement;
+  let posts: PostData[] = [];
+  let postsNum = 8;
+
+  $: posts = data.posts.slice(0, postsNum);
+
+  function loadMorePosts() {
+    const bottom = postsGrid.getBoundingClientRect().bottom - (window.innerHeight);
+    console.log(bottom);
+    if (bottom < 0) {
+      postsNum += batch;
+    }
+  }
+
+  onMount(() => {
+    window.addEventListener("scroll", loadMorePosts);
+    return () => window.removeEventListener("scroll", loadMorePosts);
+  });
 </script>
 
 <PageLanding center src={getImage("blog.webp", "md", "library")}>
@@ -38,8 +60,8 @@
     {/if}
   </h1>
 
-  <main class="grid grid-cols-4 gap-4">
-    {#each data.posts as post}
+  <main class="grid grid-cols-4 gap-4" bind:this={postsGrid}>
+    {#each posts as post}
       <PostCard type={post.type} url="/post/{post.slug}" title={post.title} cover={post.cover} />
     {/each}
   </main>
