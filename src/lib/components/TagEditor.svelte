@@ -128,6 +128,6 @@
       <button type="submit" class="btn btn-neutral flex-grow">Save</button>
     </div>
 
-    <button class="btn w-full btn-error" on:click|preventDefault={deleteTag}>Delete Post</button>
+    <button class="btn w-full btn-error text-white" on:click|preventDefault={deleteTag}>Delete Post</button>
   </form>
 </div>

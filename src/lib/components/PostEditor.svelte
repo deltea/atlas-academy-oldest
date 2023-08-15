@@ -226,7 +226,7 @@
           </div>
         </div>
 
-        <button class="btn w-full btn-error" on:click|preventDefault={deletePost}>Delete Post</button>
+        <button class="btn w-full btn-error text-white" on:click|preventDefault={deletePost}>Delete Post</button>
       </div>
     {/if}
 
