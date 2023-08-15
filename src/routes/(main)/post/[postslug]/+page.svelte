@@ -2,7 +2,7 @@
   import type { PageData } from "./$types";
   import { page } from "$app/stores";
   import PageLanding from "$lib/components/PageLanding.svelte";
-  import { formatDate } from "$lib/utils";
+  import { formatDate, getImage } from "$lib/utils";
 
   import IconRight from "~icons/gg/arrow-right";
   import IconLeft from "~icons/gg/arrow-left";
@@ -17,7 +17,7 @@
 
 </script>
 
-<PageLanding center src={data.post.cover}>
+<PageLanding center src={getImage(data.post.cover)}>
   <small class="uppercase text-sm tracking-widest">
     {formattedDate} |
     <span class="inline-flex gap-2">

@@ -2,6 +2,7 @@
   import { writeBatch } from 'firebase/firestore';
   import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
   import { db, storage, type TagData } from '$lib/firebase';
+  import { getUuid } from '$lib/utils';
 
   export let name = "";
   export let heading = "";
@@ -24,9 +25,9 @@
 
     if (image instanceof Blob) {
       const bytes = new Uint8Array(await image.arrayBuffer());
-      const storageRef = ref(storage, `/${image.name}`);
+      const storageRef = ref(storage, `/tag-covers/${image.name}-${getUuid()}`);
       coverUrl = await uploadBytes(storageRef, bytes).then(snapshot => {
-        return getDownloadURL(snapshot.ref);
+        return encodeURIComponent(snapshot.ref.fullPath);
       });
     } else {
       coverUrl = image;

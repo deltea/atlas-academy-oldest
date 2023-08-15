@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { getImage } from "$lib/utils";
   import type { PageData } from "./$types";
   import { fade } from "svelte/transition";
 
@@ -71,7 +72,7 @@
         <a href="/admin/edit/post/{post.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group" transition:fade>
           <div
             class="group-hover:brightness-75 brightness-100 duration-300 w-full h-40 bg-cover bg-center rounded-sm"
-            style:background-image="url('{post.cover}')"
+            style:background-image="url('{getImage(post.cover, "sm")}')"
           />
           <h1>{post.title}</h1>
         </a>
@@ -83,7 +84,7 @@
         <a href="/admin/edit/tag/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group text-center" transition:fade>
           <div
             class="group-hover:brightness-75 brightness-100 duration-300 w-full h-80 bg-cover bg-center rounded-sm"
-            style:background-image="url('{tag.image}')"
+            style:background-image="url('{getImage(tag.image, "sm")}')"
           />
           <h1>{tag.name}</h1>
         </a>

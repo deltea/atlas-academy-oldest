@@ -3,6 +3,7 @@
   import PageLanding from "$lib/components/PageLanding.svelte";
   import Marker from "$lib/components/Marker.svelte";
   import { fade } from "svelte/transition";
+  import { getImage } from "$lib/utils";
 
   export let data: PageData;
 
@@ -18,7 +19,7 @@
   }
 </script>
 
-<PageLanding center src="/images/destinations.jpg">
+<PageLanding center src={getImage("destinations.webp", "md", "library")}>
   <h1 class="text-3xl tracking-wider uppercase">Destinations</h1>
 </PageLanding>
 
@@ -64,7 +65,7 @@
     <a href="/destinations/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light dark:text-neutral-200 group text-center relative" transition:fade>
       <div
         class="group-hover:brightness-75 brightness-100 duration-300 w-full h-80 bg-cover bg-center rounded-sm"
-        style:background-image="url('{tag.image}')"
+        style:background-image="url('{getImage(tag.image)}')"
       />
       <h1 class="absolute bottom-8 text-white left-8">{tag.name}</h1>
     </a>

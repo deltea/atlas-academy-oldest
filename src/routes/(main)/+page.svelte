@@ -1,18 +1,19 @@
 <script lang="ts">
   import type { PageData } from "./$types";
 	import PageLanding from "$lib/components/PageLanding.svelte";
+  import { getImage } from "$lib/utils";
 
   export let data: PageData;
 </script>
 
-<PageLanding center src="/images/landing.jpg">
+<PageLanding center src={getImage("landing.webp", "lg", "library")}>
   <h2 class="tracking-widest -mt-28">啟程向世界學習</h2>
   <h1 class="text-4xl tracking-wider font-title">世界是学校</h1>
 </PageLanding>
 
 <main class="p-sm">
   <section class="flex items-stretch gap-8">
-    <div class="bg-[url(/images/home1.jpg)] w-full bg-cover bg-center"></div>
+    <div class="w-full bg-cover bg-center" style:background-image="url('{getImage("home.jpg", "md", "library")}')"></div>
 
     <div>
       我們一家把房子、車子和家當都賣掉，帶著一卡皮箱，到世界各地旅行，把世界當學校。

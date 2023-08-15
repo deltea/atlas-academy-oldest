@@ -6,6 +6,7 @@
 
   import IconPen from "~icons/gg/pen";
   import IconMic from "~icons/material-symbols/mic";
+  import { getImage } from "$lib/utils";
 
   export let data: PageData;
 
@@ -21,7 +22,7 @@
   $: rightPosts = posts.filter((_, i) => i % 2 !== 0);
 </script>
 
-<PageLanding center src="/images/timeline.jpg">
+<PageLanding center src={getImage("timeline.webp", "lg", "library")}>
   <h1 class="text-3xl tracking-wider uppercase">Timeline</h1>
 </PageLanding>
 

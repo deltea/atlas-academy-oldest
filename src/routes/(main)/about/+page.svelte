@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PageLanding from "$lib/components/PageLanding.svelte";
+  import { getImage } from "$lib/utils";
   import type { PageData } from "./$types";
 
   export let data: PageData;
@@ -17,7 +18,7 @@
   ]
 </script>
 
-<PageLanding center src="/images/about.jpg">
+<PageLanding center src={getImage("about.webp", "md", "library")}>
   <h1 class="text-3xl tracking-wider uppercase">About Us</h1>
 </PageLanding>
 
@@ -39,7 +40,7 @@
   <div class="gap-4 grid grid-cols-3 grid-rows-3 h-[200vh] mt-12">
     {#each images as image}
       <div
-        style:background-image="url(/images/about/{image.index}.jpg)"
+        style:background-image="url('{getImage(`${image.index}.jpg`, "sm", "library")}')"
         class="bg-cover bg-center w-full h-full relative"
       >
         <div class="w-full absolute bottom-0 bg-gradient-to-t from-normal h-32"></div>

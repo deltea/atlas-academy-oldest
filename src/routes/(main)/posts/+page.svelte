@@ -2,13 +2,14 @@
   import type { PageData } from "./$types";
 	import PageLanding from "$lib/components/PageLanding.svelte";
   import PostCard from "$lib/components/PostCard.svelte";
+  import { getImage } from "$lib/utils";
 
   import IconSearch from "~icons/gg/search";
 
   export let data: PageData;
 </script>
 
-<PageLanding center src="/images/blog.jpg">
+<PageLanding center src={getImage("blog.webp", "md", "library")}>
   <h1 class="text-3xl tracking-wider uppercase">Blog</h1>
 </PageLanding>
 

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { PostData } from "$lib/firebase";
-  import { formatDate } from "$lib/utils";
+  import { formatDate, getImage } from "$lib/utils";
 
   export let side: "left" | "right";
   export let posts: PostData[];
@@ -14,7 +14,7 @@
         <h2 class="dark:group-hover:text-white group-hover:text-normal text-neutral-400 duration-300 -mt-0.5">{post.title}</h2>
       </div>
 
-      <img src="{post.cover}" alt="{post.title}" class="h-20 group-hover:brightness-100 brightness-75 group-hover:scale-105 duration-200 rounded-lg">
+      <img src="{getImage(post.cover, "sm")}" alt="{post.title}" class="h-20 group-hover:brightness-100 brightness-75 group-hover:scale-105 duration-200 rounded-lg">
 
       <div class="absolute w-12 border dark:border-neutral-500 border-neutral-300 dark:group-hover:border-white group-hover:border-normal duration-300 {side === "left" ? "right-0" : "left-0"} top-3"></div>
 

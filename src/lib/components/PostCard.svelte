@@ -1,6 +1,7 @@
 <script lang="ts">
   import { fade } from "svelte/transition";
   import type { PostType } from "$lib/firebase";
+  import { getImage } from "$lib/utils";
 
   import IconPen from "~icons/gg/pen";
   import IconMic from "~icons/material-symbols/mic";
@@ -14,7 +15,7 @@
 <a href={url} class="flex flex-col gap-4 text-sm uppercase font-semibold text-light dark:text-neutral-200 group" transition:fade>
   <div
     class="group-hover:brightness-75 brightness-100 duration-300 w-full h-40 bg-cover bg-center relative"
-    style:background-image="url('{cover}')"
+    style:background-image="url('{getImage(cover, "sm")}')"
   ></div>
 
   <h1 class="items-center gap-1">

@@ -1,3 +1,5 @@
+import { v4 as uuid } from "uuid";
+
 const numberFormatter = Intl.NumberFormat("en", { notation: "compact" });
 export function formatBigNumber(num: number) {
   return numberFormatter.format(num);
@@ -19,4 +21,31 @@ export function formatDate(dateString: string, format: "sm" | "lg" = "lg") {
 
 export function slugify(text: string) {
   return text.replaceAll(" ", "-").toLowerCase();
+}
+
+export function getUuid() {
+  return uuid();
+}
+
+export function getImage(
+  path: string,
+  size: "sm" | "md" | "lg" = "md",
+  type: "library" | "storage" = "storage"
+) {
+  let dimensions = 800;
+  switch (size) {
+    case "sm":
+      dimensions = 400;
+      break;
+    default:
+      dimensions = 800;
+      break;
+    case "lg":
+      dimensions = 1000;
+      break;
+  }
+
+  return type === "storage"
+    ? `https://ik.imagekit.io/pfx7oxlvq0/o/${path}?alt=media&tr=w-${dimensions},h-${dimensions}`
+    : `https://ik.imagekit.io/pfx7oxlvq0/Atlas%20Academy%20Blog/${path}?tr=f-auto`;
 }

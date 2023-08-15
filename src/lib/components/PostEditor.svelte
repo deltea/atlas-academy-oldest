@@ -1,8 +1,8 @@
 <script lang="ts">
   import { type PostData, type PostType, storage, db } from '$lib/firebase';
-  import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+  import { ref, uploadBytes } from 'firebase/storage';
   import Editor from '@tinymce/tinymce-svelte';
-  import { slugify } from '$lib/utils';
+  import { getUuid, slugify } from '$lib/utils';
   import { slide } from 'svelte/transition';
   import { writeBatch } from 'firebase/firestore';
 
@@ -46,9 +46,9 @@
 
     if (cover instanceof Blob) {
       const bytes = new Uint8Array(await cover.arrayBuffer());
-      const storageRef = ref(storage, `/${cover.name}`);
+      const storageRef = ref(storage, `/post-covers/${cover.name}-${getUuid()}`);
       coverUrl = await uploadBytes(storageRef, bytes).then(snapshot => {
-        return getDownloadURL(snapshot.ref);
+        return encodeURIComponent(snapshot.ref.fullPath);
       });
     } else {
       coverUrl = cover;
