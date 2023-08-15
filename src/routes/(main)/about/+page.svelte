@@ -43,7 +43,7 @@
         style:background-image="url('{getImage(`${image.index}.jpg`, "sm", "library")}')"
         class="bg-cover bg-center w-full h-full relative"
       >
-        <div class="w-full absolute bottom-0 bg-gradient-to-t from-normal h-32"></div>
+        <div class="w-full absolute bottom-0 bg-gradient-to-t dark:from-normal from-neutral-500 h-32"></div>
         <p class="my-2 mx-4 absolute bottom-4 text-white">{image.caption}</p>
       </div>
     {/each}
