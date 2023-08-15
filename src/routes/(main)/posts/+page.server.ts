@@ -13,7 +13,7 @@ export const load = (async ({ url }) => {
     const tagsHasQ = post.tags.includes(q ?? "");
 
     return titleHasQ || qHasTitle || tagsHasQ;
-  }).flatMap(i => Array.from({ length: 100 }).fill(i) as PostData[]);
+  });
 
   return {
     posts,
