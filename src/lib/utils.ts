@@ -45,7 +45,20 @@ export function getImage(
       break;
   }
 
+  let quality = 80;
+  switch (size) {
+    case "sm":
+      quality = 20;
+      break;
+    default:
+      quality = 80;
+      break;
+    case "lg":
+      quality = 100;
+      break;
+  }
+
   return type === "storage"
     ? `https://ik.imagekit.io/pfx7oxlvq0/o/${path}?alt=media&tr=w-${dimensions},h-${dimensions}`
-    : `https://ik.imagekit.io/pfx7oxlvq0/Atlas%20Academy%20Blog/${path}?tr=f-auto`;
+    : `https://ik.imagekit.io/pfx7oxlvq0/Atlas%20Academy%20Blog/${path}?tr=f-auto,q-${quality}`;
 }
