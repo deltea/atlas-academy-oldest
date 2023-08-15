@@ -1,12 +1,13 @@
 <script lang="ts">
 	import PageLanding from "$lib/components/PageLanding.svelte";
-    import PostCard from "$lib/components/PostCard.svelte";
+  import PostCard from "$lib/components/PostCard.svelte";
+  import { getImage } from "$lib/utils";
   import type { PageData } from "./$types";
 
   export let data: PageData;
 </script>
 
-<PageLanding src={data.tag.image}>
+<PageLanding src={getImage(data.tag.image)}>
   <h1 class="text-3xl tracking-wider uppercase">{data.tag.name}</h1>
 </PageLanding>
 
