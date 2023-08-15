@@ -1,13 +1,14 @@
 <script lang="ts">
-  import { type PostData, type PostType, storage, db } from '$lib/firebase';
+  import { type PostData, type PostType, storage, db, removeDoc, fetchDoc, queryDocs } from '$lib/firebase';
   import { ref, uploadBytes } from 'firebase/storage';
   import Editor from '@tinymce/tinymce-svelte';
-  import { getUuid, slugify } from '$lib/utils';
+  import { getImage, getUuid, slugify } from '$lib/utils';
   import { slide } from 'svelte/transition';
-  import { writeBatch } from 'firebase/firestore';
+  import { writeBatch, type DocumentData, QueryDocumentSnapshot } from 'firebase/firestore';
 
   import IconRight from '~icons/gg/arrow-right';
   import IconLeft from '~icons/gg/arrow-left';
+  import { goto } from '$app/navigation';
 
   export let tags: string[] = [];
   export let title: string = "";
@@ -39,6 +40,15 @@
     if (selectedFile) {
       cover = selectedFile;
     }
+  }
+
+  async function deletePost() {
+    const docRef = await queryDocs("posts", "title", "==", title, 1, false) as QueryDocumentSnapshot[];
+    await removeDoc("posts", docRef[0].id);
+
+    setTimeout(() => {
+      goto("/admin");
+    }, 1000);
   }
 
   async function save() {
@@ -184,7 +194,7 @@
             />
             {#if cover}
               <img
-                src={cover instanceof Blob ? URL.createObjectURL(cover) : cover}
+                src={cover instanceof Blob ? URL.createObjectURL(cover) : getImage(cover, "sm")}
                 alt="Cover Preview"
                 class="h-36"
               />
@@ -215,6 +225,8 @@
             </ul>
           </div>
         </div>
+
+        <button class="btn w-full btn-error" on:click|preventDefault={deletePost}>Delete Post</button>
       </div>
     {/if}
 

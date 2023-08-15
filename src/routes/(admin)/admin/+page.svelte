@@ -67,25 +67,35 @@
   </aside>
 
   {#if selectedTab === "posts"}
-    <div class="grid grid-cols-3 gap-8 m-4 col-span-8 row-start-2">
+    <div class="grid grid-cols-3 gap-4 m-4 col-span-8 row-start-2">
       {#each data.posts as post}
         <a href="/admin/edit/post/{post.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group" transition:fade>
           <div
-            class="group-hover:brightness-75 brightness-100 duration-300 w-full h-40 bg-cover bg-center rounded-sm"
+            class="w-full h-40 bg-cover bg-center rounded-sm relative"
             style:background-image="url('{getImage(post.cover, "sm")}')"
-          />
+          >
+            <div class="inline-flex group-hover:opacity-100 opacity-0 gap-2 items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-300">
+              <a class="btn btn-sm" href="/admin/edit/post/{post.slug}">Edit</a>
+              <a class="btn btn-sm btn-outline border-white text-white hover:bg-white hover:border-white hover:text-neutral" href="/post/{post.slug}">View</a>
+            </div>
+          </div>
           <h1>{post.title}</h1>
         </a>
       {/each}
     </div>
   {:else}
-    <div class="grid grid-cols-3 gap-8 gap-y-8 m-4 col-span-8 row-start-2">
+    <div class="grid grid-cols-3 gap-4 gap-y-8 m-4 col-span-8 row-start-2">
       {#each data.tags as tag}
         <a href="/admin/edit/tag/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group text-center" transition:fade>
           <div
-            class="group-hover:brightness-75 brightness-100 duration-300 w-full h-80 bg-cover bg-center rounded-sm"
+            class="w-full h-80 bg-cover bg-center rounded-sm relative"
             style:background-image="url('{getImage(tag.image, "sm")}')"
-          />
+          >
+            <div class="inline-flex group-hover:opacity-100 opacity-0 gap-2 items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-300">
+              <a class="btn btn-sm" href="/admin/edit/tag/{tag.slug}">Edit</a>
+              <a class="btn btn-sm btn-outline border-white text-white hover:bg-white hover:border-white hover:text-neutral" href="/destinations/{tag.slug}">View</a>
+            </div>
+          </div>
           <h1>{tag.name}</h1>
         </a>
       {/each}

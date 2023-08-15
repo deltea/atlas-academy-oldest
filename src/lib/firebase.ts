@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore, doc, getDoc, collection, getDocs, query, where, FieldPath, type WhereFilterOp, limit, addDoc, type DocumentData, setDoc, orderBy, type OrderByDirection } from "firebase/firestore";
+import { getFirestore, doc, getDoc, collection, getDocs, query, where, FieldPath, type WhereFilterOp, limit, addDoc, type DocumentData, setDoc, orderBy, type OrderByDirection, deleteDoc, QueryDocumentSnapshot } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
@@ -100,7 +100,7 @@ export async function queryDocs<T>(
   const ref = collection(db, name);
   const q = query(ref, where(field, operation, value), limit(maxDocs));
   const snapshot = await getDocs(q);
-  return snapshot.docs.map(doc => fetchData ? doc.data() as T : doc as DocumentData);
+  return snapshot.docs.map(doc => fetchData ? doc.data() as T : doc as QueryDocumentSnapshot);
 }
 
 
@@ -164,4 +164,8 @@ export async function changeDoc(
 ) {
   const ref = doc(db, collection, id);
   await setDoc(ref, data, { merge });
+}
+
+export async function removeDoc(collection: string, id: string) {
+  deleteDoc(doc(db, collection, id));
 }

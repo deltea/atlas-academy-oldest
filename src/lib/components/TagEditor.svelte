@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { writeBatch } from 'firebase/firestore';
-  import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-  import { db, storage, type TagData } from '$lib/firebase';
-  import { getUuid } from '$lib/utils';
+  import { QueryDocumentSnapshot, writeBatch } from 'firebase/firestore';
+  import { ref, uploadBytes } from 'firebase/storage';
+  import { db, queryDocs, removeDoc, storage, type TagData } from '$lib/firebase';
+  import { getImage, getUuid } from '$lib/utils';
+  import { goto } from '$app/navigation';
 
   export let name = "";
   export let heading = "";
@@ -18,6 +19,15 @@
     if (selectedFile) {
       image = selectedFile;
     }
+  }
+
+  async function deleteTag() {
+    const docRef = await queryDocs("tags", "slug", "==", slug, 1, false) as QueryDocumentSnapshot[];
+    await removeDoc("tags", docRef[0].id);
+
+    setTimeout(() => {
+      goto("/admin");
+    }, 1000);
   }
 
   async function save() {
@@ -48,7 +58,7 @@
   }
 </script>
 
-<div class="flex min-h-screen m-4 justify-center items-center">
+<div class="flex min-h-screen mx-4 my-16 justify-center items-center">
   <form
     on:submit|preventDefault={save}
     enctype="multipart/form-data"
@@ -106,7 +116,7 @@
 
       {#if image}
         <img
-          src={image instanceof Blob ? URL.createObjectURL(image) : image}
+          src={image instanceof Blob ? URL.createObjectURL(image) : getImage(image)}
           alt="Cover Preview"
           class="w-40"
         />
@@ -117,5 +127,7 @@
       <a href="/admin" class="btn btn-outline flex-grow">Cancel</a>
       <button type="submit" class="btn btn-neutral flex-grow">Save</button>
     </div>
+
+    <button class="btn w-full btn-error" on:click|preventDefault={deleteTag}>Delete Post</button>
   </form>
 </div>
