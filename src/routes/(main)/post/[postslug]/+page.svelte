@@ -27,6 +27,10 @@
     </span>
   </small>
   <h1 class="text-3xl tracking-wider uppercase">{data.post.title}</h1>
+
+  {#if data.isAdmin}
+    <a href="/admin/edit/post/{data.post.slug}" class="btn btn-outline btn-info btn-sm btn-wide">Edit post</a>
+  {/if}
 </PageLanding>
 
 <div class="flex justify-center lg:px-sm px-2 py-4">
