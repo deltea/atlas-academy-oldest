@@ -10,6 +10,7 @@
   import IconSun from "~icons/ri/sun-fill";
   import IconAdd from "~icons/gg/add";
   import IconClose from "~icons/gg/close";
+  import { quadInOut } from "svelte/easing";
 
   export let isAdmin: boolean;
 
@@ -211,7 +212,7 @@
 </header>
 
 {#if navModalOpen}
-  <nav class="dark:bg-white dark:text-normal bg-normal text-white duration-300 h-[calc(100vh-80px)] w-screen fixed z-50 bottom-0 flex flex-col justify-center items-center gap-16" transition:slide>
+  <nav class="bg-white text-normal dark:bg-normal dark:text-white duration-300 h-[calc(100vh-80px)] w-screen fixed z-50 bottom-0 flex flex-col justify-center items-center gap-16" transition:slide={{ easing: quadInOut }}>
     <div class="flex flex-col text-center">
       <a class="uppercase font-semibold tracking-widest text-lg" href="/">Home</a>
       <a class="uppercase font-semibold tracking-widest text-lg" href="/destinations">Destinations</a>
