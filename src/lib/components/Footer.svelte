@@ -8,8 +8,8 @@
 <div class="bg-[url(/images/waves.svg)] dark:bg-[url(/images/dark-waves.svg)] bg-white dark:bg-normal bg-cover bg-[center_bottom] bg-no-repeat w-full h-24 duration-300 -my-0.5"></div>
 
 <footer class="bg-[#ececec] dark:bg-[#434343] p-10 text-neutral-700 dark:text-white duration-300">
-  <div class="flex justify-between">
-    <div class="space-y-2 w-80 gap-1 lg:block hidden">
+  <div class="flex lg:justify-between justify-center">
+    <div class="space-y-2 w-80 gap-1 md:block hidden">
       <a
         href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3"
         target="_blank"
@@ -34,7 +34,7 @@
       </a>
     </div>
 
-    <div class="space-x-16 text-right inline-flex">
+    <div class="space-x-16 lg:text-right text-center inline-flex">
       <div class="space-y-6">
         <h2 class="uppercase font-semibold tracking-wider text-sm">
           Pages

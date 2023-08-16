@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { slide } from "svelte/transition";
   import { onMount } from "svelte";
 
   import IconSpotify from "~icons/mdi/spotify";
@@ -8,14 +9,15 @@
   import IconMoon from "~icons/ri/moon-fill";
   import IconSun from "~icons/ri/sun-fill";
   import IconAdd from "~icons/gg/add";
+  import IconClose from "~icons/gg/close";
 
   export let isAdmin: boolean;
 
   let atTopOfPage = true;
   let scrolledScreenHeight = false;
   let scrollDirection: "up" | "down" = "up";
-  let darkModeSwitch: HTMLButtonElement;
   let darkMode: boolean;
+  let navModalOpen = false;
 
   function checkTopOfPage() {
     scrolledScreenHeight = window.scrollY > window.innerHeight;
@@ -52,22 +54,20 @@
 
     document.addEventListener("scroll", checkTopOfPage);
     document.addEventListener("wheel", detectScrollDirection);
-    darkModeSwitch.addEventListener("click", switchDarkMode);
 
     return () => {
       document.removeEventListener("scroll", checkTopOfPage);
       document.removeEventListener("wheel", detectScrollDirection);
-      darkModeSwitch.addEventListener("click", () => switchDarkMode);
     }
   });
 </script>
 
 <header
   style:top={(scrolledScreenHeight && scrollDirection === "down") ? "-7em" : "0"}
-  class="fixed z-50 top-0 w-full flex justify-between items-center px-8 text-xs duration-500
+  class="fixed z-50 top-0 w-full flex justify-between items-center px-8 text-xs duration-500 h-navbar
     {atTopOfPage ?
-      "text-white bg-transparent h-[100px]" :
-      "text-normal bg-white dark:bg-normal dark:text-white h-navbar shadow-lg"
+      "text-white bg-transparent lg:h-[100px]" :
+      "text-normal bg-white dark:bg-normal dark:text-white shadow-lg"
     }
   "
 >
@@ -162,7 +162,7 @@
       About
     </a>
 
-    <button class="text-lg duration-300 {darkMode ? "rotate-0" : "rotate-45"} ml-4" bind:this={darkModeSwitch}>
+    <button class="text-lg duration-300 {darkMode ? "rotate-0" : "rotate-45"} ml-4" on:click={switchDarkMode}>
       {#if darkMode}
         <IconMoon />
       {:else}
@@ -197,5 +197,60 @@
     </div>
   </div>
 
-  <button class="inline-flex lg:hidden text-2xl" name="Menu"><IconMenu /></button>
+  <button
+    class="inline-flex lg:hidden text-2xl"
+    name="Menu"
+    on:click={() => navModalOpen = !navModalOpen}
+  >
+    {#if navModalOpen}
+      <IconClose />
+    {:else}
+      <IconMenu />
+    {/if}
+  </button>
 </header>
+
+{#if navModalOpen}
+  <nav class="dark:bg-white dark:text-normal bg-normal text-white duration-300 h-[calc(100vh-80px)] w-screen fixed z-50 bottom-0 flex flex-col justify-center items-center gap-16" transition:slide>
+    <div class="flex flex-col text-center">
+      <a class="uppercase font-semibold tracking-widest text-lg" href="/">Home</a>
+      <a class="uppercase font-semibold tracking-widest text-lg" href="/destinations">Destinations</a>
+      <a class="uppercase font-semibold tracking-widest text-lg" href="/posts">Blog</a>
+      <a class="uppercase font-semibold tracking-widest text-lg" href="/timeline">Timeline</a>
+      <a class="uppercase font-semibold tracking-widest text-lg" href="/about">About</a>
+    </div>
+
+    <div class="flex gap-4 items-center">
+      <a
+        href="https://www.facebook.com/worldschool.atlas.academy"
+        target="_blank"
+        class="hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200"
+      >
+        <IconFacebook />
+      </a>
+      <a
+        href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3"
+        target="_blank"
+        class="hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200"
+      >
+        <IconSpotify />
+      </a>
+      <a
+        href="https://podcasts.apple.com/us/podcast/%E4%B8%96%E7%95%8C%E6%98%AF%E5%AD%B8%E6%A0%A1-worldschooling/id1646258789"
+        target="_blank"
+        class="text-[16px] hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200"
+      >
+        <IconApplePodcast />
+      </a>
+    </div>
+
+    <button class="text-lg duration-300 uppercase font-semibold tracking-widest ml-4 inline-flex items-center" on:click={switchDarkMode}>
+      <span class="mr-2">Dark mode:</span>
+      {#if darkMode}
+        <span class="mr-2">On</span><IconMoon />
+      {:else}
+        <span class="mr-2">Off</span><IconSun />
+      {/if}
+    </button>
+  </nav>
+{/if}
