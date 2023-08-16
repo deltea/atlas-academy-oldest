@@ -29,7 +29,7 @@
   <h1 class="text-3xl tracking-wider uppercase">{data.post.title}</h1>
 </PageLanding>
 
-<div class="flex justify-center px-sm py-4">
+<div class="flex justify-center lg:px-sm px-2 py-4">
   <main class="text-normal dark:text-white w-3/4">
     {@html data.post.body}
   </main>
