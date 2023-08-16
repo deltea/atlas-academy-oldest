@@ -52,7 +52,7 @@ export interface TagData {
 
 export interface GalleryPhotoData {
   description: string,
-  tags: string[],
+  tag: string,
   image: string;
   date: string,
 }

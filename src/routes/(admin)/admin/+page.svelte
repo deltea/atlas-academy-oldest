@@ -31,7 +31,7 @@
       const newPhotoRef = doc(collection(db, "gallery"));
       batch.set(newPhotoRef, {
         description: "",
-        tags: [],
+        tag: "",
         image: photoUrl,
         date: "",
       } satisfies GalleryPhotoData);
