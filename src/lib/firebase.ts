@@ -50,6 +50,13 @@ export interface TagData {
   continent: string,
 }
 
+export interface GalleryPhotoData {
+  description: string,
+  tags: string[],
+  image: string;
+  date: string,
+}
+
 
 /**
  * Fetches data from a document in the database
