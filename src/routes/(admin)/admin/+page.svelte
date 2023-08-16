@@ -187,8 +187,9 @@
           {/if}
         </h2>
 
-        <h1 class="font-bold mb-2">Checklist</h1>
+        <h1 class="font-bold my-2">Checklist</h1>
         <ul>
+          <li class="flex items-center gap-2"><BooleanBadge value={hoveredPhoto.title} />Title</li>
           <li class="flex items-center gap-2"><BooleanBadge value={hoveredPhoto.description} />Description</li>
           <li class="flex items-center gap-2"><BooleanBadge value={hoveredPhoto.date} />Date</li>
           <li class="flex items-center gap-2"><BooleanBadge value={hoveredPhoto.tag} />Country</li>
