@@ -22,7 +22,7 @@
   <h1 class="text-3xl tracking-wider uppercase">About Us</h1>
 </PageLanding>
 
-<main class="p-sm">
+<main class="lg:p-sm p-xs">
   <h1>如果有一天，有人問你：「如果你可以居住在世界上任何一個地方，你想住哪裡」，你會怎麼回答？</h1>
 
   <div>
@@ -37,7 +37,7 @@
     <p>把一個家，連根拔起，收進一個行李，帶著兩個孩子，花兩年時間到世界各地過著遊牧生活，在每一個城市花時間築巢， 在當地的市場買東西，適應不同的氣候，接觸不同的文化和語言，這聽起來浪漫無比的想法，對我們來說，是一場冒險和挑戰，相信會換來我們一輩子難忘的回憶及經歷。</p>
   </div>
 
-  <div class="gap-4 grid grid-cols-3 grid-rows-3 h-[200vh] mt-12">
+  <div class="gap-4 grid lg:grid-cols-3 lg:grid-rows-3 lg:h-[80rem] h-[400vh] mt-12">
     {#each images as image}
       <div
         style:background-image="url('{getImage(`${image.index}.jpg`, "sm", "library")}')"
