@@ -60,7 +60,7 @@
   >America</button>
 </div>
 
-<div class="grid grid-cols-4 gap-0.5 px-sm py-8">
+<div class="grid lg:grid-cols-4 md:grid-cols-3 gap-0.5 px-sm py-8">
   {#each tags as tag (tag.slug)}
     <a href="/destinations/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light dark:text-neutral-200 group text-center relative" transition:fade>
       <div

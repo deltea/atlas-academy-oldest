@@ -66,7 +66,7 @@
   style:top={(scrolledScreenHeight && scrollDirection === "down") ? "-7em" : "0"}
   class="fixed z-50 top-0 w-full flex justify-between items-center px-8 text-xs duration-500
     {atTopOfPage ?
-      "text-white bg-transparent h-[15vh]" :
+      "text-white bg-transparent h-[100px]" :
       "text-normal bg-white dark:bg-normal dark:text-white h-navbar shadow-lg"
     }
   "
@@ -81,7 +81,7 @@
     {/if}
   </div>
 
-  <nav class="uppercase hidden tracking-widest font-semibold md:inline-flex items-center">
+  <nav class="uppercase hidden tracking-widest font-semibold lg:inline-flex items-center">
     <a
       href="/"
       class="hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200 py-8 px-4"
@@ -171,7 +171,7 @@
     </button>
   </nav>
 
-  <div class="hidden md:inline-flex text-lg gap-16 items-center">
+  <div class="hidden lg:inline-flex text-lg gap-16 items-center">
     <div class="flex gap-4 items-center">
       <a
         href="https://www.facebook.com/worldschool.atlas.academy"
@@ -197,5 +197,5 @@
     </div>
   </div>
 
-  <button class="inline-flex md:hidden text-2xl" name="Menu"><IconMenu /></button>
+  <button class="inline-flex lg:hidden text-2xl" name="Menu"><IconMenu /></button>
 </header>
