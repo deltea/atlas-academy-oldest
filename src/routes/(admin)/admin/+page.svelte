@@ -46,7 +46,7 @@
 </script>
 
 <main class="h-screen grid grid-cols-10 grid-rows-9">
-  <header class="flex p-4 justify-between bg-white items-center row-span-1 col-span-full">
+  <header class="flex p-4 justify-between bg-white items-center row-span-1 w-full fixed z-20">
     <a href="/" class="btn btn-outline normal-case font-bold">
       ⮜ Back to Homepage
     </a>
@@ -119,7 +119,7 @@
         <a href="/admin/edit/post/{post.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group" transition:fade>
           <div
             class="w-full h-40 bg-cover bg-center rounded-sm relative"
-            style:background-image="url('{getImage(post.cover, "sm")}')"
+            style:background-image="url('{getImage(post.cover, 1)}')"
           >
             <div class="inline-flex group-hover:opacity-100 opacity-0 gap-2 items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-300">
               <a class="btn btn-sm" href="/admin/edit/post/{post.slug}">Edit</a>
@@ -136,7 +136,7 @@
         <a href="/admin/edit/tag/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group text-center" transition:fade>
           <div
             class="w-full h-80 bg-cover bg-center rounded-sm relative"
-            style:background-image="url('{getImage(tag.image, "sm")}')"
+            style:background-image="url('{getImage(tag.image, 1)}')"
           >
             <div class="inline-flex group-hover:opacity-100 opacity-0 gap-2 items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-300">
               <a class="btn btn-sm" href="/admin/edit/tag/{tag.slug}">Edit</a>
@@ -148,10 +148,10 @@
       {/each}
     </div>
   {:else if selectedTab === "gallery"}
-    <div class="grid grid-cols-5 gap-1 m-4 col-span-8 row-start-2">
+    <div class="grid grid-cols-5 m-4 col-span-8 row-start-2">
       {#each data.gallery as photo}
-        <a href="/admin/edit/gallery/{photo.image}">
-          <img src={getImage(photo.image, "sm")} alt={photo.description}>
+        <a href="/admin/edit/gallery/{photo.image}" class="group">
+          <div class="bg-center aspect-square bg-[length:101%_101%] scale-100 group-hover:bg-[length:120%_120%] duration-200" style:background-image="url('{getImage(photo.image, 1)}')"></div>
         </a>
       {/each}
     </div>

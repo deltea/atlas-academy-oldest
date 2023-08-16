@@ -29,23 +29,28 @@ export function getUuid() {
 
 export function getImage(
   path: string,
-  size: "sm" | "md" | "lg" | "xl" = "md",
+  size: "sm" | "md" | "lg" | "xl" | number = "md",
   type: "library" | "storage" = "storage"
 ) {
-  let quality = 80;
-  switch (size) {
-    case "sm":
-      quality = 20;
-      break;
-    default:
-      quality = 80;
-      break;
-    case "lg":
-      quality = 100;
-      break;
-    case "xl":
-      quality = 120;
-      break;
+  let quality = 50;
+
+  if (typeof size === "number") {
+    quality = size;
+  } else {
+    switch (size) {
+      case "sm":
+        quality = 10;
+        break;
+      default:
+        quality = 50;
+        break;
+      case "lg":
+        quality = 80;
+        break;
+      case "xl":
+        quality = 100;
+        break;
+    }
   }
 
   return type === "storage"
