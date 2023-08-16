@@ -157,6 +157,12 @@
       Timeline
     </a>
     <a
+      href="/gallery"
+      class="hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200 py-8 px-4"
+    >
+      Gallery
+    </a>
+    <a
       href="/about"
       class="hover:{atTopOfPage ? "text-neutral-200" : "text-neutral-400"} duration-200 py-8 px-4"
     >
@@ -218,6 +224,7 @@
       <a class="uppercase font-semibold tracking-widest text-lg" href="/destinations">Destinations</a>
       <a class="uppercase font-semibold tracking-widest text-lg" href="/posts">Blog</a>
       <a class="uppercase font-semibold tracking-widest text-lg" href="/timeline">Timeline</a>
+      <a class="uppercase font-semibold tracking-widest text-lg" href="/gallery">Gallery</a>
       <a class="uppercase font-semibold tracking-widest text-lg" href="/about">About</a>
     </div>
 
