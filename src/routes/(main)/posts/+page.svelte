@@ -35,7 +35,7 @@
   <h1 class="text-3xl tracking-wider uppercase">Blog</h1>
 </PageLanding>
 
-<div class="p-sm">
+<div class="lg:p-sm p-xs">
   <form method="get" class="mb-8 relative" data-sveltekit-keepfocus data-sveltekit-noscroll>
     <label for="search" class="text-xl  text-normal absolute top-1/2 left-3 -translate-y-1/2">
       <IconSearch />
@@ -60,7 +60,7 @@
     {/if}
   </h1>
 
-  <main class="grid grid-cols-4 gap-4" bind:this={postsGrid}>
+  <main class="grid lg:grid-cols-4 gap-4" bind:this={postsGrid}>
     {#each posts as post}
       <PostCard type={post.type} url="/post/{post.slug}" title={post.title} cover={post.cover} />
     {/each}
