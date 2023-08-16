@@ -1,20 +1,26 @@
 <script lang="ts">
+	import BooleanBadge from "$lib/components/BooleanBadge.svelte";
   import { getImage, getUuid } from "$lib/utils";
   import type { PageData } from "./$types";
   import { fade } from "svelte/transition";
   import { collection, doc, writeBatch } from "firebase/firestore";
   import { db, storage, type GalleryPhotoData } from "$lib/firebase";
+  import { ref, uploadBytes } from "firebase/storage";
+  import { onMount } from "svelte";
 
   import IconMap from "~icons/bxs/map";
   import IconPost from "~icons/gg/file-document";
   import IconTag from "~icons/gg/tag";
   import IconGallery from "~icons/gg/image";
-  import { ref, uploadBytes } from "firebase/storage";
+  import IconCheck from "~icons/gg/check";
 
   export let data: PageData;
 
   let selectedTab: "posts" | "tags" | "gallery" = "posts";
   let imageInput: HTMLInputElement;
+  let galleryTooltip: HTMLElement;
+  let hoveredPhoto: GalleryPhotoData | null = null;
+  let mouseX = 0, mouseY = 0;
 
   async function uploadImages() {
     if (!imageInput.files) return;
@@ -43,6 +49,24 @@
     alert("Files uploaded successfully!");
     location.reload();
   }
+
+  function setGalleryTooltip(photo: GalleryPhotoData) {
+    hoveredPhoto = photo;
+    if (galleryTooltip) {
+      galleryTooltip.style.left = `${mouseX}px`;
+      galleryTooltip.style.top = `${mouseY}px`;
+    }
+  }
+
+  function setMousePos(e: MouseEvent) {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+  }
+
+  onMount(() => {
+    document.addEventListener("mousemove", setMousePos);
+    return () => document.removeEventListener("mousemove", setMousePos);
+  });
 </script>
 
 <main class="h-screen grid grid-cols-10 grid-rows-9">
@@ -148,10 +172,44 @@
       {/each}
     </div>
   {:else if selectedTab === "gallery"}
+    {#if hoveredPhoto}
+      <div bind:this={galleryTooltip} class="absolute bg-white z-10 pointer-events-none p-4">
+        {#if hoveredPhoto.description}
+          <h1 class="font-bold text-xl text-ellipsis whitespace-nowrap overflow-hidden w-80">{hoveredPhoto.description}</h1>
+        {/if}
+        <h2 class="italic">
+          {#if hoveredPhoto.date}
+            {hoveredPhoto.date}
+          {/if}
+          {#if hoveredPhoto.tag}
+            <span class="capitalize">{hoveredPhoto.tag}</span>
+          {/if}
+        </h2>
+
+        <h1 class="font-bold mb-2">Checklist</h1>
+        <ul>
+          <li class="flex items-center gap-2"><BooleanBadge value={hoveredPhoto.description} />Description</li>
+          <li class="flex items-center gap-2"><BooleanBadge value={hoveredPhoto.date} />Date</li>
+          <li class="flex items-center gap-2"><BooleanBadge value={hoveredPhoto.tag} />Country</li>
+        </ul>
+      </div>
+    {/if}
+
     <div class="grid grid-cols-5 m-4 col-span-8 row-start-2">
       {#each data.gallery as photo}
-        <a href="/admin/edit/gallery/{photo.image}" class="group">
-          <div class="bg-center aspect-square bg-[length:101%_101%] scale-100 group-hover:bg-[length:120%_120%] duration-200" style:background-image="url('{getImage(photo.image, 1)}')"></div>
+        <a
+          href="/admin/edit/gallery/{photo.image}"
+          class="group"
+          on:mousemove={() => setGalleryTooltip(photo)}
+          on:mouseleave={() => hoveredPhoto = null}
+        >
+          <div class="bg-center aspect-square bg-[length:101%_101%] scale-100 group-hover:bg-[length:120%_120%] duration-200 flex justify-center items-center" style:background-image="url('{getImage(photo.image, 1)}')">
+            {#if photo.description && photo.date && photo.image && photo.tag}
+              <span class="bg-white rounded-full text-success text-5xl">
+                <IconCheck />
+              </span>
+            {/if}
+          </div>
         </a>
       {/each}
     </div>
