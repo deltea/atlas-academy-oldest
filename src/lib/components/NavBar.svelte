@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { slide } from "svelte/transition";
   import { onMount } from "svelte";
+  import { quadInOut } from "svelte/easing";
 
   import IconSpotify from "~icons/mdi/spotify";
   import IconApplePodcast from "~icons/simple-icons/applepodcasts";
@@ -10,7 +11,6 @@
   import IconSun from "~icons/ri/sun-fill";
   import IconAdd from "~icons/gg/add";
   import IconClose from "~icons/gg/close";
-  import { quadInOut } from "svelte/easing";
 
   export let isAdmin: boolean;
 

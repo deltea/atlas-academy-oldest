@@ -17,7 +17,7 @@
 
 </script>
 
-<PageLanding center src={getImage(data.post.cover)}>
+<PageLanding center src={getImage(data.post.cover, "xl")}>
   <small class="uppercase text-sm tracking-widest">
     {formattedDate} |
     <span class="inline-flex gap-2">
