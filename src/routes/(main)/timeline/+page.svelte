@@ -39,7 +39,7 @@
     />
 
     <label class="inline-flex items-center gap-1" for="podcast">
-      <IconPen class="text-[9px]" />
+      <IconMic class="text-[11px]" />
       <span class="lg:block hidden">Podcasts</span>
     </label>
   </div>
@@ -56,7 +56,7 @@
     />
 
     <label class="inline-flex items-center gap-1" for="reflection">
-      <IconMic class="text-[11px]" />
+      <IconPen class="text-[9px]" />
       <span class="lg:block hidden">Reflections</span>
     </label>
   </div>
