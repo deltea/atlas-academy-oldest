@@ -29,6 +29,7 @@
       });
 
       const newPhotoRef = doc(collection(db, "gallery"));
+      console.log(newPhotoRef.id);
       batch.set(newPhotoRef, {
         description: "",
         tag: "",
