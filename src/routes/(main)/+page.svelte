@@ -11,9 +11,9 @@
   <h1 class="text-4xl tracking-wider font-title">世界是学校</h1>
 </PageLanding>
 
-<main class="p-sm">
-  <section class="flex items-stretch gap-8">
-    <div class="w-full bg-cover bg-center" style:background-image="url('{getImage("home.jpg", "md", "library")}')"></div>
+<main class="lg:p-sm p-xs">
+  <section class="lg:items-stretch gap-8 flex lg:flex-row flex-col-reverse">
+    <div class="w-full lg:h-auto h-80 bg-cover bg-center" style:background-image="url('{getImage("home.jpg", "md", "library")}')"></div>
 
     <div>
       我們一家把房子、車子和家當都賣掉，帶著一卡皮箱，到世界各地旅行，把世界當學校。

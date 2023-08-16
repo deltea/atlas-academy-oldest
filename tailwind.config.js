@@ -31,7 +31,8 @@ export default {
         "sm": "1.5px"
       },
       spacing: {
-        "navbar": "12vh",
+        "xs": "2rem",
+        "navbar": "80px",
       }
     },
   },

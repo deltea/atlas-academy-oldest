@@ -26,7 +26,7 @@
   <h1 class="text-3xl tracking-wider uppercase">Timeline</h1>
 </PageLanding>
 
-<div class="sticky top-navbar z-30 h-16 flex justify-start items-center w-full px-12 gap-8 -mb-16 mt-8">
+<div class="sticky top-navbar z-30 h-16 flex justify-start items-center w-full lg:px-12 px-8 -mb-16 mt-8 lg:gap-8 gap-4">
   <div>
     <input
       type="checkbox"
@@ -40,7 +40,7 @@
 
     <label class="inline-flex items-center gap-1" for="podcast">
       <IconPen class="text-[9px]" />
-      Podcasts
+      <span class="lg:block hidden">Podcasts</span>
     </label>
   </div>
 
@@ -57,12 +57,12 @@
 
     <label class="inline-flex items-center gap-1" for="reflection">
       <IconMic class="text-[11px]" />
-      Reflections
+      <span class="lg:block hidden">Reflections</span>
     </label>
   </div>
 </div>
 
-<h1 class="sticky top-navbar dark:bg-normal bg-white z-20 w-full h-16 flex justify-center items-center border-neutral-300 dark:border-neutral-500">2022</h1>
+<h1 class="sticky top-navbar dark:bg-normal bg-white z-20 w-full h-16 flex lg:justify-center justify-end items-center border-neutral-300 dark:border-neutral-500 px-8 ">2022</h1>
 
 <section class="flex justify-around py-8">
   <TimelineSide side="left" posts={leftPosts} />
@@ -77,7 +77,7 @@
   <TimelineSide side="right" posts={rightPosts} />
 </section>
 
-<h1 class="sticky top-navbar dark:bg-normal bg-white z-20 w-full h-16 flex justify-center items-center border-neutral-300 dark:border-neutral-500">2023</h1>
+<h1 class="sticky top-navbar dark:bg-normal bg-white z-20 w-full h-16 flex lg:justify-center justify-end items-center border-neutral-300 dark:border-neutral-500 px-8 ">2023</h1>
 
 <section class="flex justify-around py-8">
   <TimelineSide side="left" posts={leftPosts} />
