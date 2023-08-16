@@ -33,7 +33,7 @@
 
 <hr class="mx-8 dark:border-neutral-600 border-neutral-300">
 
-<div class="mt-8 flex justify-center items-center gap-8">
+<div class="mt-8 flex lg:flex-row flex-col justify-center items-center lg:gap-8 gap-4">
   <button
     on:click={() => sortByContinent("")}
     class="uppercase text-sm font-semibold"
@@ -60,7 +60,7 @@
   >America</button>
 </div>
 
-<div class="grid lg:grid-cols-4 md:grid-cols-3 gap-0.5 px-sm py-8">
+<div class="grid lg:grid-cols-4 md:grid-cols-3 gap-0.5 lg:px-sm px-xs py-8">
   {#each tags as tag (tag.slug)}
     <a href="/destinations/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light dark:text-neutral-200 group text-center relative" transition:fade>
       <div

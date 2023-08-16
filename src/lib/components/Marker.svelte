@@ -19,10 +19,10 @@
   data-sveltekit-reload
 >
   <div class="group-hover:scale-150 bg-white relative w-2 h-2 duration-300 origin-[center_18px] z-10">
-    <IconMarker class="text-red-500 text-md -translate-x-1 translate-y-[-3px]" />
+    <IconMarker class="text-red-500 text-md -translate-x-[6px] translate-y-[-3px]" />
   </div>
 
-  <div class="tooltip-content w-24 bg-normal shadow-xl rounded-lg p-2 z-20 -top-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-300">
+  <div class="tooltip-content w-24 bg-normal shadow-xl rounded-lg p-2 z-20 -top-32 opacity-0 lg:invisible lg:block hidden group-hover:opacity-100 group-hover:visible duration-300">
     <h1 class="text-md font-bold mb-2">{name}</h1>
     <p class="text-sm">{description}</p>
   </div>
