@@ -3,10 +3,10 @@
 	import PageLanding from "$lib/components/PageLanding.svelte";
   import TimelineSide from "$lib/components/TimelineSide.svelte";
   import type { PostData, PostType } from "$lib/firebase";
+  import { getImage } from "$lib/utils";
 
   import IconPen from "~icons/gg/pen";
   import IconMic from "~icons/material-symbols/mic";
-  import { getImage } from "$lib/utils";
 
   export let data: PageData;
 
