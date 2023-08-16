@@ -1,15 +1,46 @@
 <script lang="ts">
-  import { getImage } from "$lib/utils";
+  import { getImage, getUuid } from "$lib/utils";
   import type { PageData } from "./$types";
   import { fade } from "svelte/transition";
+  import { collection, doc, writeBatch } from "firebase/firestore";
+  import { db, storage, type GalleryPhotoData } from "$lib/firebase";
 
   import IconMap from "~icons/bxs/map";
   import IconPost from "~icons/gg/file-document";
   import IconTag from "~icons/gg/tag";
+  import IconGallery from "~icons/gg/image";
+  import { ref, uploadBytes } from "firebase/storage";
 
   export let data: PageData;
 
-  let selectedTab: "posts" | "tags" = "posts";
+  let selectedTab: "posts" | "tags" | "gallery" = "posts";
+  let imageInput: HTMLInputElement;
+
+  async function uploadImages() {
+    if (!imageInput.files) return;
+
+    const batch = writeBatch(db);
+
+    for (const file of imageInput.files) {
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      const storageRef = ref(storage, `/gallery/${file.name}-${getUuid()}`);
+      const photoUrl = await uploadBytes(storageRef, bytes).then(snapshot => {
+        return encodeURIComponent(snapshot.ref.fullPath);
+      });
+
+      const newPhotoRef = doc(collection(db, "gallery"));
+      batch.set(newPhotoRef, {
+        description: "",
+        tags: [],
+        image: photoUrl,
+        date: "",
+      } satisfies GalleryPhotoData);
+    }
+
+    batch.commit();
+
+    location.reload();
+  }
 </script>
 
 <main class="h-screen grid grid-cols-10 grid-rows-9">
@@ -33,6 +64,7 @@
         <ul tabindex="0" class="dropdown-content z-10 menu p-2 shadow bg-base-100 rounded-box w-52">
           <li><a href="/admin/create/post"><IconPost />Post</a></li>
           <li><a href="/admin/create/tag"><IconTag />Tag</a></li>
+          <li><button on:click={() => imageInput.click()}><IconGallery />Upload to Gallery</button></li>
         </ul>
       </div>
     </div>
@@ -64,6 +96,19 @@
       <IconTag />
       Tags
     </label>
+
+    <input
+      type="radio"
+      name="tab"
+      value="gallery"
+      id="gallery"
+      class="hidden peer/gallery"
+      bind:group={selectedTab}
+    />
+    <label for="gallery" class="w-full hover:bg-neutral-100 rounded-md p-3 hover:cursor-pointer inline-flex items-center gap-2 peer-checked/gallery:bg-neutral-200 duration-300">
+      <IconGallery />
+      Gallery
+    </label>
   </aside>
 
   {#if selectedTab === "posts"}
@@ -83,7 +128,7 @@
         </a>
       {/each}
     </div>
-  {:else}
+  {:else if selectedTab === "tags"}
     <div class="grid grid-cols-3 gap-4 gap-y-8 m-4 col-span-8 row-start-2">
       {#each data.tags as tag}
         <a href="/admin/edit/tag/{tag.slug}" class="flex flex-col gap-4 text-sm uppercase font-semibold text-light group text-center" transition:fade>
@@ -100,5 +145,24 @@
         </a>
       {/each}
     </div>
+  {:else if selectedTab === "gallery"}
+    <div class="grid grid-cols-5 gap-1 m-4 col-span-8 row-start-2">
+      {#each data.gallery as photo}
+        <a href="/admin/edit/gallery/{photo.image}">
+          <img src={getImage(photo.image, "sm")} alt={photo.description}>
+        </a>
+      {/each}
+    </div>
   {/if}
 </main>
+
+<input
+  type="file"
+  name="gallery-upload"
+  id="galleryUpload"
+  class="hidden"
+  accept="image/*"
+  bind:this={imageInput}
+  on:change={uploadImages}
+  multiple
+/>
