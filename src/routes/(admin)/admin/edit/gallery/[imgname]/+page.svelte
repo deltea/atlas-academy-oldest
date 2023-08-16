@@ -20,6 +20,7 @@
     const docId = results[0].id;
 
     await changeDoc("gallery", docId, {
+      title: photo.title,
       description: photo.description,
       image: photo.image,
       tag: photo.tag,

@@ -51,6 +51,7 @@ export interface TagData {
 }
 
 export interface GalleryPhotoData {
+  title: string,
   description: string,
   tag: string,
   image: string;

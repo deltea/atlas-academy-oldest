@@ -37,6 +37,7 @@
       const newPhotoRef = doc(collection(db, "gallery"));
       console.log(newPhotoRef.id);
       batch.set(newPhotoRef, {
+        title: "",
         description: "",
         tag: "",
         image: photoUrl,
@@ -175,7 +176,7 @@
     {#if hoveredPhoto}
       <div bind:this={galleryTooltip} class="absolute bg-white z-10 pointer-events-none p-4">
         {#if hoveredPhoto.description}
-          <h1 class="font-bold text-xl text-ellipsis whitespace-nowrap overflow-hidden w-80">{hoveredPhoto.description}</h1>
+          <h1 class="font-bold text-xl text-ellipsis whitespace-nowrap overflow-hidden w-80">{hoveredPhoto.title}</h1>
         {/if}
         <h2 class="italic">
           {#if hoveredPhoto.date}
@@ -204,7 +205,7 @@
           on:mouseleave={() => hoveredPhoto = null}
         >
           <div class="bg-center aspect-square bg-[length:101%_101%] scale-100 group-hover:bg-[length:120%_120%] duration-200 flex justify-center items-center" style:background-image="url('{getImage(photo.image, 1)}')">
-            {#if photo.description && photo.date && photo.image && photo.tag}
+            {#if photo.description && photo.date && photo.image && photo.tag && photo.title}
               <span class="bg-white rounded-full text-success text-5xl">
                 <IconCheck />
               </span>

@@ -6,6 +6,7 @@
   import { goto } from '$app/navigation';
   import IconTrash from "~icons/gg/trash";
 
+  export let title = "";
   export let description = "";
   export let tag = "";
   export let date = "";
@@ -47,6 +48,7 @@
     await batch.commit();
 
     onSave({
+      title,
       description,
       image: imageUrl,
       tag,
@@ -61,6 +63,14 @@
     enctype="multipart/form-data"
     class="w-1/2 flex flex-col gap-2"
   >
+    <input
+      type="text"
+      name="Title"
+      class="input input-bordered"
+      placeholder="Title (like a caption)"
+      bind:value={title}
+    />
+
     <textarea
       name="description"
       rows="5"
