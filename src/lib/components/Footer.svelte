@@ -9,7 +9,7 @@
 
 <footer class="bg-[#ececec] dark:bg-[#434343] p-10 text-neutral-700 dark:text-white duration-300">
   <div class="flex justify-between">
-    <div class="space-y-2 w-80 gap-1">
+    <div class="space-y-2 w-80 gap-1 lg:block hidden">
       <a
         href="https://open.spotify.com/show/7xuJTB7kCfKB0JVBkgW4k3"
         target="_blank"
@@ -64,7 +64,7 @@
 
   <hr class="my-8 dark:border-neutral-600 border-neutral-300">
 
-  <div class="flex justify-between">
+  <div class="flex justify-between lg:flex-row flex-col items-center gap-4">
     <p class="font-light">© 2023 Atlas Academy. All rights reserved.</p>
     <div class="flex gap-2">
       <a
