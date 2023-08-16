@@ -39,6 +39,7 @@
 
     batch.commit();
 
+    alert("Files uploaded successfully!");
     location.reload();
   }
 </script>
