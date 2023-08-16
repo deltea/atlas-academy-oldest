@@ -13,6 +13,7 @@
   import IconTag from "~icons/gg/tag";
   import IconGallery from "~icons/gg/image";
   import IconCheck from "~icons/gg/check";
+  import IconPending from "~icons/gg/more-alt";
 
   export let data: PageData;
 
@@ -175,7 +176,7 @@
   {:else if selectedTab === "gallery"}
     {#if hoveredPhoto}
       <div bind:this={galleryTooltip} class="absolute bg-white z-10 pointer-events-none p-4">
-        {#if hoveredPhoto.description}
+        {#if hoveredPhoto.title}
           <h1 class="font-bold text-xl text-ellipsis whitespace-nowrap overflow-hidden w-80">{hoveredPhoto.title}</h1>
         {/if}
         <h2 class="italic">
@@ -206,9 +207,15 @@
           on:mouseleave={() => hoveredPhoto = null}
         >
           <div class="bg-center aspect-square bg-[length:101%_101%] scale-100 group-hover:bg-[length:120%_120%] duration-200 flex justify-center items-center" style:background-image="url('{getImage(photo.image, 1)}')">
-            {#if photo.description && photo.date && photo.image && photo.tag && photo.title}
-              <span class="bg-white rounded-full text-success text-5xl">
+            {#if photo.description && photo.date && photo.tag && photo.title}
+              <span class="bg-white rounded-full text-success text-5xl w-20 h-20 flex justify-center items-center">
                 <IconCheck />
+              </span>
+            {:else if !photo.description && !photo.date && !photo.tag && !photo.title}
+              <span></span>
+            {:else}
+              <span class="bg-white rounded-full text-info text-5xl w-20 h-20 flex justify-center items-center">
+                <IconPending />
               </span>
             {/if}
           </div>
