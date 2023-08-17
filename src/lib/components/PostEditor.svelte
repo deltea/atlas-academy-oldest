@@ -12,17 +12,17 @@
   import { goto } from '$app/navigation';
 
   export let tags: string[] = [];
-  export let title: string = "";
-  export let description: string = "";
+  export let title= "";
+  export let description = "";
   export let cover: Blob | string = "";
-  export let body: string = "";
-  export let date: string = "";
+  export let body = "";
+  export let date = "";
   export let type: PostType = "blog";
   export let podcast: string[] = [];
   export let onSave: (data: PostData) => void;
 
-  let tagInput: string = "";
-  let podcastInput: string = "";
+  let tagInput = "";
+  let podcastInput = "";
   let sidebarShow = true;
 
   function addTag() {
@@ -216,7 +216,7 @@
                 <iframe
                   title="Spotify Player"
                   class="rounded-2xl w-full h-20"
-                  src="https://open.spotify.com/embed{episode.match(/\/episode\/([^\/?]+)/g)}?theme=0&utm_source=generator"
+                  src="https://open.spotify.com/embed{episode.match(/\/episode\/([^/?]+)/g)}?theme=0&utm_source=generator"
                   frameBorder="0"
                   allowfullscreen={false}
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"

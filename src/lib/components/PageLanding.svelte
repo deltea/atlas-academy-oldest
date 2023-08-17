@@ -1,6 +1,6 @@
 <script lang="ts">
   export let src: string;
-  export let center: boolean = false;
+  export let center = false;
 </script>
 
 <div
